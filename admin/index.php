@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/auth.php';
+require __DIR__ . '/helpers.php';   // <-- Подключаем хелперы (там лежит redirect()) сразу!
 
 /* ===== Логин ===== */
 if (!adminIsLoggedIn()) {
@@ -16,7 +17,7 @@ if (!adminIsLoggedIn()) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Вхід — Адмін APUS LEGAT</title>
-  <link rel="stylesheet" href="assets/admin.css">
+  <link rel="stylesheet" href="<?= htmlspecialchars(rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\') . '/', ENT_QUOTES) ?>assets/admin.css">
 </head>
 <body>
 <form method="POST" class="login-wrap" autocomplete="off">
@@ -42,7 +43,6 @@ if (!adminIsLoggedIn()) {
 }
 
 /* ===== Дашборд ===== */
-require __DIR__ . '/helpers.php';
 require __DIR__ . '/layout.php';
 
 $products  = loadJson(rootPath('products.json'));
