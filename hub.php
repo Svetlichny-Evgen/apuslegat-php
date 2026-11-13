@@ -29,11 +29,21 @@ require __DIR__ . '/includes/head.php';
   </section>
 
   <!-- FILTERS -->
-  <div class="needs">
+<div class="needs">
     <div class="container" id="chips">
       <span class="nl"><?= t('hub_nlabel') ?></span>
-      <?php foreach ($filters as $i => $c): ?>
-        <button class="chip <?= $i === 0 ? 'on' : '' ?>" data-f="<?= e($c['f']) ?>"><?= t($c['key']) ?></button>
+      <?php foreach ($filters as $i => $c):
+          $label = t($c['key']);
+          // fallback: если перевод не найден — покажем хоть что-то осмысленное
+          if ($label === '') {
+              if ($c['f'] === 'all') {
+                  $label = (LANG === 'ru') ? 'Все услуги' : 'Усі послуги';
+              } else {
+                  $label = '#' . $c['key'];
+              }
+          }
+      ?>
+        <button class="chip <?= $i === 0 ? 'on' : '' ?>" data-f="<?= e($c['f']) ?>"><?= e($label) ?></button>
       <?php endforeach; ?>
     </div>
   </div>

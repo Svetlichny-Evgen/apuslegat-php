@@ -9,10 +9,10 @@
         <a href="<?= url('catalog.php') ?>"  class="<?= ($PAGE ?? '') === 'catalog' ? 'on' : '' ?>"><?= t('shop') ?></a>
         <a href="<?= url('contacts.php') ?>" class="<?= ($PAGE ?? '') === 'contacts' ? 'on' : '' ?>"><?= t('contacts') ?></a>
       </nav>
-      <div class="lang-switcher">
-        <a href="?lang=uk" class="lang-btn <?= LANG === 'uk' ? 'active' : '' ?>">UA</a>
-        <a href="?lang=ru" class="lang-btn <?= LANG === 'ru' ? 'active' : '' ?>">RU</a>
-      </div>
+        <div class="lang-switcher">
+          <a href="<?= e(langUrl('uk')) ?>" class="lang-btn <?= LANG === 'uk' ? 'active' : '' ?>">UA</a>
+          <a href="<?= e(langUrl('ru')) ?>" class="lang-btn <?= LANG === 'ru' ? 'active' : '' ?>">RU</a>
+        </div>
       <div class="burger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>

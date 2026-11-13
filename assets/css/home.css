@@ -1,3 +1,6 @@
+/* ⚠ home.css — только правила, специфичные для главной.
+   .svc и h1 b/h2 b живут в base.css. .cta — только здесь. */
+
 /* HERO */
 .hero {
   min-height: calc(100vh - var(--h));
@@ -17,18 +20,6 @@
   align-items: center;
   position: relative;
   z-index: 2;
-}
-h1 {
-  font-size: clamp(36px, 6.5vw, 84px);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.92;
-  margin-bottom: 25px;
-}
-h1 b,
-h2 b {
-  color: var(--red);
-  -webkit-text-stroke: 0;
 }
 .lead {
   color: #e2e2e2;
@@ -186,8 +177,14 @@ h2 b {
   gap: 25px;
 }
 
-/* Баннер «Список услуг» */
-h2,
+/* CTA (только на главной; .svc в base.css) */
+.cta {
+  text-align: center;
+  padding: 110px 0;
+  background:
+    radial-gradient(circle at 50% 0, rgba(230, 12, 12, 0.28), transparent 60%),
+    #101010;
+}
 .cta h2 {
   font-size: clamp(32px, 6vw, 64px);
   font-weight: 900;
@@ -195,40 +192,17 @@ h2,
   line-height: 1;
   margin-bottom: 18px;
 }
-h2 b,
 .cta h2 b {
   color: var(--red);
 }
-h2 b {
-  color: #fff;
-  text-decoration: underline;
-  text-decoration-thickness: 4px;
-  text-underline-offset: 8px;
-}
-p,
 .cta p {
   color: #e2e2e2;
   max-width: 560px;
   margin: 0 auto 35px;
   font-size: 15px;
 }
-.btns,
 .cta .btns {
   justify-content: center;
-}
-.btn.red {
-  background: var(--red);
-  border-color: var(--red);
-  color: #fff;
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 110px 0;
-  background:
-    radial-gradient(circle at 50% 0, rgba(230, 12, 12, 0.28), transparent 60%),
-    #101010;
 }
 
 /* Бегущая строка клиентов */
@@ -378,6 +352,7 @@ p,
   pointer-events: none;
 }
 
+/* Медиа */
 @media (max-width: 900px) {
   .hero .container,
   .about {

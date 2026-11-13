@@ -3,8 +3,8 @@
   <a href="<?= url('about.php') ?>"    onclick="toggleMenu()"><?= t('about') ?></a>
   <a href="<?= url('catalog.php') ?>"  onclick="toggleMenu()"><?= t('shop') ?></a>
   <a href="<?= url('contacts.php') ?>" onclick="toggleMenu()"><?= t('contacts') ?></a>
-  <div class="mobile-lang-switcher">
-    <a href="?lang=uk" class="mobile-lang-btn <?= LANG === 'uk' ? 'active' : '' ?>" onclick="toggleMenu()">UA</a>
-    <a href="?lang=ru" class="mobile-lang-btn <?= LANG === 'ru' ? 'active' : '' ?>" onclick="toggleMenu()">RU</a>
-  </div>
+<div class="mobile-lang-switcher">
+  <a href="<?= e(langUrl('uk')) ?>" class="mobile-lang-btn <?= LANG === 'uk' ? 'active' : '' ?>" onclick="toggleMenu()">UA</a>
+  <a href="<?= e(langUrl('ru')) ?>" class="mobile-lang-btn <?= LANG === 'ru' ? 'active' : '' ?>" onclick="toggleMenu()">RU</a>
+</div>
 </div>

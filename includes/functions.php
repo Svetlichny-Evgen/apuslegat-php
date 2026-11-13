@@ -11,3 +11,14 @@ function t(string $key, string $default = ''): string {
 function e(string $s): string {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
+
+/** Возвращает URL текущей страницы с указанным языком (?lang=...) */
+function langUrl(string $lang): string {
+    $uri   = $_SERVER['REQUEST_URI'] ?? '/';
+    $parts = parse_url($uri);
+    $path  = $parts['path'] ?? '/';
+    $q     = [];
+    if (!empty($parts['query'])) parse_str($parts['query'], $q);
+    $q['lang'] = $lang;
+    return $path . '?' . http_build_query($q);
+}
