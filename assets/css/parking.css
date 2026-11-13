@@ -1,0 +1,265 @@
+/* parking.css — страница «Паркінг та інфраструктура».
+   Хедер/футер/мобайл-меню — в header.css/footer.css. */
+
+body {
+  background: var(--dark);
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* ===== HERO ===== */
+.hero-infra {
+  padding: 80px 0;
+  text-align: center;
+  background: radial-gradient(circle at center, #1a0000 0%, #000 100%);
+}
+.hero-title {
+  font-size: clamp(26px, 6vw, 52px);
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 4px solid #fff;
+  display: inline-block;
+  padding: 20px 40px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+}
+.hero-title span {
+  color: var(--red);
+}
+
+.line-red {
+  width: 60px;
+  height: 5px;
+  background: var(--red);
+  margin: 20px auto;
+}
+
+/* ===== ICON GRID ===== */
+.s-icons {
+  padding: 100px 0;
+  background: #fff;
+  color: #000;
+}
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+.icon-item {
+  padding: 50px 30px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.icon-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  border-color: var(--red);
+}
+.icon-box {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+  border: 2px solid #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.icon-item:hover .icon-box {
+  border-color: var(--red);
+  background: #fff5f5;
+}
+.icon-box img {
+  width: 50px;
+  height: 50px;
+}
+.icon-item h4 {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.icon-item p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===== PRICES ===== */
+.s-prices {
+  padding: 60px 0;
+  background: #0a0a0a;
+}
+.section-h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #fff;
+  font-size: clamp(20px, 3.6vw, 28px);
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.price-table tr {
+  border-bottom: 1px solid #222;
+  transition: 0.3s;
+}
+.price-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.price-table td {
+  padding: 20px;
+  font-size: 17px;
+  color: #e2e2e2;
+}
+.price-val {
+  text-align: right;
+  font-weight: 900;
+  color: var(--red);
+  font-size: 22px;
+  white-space: nowrap;
+}
+.unit,
+.unit-m {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-left: 5px;
+  font-weight: 900;
+}
+
+/* ===== INFO CARDS ===== */
+.info-card {
+  background: #161616;
+  padding: 30px;
+  border-left: 4px solid var(--red);
+  margin: 20px 0 30px;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #bbb;
+}
+.info-card h3 {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.info-card b {
+  color: #fff;
+}
+
+.spec-sub {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* ===== FORM ===== */
+.s-form {
+  padding: 100px 0;
+  background: #050505;
+}
+.form-wrap {
+  max-width: 550px;
+  margin: 0 auto;
+  background: #000;
+  padding: 50px;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.form-wrap h2 {
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-size: clamp(20px, 3.4vw, 26px);
+  color: #fff;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 18px;
+  background: #111;
+  border: 1px solid #222;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+.input-group input::placeholder {
+  color: #666;
+}
+.input-group select option {
+  background: #111;
+  color: #fff;
+}
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--red);
+  background: #161616;
+}
+.btn-submit {
+  width: 100%;
+  padding: 20px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+.btn-submit:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.form-err {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 14px;
+  min-height: 18px;
+  font-weight: 500;
+}
+
+/* ===== Медиа ===== */
+@media (max-width: 600px) {
+  .hero-title {
+    padding: 15px 20px;
+  }
+  .form-wrap {
+    padding: 30px 20px;
+  }
+  .price-table td {
+    padding: 15px 8px;
+    font-size: 15px;
+  }
+  .price-val {
+    font-size: 18px;
+  }
+}

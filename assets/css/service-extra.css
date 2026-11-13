@@ -1,0 +1,217 @@
+/* service-extra.css — страница «Додаткові послуги». Тёмная тема. */
+
+body {
+  background: var(--dark);
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HERO ===== */
+.hero-extra {
+  padding: 60px 0;
+  background: var(--dark);
+  text-align: left;
+}
+.btn-back {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+.btn-back:hover {
+  letter-spacing: 2px;
+}
+.hero-title {
+  font-size: clamp(20px, 5vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #fff;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+/* ===== CARDS ===== */
+.s-extra {
+  padding: 80px 0;
+  background: #fff;
+  color: #000;
+}
+.extra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.extra-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.4s;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.extra-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--red);
+}
+.extra-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+.extra-content {
+  padding: 30px;
+  flex-grow: 1;
+}
+.extra-content h3 {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+  font-size: 18px;
+  color: #111;
+}
+.extra-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+.extra-content .extra-price {
+  margin-top: 15px;
+  font-weight: 700;
+  color: var(--red);
+  font-size: 22px;
+  line-height: 1.2;
+}
+.extra-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.extra-list li {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+.extra-list li:last-child {
+  border-bottom: 0;
+}
+.extra-list li::before {
+  content: '✓';
+  color: var(--red);
+  margin-right: 12px;
+  font-weight: 900;
+}
+
+/* ===== FORM ===== */
+.s-form {
+  padding: 80px 0;
+  background: #0a0a0a;
+}
+.form-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-wrap h2 {
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: clamp(20px, 3.6vw, 26px);
+}
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 18px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+.input-group input::placeholder {
+  color: #777;
+}
+.input-group select option {
+  background: #111;
+  color: #fff;
+}
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--red);
+}
+.btn-send {
+  width: 100%;
+  padding: 20px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.btn-send:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+.btn-send:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.form-err {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 14px;
+  min-height: 18px;
+  font-weight: 500;
+}
+
+/* ===== Медиа ===== */
+@media (max-width: 768px) {
+  .hero-extra {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .hero-title {
+    display: block;
+    padding: 15px 10px;
+  }
+  .s-extra {
+    padding: 50px 0;
+  }
+  .extra-card {
+    text-align: center;
+  }
+  .extra-list li {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,214 @@
+/* catalog.css — страница каталога. */
+
+/* Мягкое свечение не нужно — обычная тёмная страница */
+
+.catalog-section {
+  max-width: 1600px;
+  margin: 48px auto 60px;
+  padding: 0 30px;
+}
+
+/* Заголовок */
+.section-header {
+  margin-bottom: 40px;
+  border-left: 4px solid var(--red);
+  padding-left: 20px;
+}
+.section-header h1 {
+  font-size: clamp(24px, 3.6vw, 32px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Фильтры */
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-label {
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.f-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+.f-btn:hover {
+  border-color: var(--red);
+}
+.f-btn.active {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* Сетка товаров */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.p-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.p-card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.p-card:hover {
+  border-color: var(--red);
+  transform: translateY(-5px);
+}
+
+/* Бейджи */
+.p-badge {
+  position: absolute;
+  top: 10px;
+  z-index: 10;
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 4px;
+}
+.p-badge-left {
+  left: 10px;
+}
+.p-badge-right {
+  right: 10px;
+  left: auto;
+}
+
+/* Картинка */
+.p-img-box {
+  padding: 20px;
+  background: #000;
+}
+.p-img {
+  background: #fff;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.p-img img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Информация */
+.p-info {
+  padding: 20px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.p-title {
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.p-desc {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.p-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.p-price {
+  font-weight: 900;
+  color: #fff;
+  font-size: 14px;
+}
+.p-buy {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.p-buy:hover {
+  background: var(--red);
+}
+
+/* Скрытые карточки / пусто */
+.p-link.hidden {
+  display: none;
+}
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 100px 20px;
+  opacity: 0.5;
+}
+.empty-state h2 {
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+}
+.empty-state.hidden {
+  display: none;
+}
+
+/* Медиа */
+@media (max-width: 991px) {
+  /* общие правила в header.css */
+}
+@media (max-width: 768px) {
+  .catalog-section {
+    margin-top: 24px;
+    padding: 0 20px;
+  }
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}

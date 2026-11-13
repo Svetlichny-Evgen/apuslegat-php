@@ -1,0 +1,1997 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- ========== СОХРАНЕНИЕ UTM МЕТОК ========== -->
+    <script>
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmParams = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ];
+
+        utmParams.forEach((param) => {
+          const value = urlParams.get(param);
+          if (value && value !== '') {
+            localStorage.setItem(param, value);<?php
+require __DIR__ . '/config/config.php';
+require __DIR__ . '/includes/functions.php';
+
+$TRANSLATIONS = require __DIR__ . '/includes/lang/' . LANG . '.php';
+
+$PAGE       = 'service-heaters';
+$PAGE_TITLE = t('heat_page_title');
+$PAGE_DESC  = t('heat_page_desc');
+$PAGE_CSS   = ['service-heaters'];
+$PAGE_JS    = ['main', 'service-heaters'];
+$HEAD_JS    = ['utm'];
+
+$d = require __DIR__ . '/includes/data/service-heaters.php';
+
+require __DIR__ . '/includes/head.php';
+?>
+<body>
+  <?php require __DIR__ . '/includes/header.php'; ?>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-title">
+        <h1><?= t('heat_hero_title') ?></h1>
+      </div>
+      <p class="hero-sub"><?= t('heat_hero_sub') ?></p>
+      <a href="#form" class="btn"><?= t('heat_hero_btn') ?></a>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="cats">
+    <div class="container cats-grid">
+      <div class="cat active">
+        <div class="cat-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="18" width="52" height="30" rx="5" fill="#f3f3f3" stroke="#222"/>
+            <circle cx="24" cy="33" r="9" fill="#fff" stroke="#222"/>
+            <path d="M24 24c3 4 3 7 0 9-3-2-3-5 0-9zM33 33c-4 3-7 3-9 0 2-3 5-3 9 0zM24 42c-3-4-3-7 0-9 3 2 3 5 0 9zM15 33c4-3 7-3 9 0-2 3-5 3-9 0z" fill="#e30b0b" stroke="none"/>
+            <path d="M40 26h12M40 33h12M40 40h12" stroke="#222"/>
+            <path d="M16 12c2-2 2-4 0-6M28 12c2-2 2-4 0-6M40 12c2-2 2-4 0-6" stroke="#e30b0b"/>
+          </svg>
+        </div>
+        <h3><?= t('heat_cat1_title') ?></h3>
+        <p><?= t('heat_cat1_desc') ?></p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 8C14 20 9 28 9 35a13 13 0 0026 0c0-7-5-15-13-27z" fill="#f3f3f3" stroke="#222"/>
+            <path d="M16 36a6 6 0 006 6" stroke="#e30b0b"/>
+            <rect x="44" y="8" width="10" height="34" rx="5" fill="#fff" stroke="#222"/>
+            <circle cx="49" cy="48" r="8" fill="#e30b0b" stroke="#222"/>
+            <path d="M49 20v26" stroke="#e30b0b" stroke-width="4"/>
+          </svg>
+        </div>
+        <h3><?= t('heat_cat2_title') ?></h3>
+        <p><?= t('heat_cat2_desc') ?></p>
+      </div>
+      <div class="cat">
+        <div class="cat-icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M40 8a14 14 0 00-13 19L9 45a5 5 0 007 7l18-18A14 14 0 0054 20l-8 8-8-2-2-8 8-8a14 14 0 00-4-2z" fill="#f3f3f3" stroke="#222"/>
+            <circle cx="13" cy="48" r="2" fill="#e30b0b" stroke="none"/>
+            <path d="M44 44l10 10M50 40l8 8" stroke="#e30b0b"/>
+          </svg>
+        </div>
+        <h3><?= t('heat_cat3_title') ?></h3>
+        <p><?= t('heat_cat3_desc') ?></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section class="prices">
+    <div class="container">
+      <h2 class="section-title-dark"><?= t('heat_prices_title') ?></h2>
+      <div class="price-list">
+        <?php foreach ($d['prices'] as $p): ?>
+          <a href="#form" class="price-row" data-service="<?= e($p['value']) ?>">
+            <div class="price-left">
+              <span class="badge"><?= e($p['badge']) ?></span>
+              <span><?= t($p['label']) ?></span>
+            </div>
+            <div class="price">
+              <span><?= t('heat_price_ask') ?></span>
+              <span class="arr">→</span>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      </div>
+
+      <div class="quote">
+        <div class="quote-text">
+          <h3>
+            <span><?= t('heat_quote_title') ?></span><br>
+            <span><?= t('heat_quote_title_red') ?></span>
+          </h3>
+          <p><?= t('heat_quote_text') ?></p>
+          <ul class="quote-points">
+            <li><?= t('heat_quote_p1') ?></li>
+            <li><?= t('heat_quote_p2') ?></li>
+            <li><?= t('heat_quote_p3') ?></li>
+          </ul>
+        </div>
+        <div class="quote-actions">
+          <a href="tel:+380660339009" class="btn btn-call">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/>
+            </svg>
+            +380 66 033 90 09
+          </a>
+          <a href="#form" class="btn btn-outline"><?= t('heat_quote_btn') ?></a>
+          <span class="quote-hint"><?= t('heat_quote_hint') ?></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <h2 class="h2">
+        <span><?= t('heat_features_title_1') ?></span>
+        <span class="red"><?= t('heat_features_title_2') ?></span>
+      </h2>
+      <div class="divider"></div>
+      <p class="lead"><?= t('heat_features_lead') ?></p>
+      <div class="cards">
+        <div class="card">
+          <h4><?= t('heat_card1_title') ?></h4>
+          <p><?= t('heat_card1_desc') ?></p>
+        </div>
+        <div class="card">
+          <h4><?= t('heat_card2_title') ?></h4>
+          <p><?= t('heat_card2_desc') ?></p>
+        </div>
+        <div class="card">
+          <h4><?= t('heat_card3_title') ?></h4>
+          <p><?= t('heat_card3_desc') ?></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps">
+    <div class="container">
+      <h2 class="section-title-dark"><?= t('heat_steps_title') ?></h2>
+      <div class="steps-grid">
+        <?php foreach ($d['steps'] as $s): ?>
+          <div class="step">
+            <div class="step-num"><?= e($s['num']) ?></div>
+            <h5><?= t($s['t']) ?></h5>
+            <p><?= t($s['d']) ?></p>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE LIST -->
+  <section class="service">
+    <div class="container">
+      <h2 class="h2">
+        <span><?= t('heat_service_title_1') ?></span>
+        <span class="red"><?= t('heat_service_title_2') ?></span>
+      </h2>
+      <div class="divider"></div>
+      <div class="service-grid">
+        <?php foreach ($d['services'] as $k): ?>
+          <div class="service-item"><?= t($k) ?></div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="form">
+    <div class="container">
+      <form class="form-box"
+            id="heaterForm"
+            action="<?= url('php/telegram.php') ?>"
+            method="POST"
+            novalidate>
+        <h3><?= t('heat_form_title') ?></h3>
+
+        <select class="field" name="service" required>
+          <?php foreach ($d['options'] as $o): ?>
+            <option value="<?= e($o['value']) ?>"><?= t($o['label']) ?></option>
+          <?php endforeach; ?>
+        </select>
+
+        <input class="field" type="text" name="name" id="formName"
+               placeholder="<?= e(t('heat_form_name_ph')) ?>"
+               autocomplete="name" required>
+        <div class="field-error" id="nameError"></div>
+
+        <input class="field" type="tel" name="phone" id="formPhone"
+               value="+380" maxlength="13" autocomplete="tel" required>
+        <div class="field-error" id="phoneError"></div>
+
+        <button class="btn" type="submit" id="formSubmit"><?= t('heat_form_btn') ?></button>
+
+        <p class="form-ok" id="formOk"><?= t('heat_form_ok') ?></p>
+        <p class="form-err" id="formErr"><?= t('heat_form_err') ?></p>
+      </form>
+    </div>
+  </section>
+
+  <?php require __DIR__ . '/includes/footer.php'; ?>
+
+  <script>
+    window.HEATERS_THANKYOU = <?= json_encode(url('thank-you.html'), JSON_UNESCAPED_SLASHES) ?>;
+    window.HEATERS_I18N = {
+      sending:       <?= json_encode(t('heat_form_sending'),       JSON_UNESCAPED_UNICODE) ?>,
+      errNameEmpty:  <?= json_encode(t('heat_name_err_empty'),     JSON_UNESCAPED_UNICODE) ?>,
+      errNameChars:  <?= json_encode(t('heat_name_err_chars'),     JSON_UNESCAPED_UNICODE) ?>,
+      errPhone:      <?= json_encode(t('heat_phone_err'),          JSON_UNESCAPED_UNICODE) ?>
+    };
+  </script>
+  <?php foreach ($PAGE_JS as $js): ?>
+    <script src="<?= url('assets/js/' . $js . '.js') ?>"></script>
+  <?php endforeach; ?>
+
+  <script src="https://widgets.binotel.com/getcall/widgets/p4b2s167grimrm3jp0hb.js" async></script>
+</body>
+</html>
+            console.log('✅ UTM сохранено:', param, '=', value);
+          }
+        });
+      })();
+    </script>
+    <!-- ========================================== -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Установка автономных отопителей под ключ — APUS LEGAT, Харьков
+    </title>
+    <meta
+      name="description"
+      content="Установка автономных отопителей под ключ для грузовиков, фур, автобусов и спецтехники в Харькове. Подбор, монтаж, пусконаладка, гарантия и сервис."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/public/favicon.png" />
+    <style>
+      :root {
+        --red: #e30b0b;
+        --black: #000;
+        --dark: #0b0b0b;
+        --dark-2: #121212;
+        --line: #262626;
+        --text: #ffffff;
+        --muted: #8a8a8a;
+        --light-bg: #f7f7f7;
+        --header-height: 72px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #fff;
+        color: #111;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 2000;
+        background: var(--black);
+        border-bottom: 1px solid #1a1a1a;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--header-height);
+      }
+      .logo {
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: #fff;
+      }
+      .logo span {
+        color: var(--red);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .menu > a {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #cfcfcf;
+        transition: color 0.2s;
+      }
+      .menu > a:hover {
+        color: #fff;
+      }
+
+      .lang {
+        display: flex;
+        gap: 8px;
+        padding-left: 20px;
+        border-left: 1px solid #333;
+        font-size: 10px;
+        font-weight: 800;
+      }
+      .lang button {
+        background: none;
+        border: none;
+        color: #777;
+        font-family: inherit;
+        font-size: 10px;
+        font-weight: 800;
+        cursor: pointer;
+        padding: 0;
+        transition: color 0.2s;
+      }
+      .lang button.active {
+        color: var(--red);
+      }
+      .lang button:hover {
+        color: #fff;
+      }
+
+      /* ===== BURGER ===== */
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 2100;
+      }
+      .burger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      /* ===== MOBILE MENU (под шапкой) ===== */
+      .mobile-menu {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1400;
+        padding: 20px;
+        overflow-y: auto;
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu a {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .mobile-menu a:hover {
+        color: var(--red);
+      }
+      .mobile-lang-switcher {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+      .mobile-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        cursor: pointer;
+        padding: 12px 0;
+        width: 100px;
+        height: 48px;
+        border-radius: 4px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .mobile-lang-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+      }
+      .mobile-lang-btn:hover {
+        border-color: var(--red);
+      }
+
+      @media (max-width: 760px) {
+        .menu > a {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+      @media (max-width: 360px) {
+        .lang button {
+          font-size: 9px;
+        }
+        .lang {
+          gap: 5px;
+          padding-left: 10px;
+        }
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          #1f1f1f 0%,
+          #0b0b0b 60%,
+          #000 100%
+        );
+        padding: 24px 0 80px;
+        text-align: center;
+      }
+      .hero-title {
+        display: inline-block;
+        border: 3px solid var(--red);
+        padding: 18px 44px;
+        margin-bottom: 34px;
+      }
+      .hero-title h1 {
+        color: #fff;
+        font-weight: 900;
+        font-size: clamp(26px, 5vw, 52px);
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+      .hero-sub {
+        color: #bdbdbd;
+        font-weight: 300;
+        font-size: 16px;
+        max-width: 620px;
+        margin: -14px auto 30px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        font-weight: 900;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 22px 50px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        font-family: inherit;
+      }
+      .btn:hover {
+        background: #c00808;
+        transform: translateY(-1px);
+      }
+      .btn:disabled {
+        background: #999;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* ===== CATEGORIES ===== */
+      .cats {
+        padding: 110px 0;
+      }
+      .cats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        text-align: center;
+      }
+      .cat-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid #e6e6e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 28px;
+        transition: border-color 0.25s;
+      }
+      .cat:hover .cat-icon,
+      .cat.active .cat-icon {
+        border: 2px solid var(--red);
+      }
+      .cat-icon svg {
+        width: 62px;
+        height: 62px;
+      }
+      .cat h3 {
+        font-weight: 900;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .cat p {
+        color: #777;
+        font-weight: 300;
+        font-size: 14px;
+      }
+      @media (max-width: 760px) {
+        .cats {
+          padding: 70px 0;
+        }
+        .cats-grid {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+      }
+
+      /* ===== PRICES (без цен) ===== */
+      .prices {
+        background: var(--dark);
+        padding: 80px 0 90px;
+      }
+      .section-title-dark {
+        color: #fff;
+        font-weight: 900;
+        font-size: clamp(22px, 3.4vw, 32px);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .price-list {
+        max-width: 1160px;
+        margin: 0 auto;
+        border-top: 1px solid var(--line);
+      }
+      .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 22px;
+        border-bottom: 1px solid var(--line);
+      }
+      .price-left {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: #fff;
+        font-size: 15px;
+      }
+      .badge {
+        background: var(--red);
+        color: #fff;
+        font-weight: 900;
+        font-size: 11px;
+        min-width: 36px;
+        height: 24px;
+        padding: 0 8px;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .price {
+        color: var(--red);
+        font-weight: 900;
+        font-size: 15px;
+        white-space: nowrap;
+      }
+      a.price-row {
+        transition: background 0.2s;
+      }
+      a.price-row:hover {
+        background: #141414;
+      }
+      .price .arr {
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+      a.price-row:hover .arr {
+        transform: translateX(5px);
+      }
+      @media (max-width: 560px) {
+        .price-row {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 16px 10px;
+        }
+      }
+
+      /* блок «узнать цену» */
+      .quote {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 50px;
+        align-items: center;
+        border: 3px solid var(--red);
+        padding: 46px 50px;
+        background: linear-gradient(135deg, #141414 0%, #0b0b0b 100%);
+      }
+      .quote h3 {
+        color: #fff;
+        font-weight: 900;
+        font-size: clamp(22px, 3vw, 30px);
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin-bottom: 18px;
+      }
+      .quote h3 span {
+        color: var(--red);
+      }
+      .quote-text p {
+        color: #b5b5b5;
+        font-weight: 300;
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .quote-text p b {
+        color: #fff;
+        font-weight: 700;
+      }
+      .quote-points {
+        list-style: none;
+      }
+      .quote-points li {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding-left: 28px;
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .quote-points li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--red);
+        font-weight: 900;
+      }
+      .quote-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .btn-call {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 16px;
+        padding: 22px 24px;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #fff;
+        text-align: center;
+        padding: 20px 24px;
+      }
+      .btn-outline:hover {
+        background: #fff;
+        color: #000;
+      }
+      .quote-hint {
+        color: #777;
+        font-size: 12px;
+        text-align: center;
+      }
+      @media (max-width: 860px) {
+        .quote {
+          grid-template-columns: 1fr;
+          padding: 34px 22px;
+          gap: 30px;
+        }
+      }
+
+      /* ===== FEATURE CARDS ===== */
+      .features {
+        padding: 100px 0;
+      }
+      .h2 {
+        font-weight: 900;
+        font-size: clamp(24px, 3.6vw, 34px);
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.2;
+      }
+      .h2 .red {
+        color: var(--red);
+        display: block;
+      }
+      .divider {
+        width: 60px;
+        height: 4px;
+        background: var(--red);
+        margin: 22px auto 34px;
+      }
+      .lead {
+        color: #b5b5b5;
+        font-weight: 300;
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 56px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      .card {
+        background: var(--light-bg);
+        border-left: 5px solid var(--red);
+        border-radius: 10px;
+        padding: 38px 40px;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      }
+      .card h4 {
+        font-weight: 900;
+        font-size: 17px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .card p {
+        color: #555;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.75;
+      }
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== STEPS ===== */
+      .steps {
+        background: var(--dark);
+        padding: 90px 0;
+      }
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .step {
+        border-top: 3px solid var(--red);
+        padding-top: 22px;
+      }
+      .step-num {
+        color: var(--red);
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 1;
+      }
+      .step h5 {
+        color: #fff;
+        font-weight: 800;
+        font-size: 15px;
+        text-transform: uppercase;
+        margin: 12px 0 8px;
+      }
+      .step p {
+        color: #9a9a9a;
+        font-weight: 300;
+        font-size: 14px;
+      }
+      @media (max-width: 900px) {
+        .steps-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 520px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== SERVICE LIST ===== */
+      .service {
+        padding: 100px 0;
+      }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .service-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        font-size: 15px;
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
+      }
+      .service-item::before {
+        content: '';
+        flex: 0 0 10px;
+        height: 10px;
+        margin-top: 7px;
+        background: var(--red);
+        border-radius: 2px;
+      }
+      @media (max-width: 700px) {
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== FORM ===== */
+      .form-section {
+        background: var(--black);
+        padding: 90px 0;
+      }
+      .form-box {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--dark);
+        border: 1px solid #222;
+        border-radius: 12px;
+        padding: 44px 50px 50px;
+      }
+      .form-box h3 {
+        color: #fff;
+        font-weight: 900;
+        font-size: 24px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .field {
+        width: 100%;
+        background: var(--dark-2);
+        border: 1px solid #2c2c2c;
+        border-radius: 3px;
+        color: #fff;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 18px 20px;
+        margin-bottom: 20px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .field:focus {
+        border-color: var(--red);
+      }
+      .field::placeholder {
+        color: #777;
+      }
+      select.field {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        cursor: pointer;
+      }
+      .form-box .btn {
+        width: 100%;
+        padding: 22px;
+      }
+      .form-ok {
+        display: none;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 16px;
+      }
+      .form-err {
+        display: none;
+        color: var(--red);
+        text-align: center;
+        font-weight: 600;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+
+      /* ошибки валидации */
+      .field.error {
+        border-color: var(--red);
+      }
+      .field-error {
+        display: none;
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 500;
+        margin: -12px 0 16px 2px;
+      }
+      .field-error.show {
+        display: block;
+      }
+      @media (max-width: 560px) {
+        .form-box {
+          padding: 34px 22px;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--black);
+        border-top: 3px solid var(--red);
+        padding: 70px 0 50px;
+        color: #fff;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+        gap: 40px;
+      }
+      .foot-grid h6 {
+        color: var(--red);
+        font-weight: 900;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .foot-grid p {
+        font-size: 15px;
+        line-height: 1.35;
+      }
+      .foot-links a {
+        display: block;
+        color: #9a9a9a;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        transition: color 0.2s;
+      }
+      .foot-links a:hover,
+      .foot-links a.current {
+        color: #fff;
+      }
+      @media (max-width: 900px) {
+        .foot-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 520px) {
+        .foot-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="container nav">
+        <a href="index.html" class="logo">APUS<span>LEGAT</span></a>
+
+        <div class="nav-right">
+          <nav class="menu">
+            <a href="index.html" data-i18n="nav-home">Главная</a>
+            <a href="about.html" data-i18n="nav-about">О нас</a>
+            <a href="shop.html" data-i18n="nav-shop">Магазин</a>
+            <a href="contacts.html" data-i18n="nav-contacts">Контакты</a>
+          </nav>
+
+          <div class="lang">
+            <button type="button" id="btn-ua">UA</button>
+            <button type="button" id="btn-ru" class="active">RU</button>
+          </div>
+
+          <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MOBILE MENU (под шапкой) ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()" data-i18n="nav-home"
+        >Главная</a
+      >
+      <a href="about.html" onclick="toggleMenu()" data-i18n="nav-about"
+        >О нас</a
+      >
+      <a href="shop.html" onclick="toggleMenu()" data-i18n="nav-shop"
+        >Магазин</a
+      >
+      <a href="contacts.html" onclick="toggleMenu()" data-i18n="nav-contacts"
+        >Контакты</a
+      >
+      <div class="mobile-lang-switcher">
+        <button type="button" class="mobile-lang-btn" id="mobile-btn-ua">
+          UA
+        </button>
+        <button type="button" class="mobile-lang-btn active" id="mobile-btn-ru">
+          RU
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-title">
+          <h1 data-i18n="hero-title">Автономные отопители<br />под ключ</h1>
+        </div>
+        <p class="hero-sub" data-i18n="hero-sub">
+          Тёплая кабина и прогретый двигатель без работы мотора на холостых.
+          Подбор, монтаж и обслуживание в одном месте.
+        </p>
+        <a href="#form" class="btn" data-i18n="hero-btn"
+          >Записаться на установку</a
+        >
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="cats">
+      <div class="container cats-grid">
+        <div class="cat active">
+          <div class="cat-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect
+                x="6"
+                y="18"
+                width="52"
+                height="30"
+                rx="5"
+                fill="#f3f3f3"
+                stroke="#222"
+              />
+              <circle cx="24" cy="33" r="9" fill="#fff" stroke="#222" />
+              <path
+                d="M24 24c3 4 3 7 0 9-3-2-3-5 0-9zM33 33c-4 3-7 3-9 0 2-3 5-3 9 0zM24 42c-3-4-3-7 0-9 3 2 3 5 0 9zM15 33c4-3 7-3 9 0-2 3-5 3-9 0z"
+                fill="#e30b0b"
+                stroke="none"
+              />
+              <path d="M40 26h12M40 33h12M40 40h12" stroke="#222" />
+              <path
+                d="M16 12c2-2 2-4 0-6M28 12c2-2 2-4 0-6M40 12c2-2 2-4 0-6"
+                stroke="#e30b0b"
+              />
+            </svg>
+          </div>
+          <h3 data-i18n="cat1-title">Воздушные</h3>
+          <p data-i18n="cat1-desc">Обогрев кабины и спального места</p>
+        </div>
+        <div class="cat">
+          <div class="cat-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 8C14 20 9 28 9 35a13 13 0 0026 0c0-7-5-15-13-27z"
+                fill="#f3f3f3"
+                stroke="#222"
+              />
+              <path d="M16 36a6 6 0 006 6" stroke="#e30b0b" />
+              <rect
+                x="44"
+                y="8"
+                width="10"
+                height="34"
+                rx="5"
+                fill="#fff"
+                stroke="#222"
+              />
+              <circle cx="49" cy="48" r="8" fill="#e30b0b" stroke="#222" />
+              <path d="M49 20v26" stroke="#e30b0b" stroke-width="4" />
+            </svg>
+          </div>
+          <h3 data-i18n="cat2-title">Жидкостные</h3>
+          <p data-i18n="cat2-desc">Предпусковой подогрев двигателя</p>
+        </div>
+        <div class="cat">
+          <div class="cat-icon">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M40 8a14 14 0 00-13 19L9 45a5 5 0 007 7l18-18A14 14 0 0054 20l-8 8-8-2-2-8 8-8a14 14 0 00-4-2z"
+                fill="#f3f3f3"
+                stroke="#222"
+              />
+              <circle cx="13" cy="48" r="2" fill="#e30b0b" stroke="none" />
+              <path d="M44 44l10 10M50 40l8 8" stroke="#e30b0b" />
+            </svg>
+          </div>
+          <h3 data-i18n="cat3-title">Сервис</h3>
+          <p data-i18n="cat3-desc">Диагностика, чистка и ремонт</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICES (без цен) ===== -->
+    <section class="prices">
+      <div class="container">
+        <h2 class="section-title-dark" data-i18n="prices-title">Виды услуг</h2>
+        <div class="price-list">
+          <a href="#form" class="price-row" data-service="Воздушный 2 кВт"
+            ><div class="price-left">
+              <span class="badge">2кВт</span
+              ><span data-i18n="price1"
+                >Воздушный отопитель 2 кВт (кабина)</span
+              >
+            </div>
+            <div class="price">
+              <span data-i18n="price-ask">Узнать цену</span>
+              <span class="arr">→</span>
+            </div></a
+          >
+          <a href="#form" class="price-row" data-service="Воздушный 4 кВт"
+            ><div class="price-left">
+              <span class="badge">4кВт</span
+              ><span data-i18n="price2"
+                >Воздушный отопитель 4 кВт (кабина, бус, кунг)</span
+              >
+            </div>
+            <div class="price">
+              <span data-i18n="price-ask">Узнать цену</span>
+              <span class="arr">→</span>
+            </div></a
+          >
+          <a href="#form" class="price-row" data-service="Жидкостный"
+            ><div class="price-left">
+              <span class="badge">Ж</span
+              ><span data-i18n="price3"
+                >Жидкостный предпусковой подогреватель</span
+              >
+            </div>
+            <div class="price">
+              <span data-i18n="price-ask">Узнать цену</span>
+              <span class="arr">→</span>
+            </div></a
+          >
+          <a
+            href="#form"
+            class="price-row"
+            data-service="Монтаж оборудования клиента"
+            ><div class="price-left">
+              <span class="badge">+</span
+              ><span data-i18n="price4">Монтаж оборудования клиента</span>
+            </div>
+            <div class="price">
+              <span data-i18n="price-ask">Узнать цену</span>
+              <span class="arr">→</span>
+            </div></a
+          >
+          <a href="#form" class="price-row" data-service="Диагностика / ремонт"
+            ><div class="price-left">
+              <span class="badge">S</span
+              ><span data-i18n="price5">Диагностика и чистка отопителя</span>
+            </div>
+            <div class="price">
+              <span data-i18n="price-ask">Узнать цену</span>
+              <span class="arr">→</span>
+            </div></a
+          >
+        </div>
+
+        <div class="quote">
+          <div class="quote-text">
+            <h3>
+              <span data-i18n="quote-title">Цена «от» — это не ответ.</span
+              ><br /><span data-i18n="quote-title-red">Мы назовём точную.</span>
+            </h3>
+            <p data-i18n="quote-text">
+              Стоимость зависит от вашего авто, места монтажа и комплекта.
+              Поэтому мы не пишем цифры наугад: позвоните или оставьте заявку —
+              менеджер за 5 минут подберёт отопитель и назовёт итоговую цену
+              <b>без доплат после установки</b>.
+            </p>
+            <ul class="quote-points">
+              <li data-i18n="quote-p1">Консультация бесплатно</li>
+              <li data-i18n="quote-p2">Цена фиксируется до начала работ</li>
+              <li data-i18n="quote-p3">
+                Подбор под вашу задачу, а не «что есть на складе»
+              </li>
+            </ul>
+          </div>
+          <div class="quote-actions">
+            <a href="tel:+380660339009" class="btn btn-call">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"
+                />
+              </svg>
+              +380 66 033 90 09
+            </a>
+            <a href="#form" class="btn btn-outline" data-i18n="quote-btn"
+              >Рассчитать стоимость</a
+            >
+            <span class="quote-hint" data-i18n="quote-hint"
+              >Перезваниваем в течение 15 минут в рабочее время</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features">
+      <div class="container">
+        <h2 class="h2">
+          <span data-i18n="features-title-1">Не просто ставим отопитель —</span
+          ><span class="red" data-i18n="features-title-2">делаем под ключ</span>
+        </h2>
+        <div class="divider"></div>
+        <p class="lead" data-i18n="features-lead">
+          От подбора модели до первого запуска в мороз.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h4 data-i18n="card1-title">Подбор оборудования</h4>
+            <p data-i18n="card1-desc">
+              Подберём мощность и тип отопителя под вашу кабину, кузов и режим
+              работы. Работаем с оборудованием клиента или поставляем своё.
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="card2-title">Аккуратный монтаж</h4>
+            <p data-i18n="card2-desc">
+              Крепление, топливозаборник или отдельный бак, выхлоп, проводка с
+              защитой. Без лишних отверстий и «колхоза».
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="card3-title">Управление и гарантия</h4>
+            <p data-i18n="card3-desc">
+              Пульт, таймер или GSM-модуль для запуска с телефона. Пусконаладка,
+              проверка на месте и гарантия на работы.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEPS ===== -->
+    <section class="steps">
+      <div class="container">
+        <h2 class="section-title-dark" data-i18n="steps-title">
+          Как проходит установка
+        </h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h5 data-i18n="step1-title">Заявка</h5>
+            <p data-i18n="step1-desc">
+              Оставляете заявку или звоните. Уточняем авто и задачу.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h5 data-i18n="step2-title">Подбор и цена</h5>
+            <p data-i18n="step2-desc">
+              Подбираем комплект и фиксируем стоимость до начала работ.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h5 data-i18n="step3-title">Монтаж</h5>
+            <p data-i18n="step3-desc">
+              Устанавливаем на нашей станции. Можно оставить авто на парковке.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <h5 data-i18n="step4-title">Запуск и сдача</h5>
+            <p data-i18n="step4-desc">
+              Тестовый запуск, показываем управление, выдаём гарантию.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICE LIST ===== -->
+    <section class="service">
+      <div class="container">
+        <h2 class="h2">
+          <span data-i18n="service-title-1">Обслуживание</span
+          ><span class="red" data-i18n="service-title-2"
+            >и ремонт отопителей</span
+          >
+        </h2>
+        <div class="divider"></div>
+        <div class="service-grid">
+          <div class="service-item" data-i18n="srv1">
+            Компьютерная диагностика и чтение ошибок
+          </div>
+          <div class="service-item" data-i18n="srv2">
+            Чистка камеры сгорания и выхлопа
+          </div>
+          <div class="service-item" data-i18n="srv3">
+            Замена свечи / штифта накаливания
+          </div>
+          <div class="service-item" data-i18n="srv4">
+            Замена топливного насоса и фильтров
+          </div>
+          <div class="service-item" data-i18n="srv5">
+            Ремонт проводки и блока управления
+          </div>
+          <div class="service-item" data-i18n="srv6">
+            Подготовка отопителя к зиме
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FORM ===== -->
+    <section class="form-section" id="form">
+      <div class="container">
+        <form
+          class="form-box"
+          id="heaterForm"
+          action="php/telegram.php"
+          method="POST"
+          novalidate
+        >
+          <h3 data-i18n="form-title">Запись на установку</h3>
+
+          <select class="field" name="service" required>
+            <option value="Воздушный 2 кВт" data-i18n="opt1">
+              Воздушный отопитель 2 кВт
+            </option>
+            <option value="Воздушный 4 кВт" data-i18n="opt2">
+              Воздушный отопитель 4 кВт
+            </option>
+            <option value="Жидкостный" data-i18n="opt3">
+              Жидкостный подогреватель
+            </option>
+            <option value="Монтаж оборудования клиента" data-i18n="opt4">
+              Монтаж оборудования клиента
+            </option>
+            <option value="Диагностика / ремонт" data-i18n="opt5">
+              Диагностика / ремонт
+            </option>
+          </select>
+
+          <input
+            class="field"
+            type="text"
+            name="name"
+            id="formName"
+            data-i18n-placeholder="form-name"
+            placeholder="Ваше имя"
+            autocomplete="name"
+            required
+          />
+          <div class="field-error" id="nameError"></div>
+
+          <input
+            class="field"
+            type="tel"
+            name="phone"
+            id="formPhone"
+            value="+380"
+            maxlength="13"
+            autocomplete="tel"
+            required
+          />
+          <div class="field-error" id="phoneError"></div>
+
+          <button
+            class="btn"
+            type="submit"
+            id="formSubmit"
+            data-i18n="form-btn"
+          >
+            Отправить заявку
+          </button>
+          <p class="form-ok" id="formOk" data-i18n="form-ok">
+            Спасибо! Мы перезвоним вам в ближайшее время.
+          </p>
+          <p class="form-err" id="formErr" data-i18n="form-err">
+            Не удалось отправить заявку. Позвоните нам: +380 66 033 90 09
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="container foot-grid">
+        <div>
+          <h6>APUS LEGAT</h6>
+          <p data-i18n="foot-about">
+            Профессиональное обслуживание, продажа тахографов и технического
+            контроля транспорта в Харькове.
+          </p>
+        </div>
+        <div class="foot-links">
+          <h6 data-i18n="foot-nav">Навигация</h6>
+          <a href="index.html" data-i18n="nav-home">Главная</a>
+          <a href="about.html" data-i18n="nav-about">О нас</a>
+          <a href="shop.html" data-i18n="nav-shop">Магазин</a>
+          <a href="contacts.html" data-i18n="nav-contacts">Контакты</a>
+        </div>
+        <div class="foot-links">
+          <h6 data-i18n="foot-srv">Сервис</h6>
+          <a href="service-otk.html" data-i18n="foot-srv1"
+            >Технический осмотр</a
+          >
+          <a href="service-tacho.html" data-i18n="foot-srv2">Тахосервис</a>
+          <a href="service-cert-auto.html" data-i18n="foot-srv4"
+            >Сертификация авто</a
+          >
+          <a href="service-cert-tanks.html" data-i18n="foot-srv5"
+            >Сертификация бочек</a
+          >
+          <a href="logistics.html" data-i18n="foot-srv6">Логистика и ADR</a>
+          <a href="parking.html" data-i18n="foot-srv7">Инфраструктура</a>
+          <a href="documents.html" data-i18n="foot-srv8">Документация</a>
+        </div>
+        <div>
+          <h6 data-i18n="foot-cont">Контакты</h6>
+          <p>
+            <span data-i18n="foot-addr"
+              >Украина, г. Харьков, ул. Драгомировская, 10</span
+            ><br />
+            <a href="tel:+380660339009">+380 66 033 90 09</a><br />
+            <a href="tel:+380630339009">+380 63 033 90 09</a><br />
+            Email:
+            <a href="mailto:apuslegatt@gmail.com">apuslegatt@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ===== Ім'я форми для аналітики ===== */
+      const FORM_NAME = 'heaters_install';
+
+      // ===== СЛОВАРИ ПЕРЕВОДОВ =====
+      const translations = {
+        ru: {
+          'nav-home': 'Главная',
+          'nav-about': 'О нас',
+          'nav-shop': 'Магазин',
+          'nav-contacts': 'Контакты',
+          'hero-title': 'Автономные отопители<br>под ключ',
+          'hero-sub':
+            'Тёплая кабина и прогретый двигатель без работы мотора на холостых. Подбор, монтаж и обслуживание в одном месте.',
+          'hero-btn': 'Записаться на установку',
+          'cat1-title': 'Воздушные',
+          'cat1-desc': 'Обогрев кабины и спального места',
+          'cat2-title': 'Жидкостные',
+          'cat2-desc': 'Предпусковой подогрев двигателя',
+          'cat3-title': 'Сервис',
+          'cat3-desc': 'Диагностика, чистка и ремонт',
+          'prices-title': 'Виды услуг',
+          'price-ask': 'Узнать цену',
+          price1: 'Воздушный отопитель 2 кВт (кабина)',
+          price2: 'Воздушный отопитель 4 кВт (кабина, бус, кунг)',
+          price3: 'Жидкостный предпусковой подогреватель',
+          price4: 'Монтаж оборудования клиента',
+          price5: 'Диагностика и чистка отопителя',
+          'quote-title': 'Цена «от» — это не ответ.',
+          'quote-title-red': 'Мы назовём точную.',
+          'quote-text':
+            'Стоимость зависит от вашего авто, места монтажа и комплекта. Поэтому мы не пишем цифры наугад: позвоните или оставьте заявку — менеджер за 5 минут подберёт отопитель и назовёт итоговую цену <b>без доплат после установки</b>.',
+          'quote-p1': 'Консультация бесплатно',
+          'quote-p2': 'Цена фиксируется до начала работ',
+          'quote-p3': 'Подбор под вашу задачу, а не «что есть на складе»',
+          'quote-btn': 'Рассчитать стоимость',
+          'quote-hint': 'Перезваниваем в течение 15 минут в рабочее время',
+          'features-title-1': 'Не просто ставим отопитель —',
+          'features-title-2': 'делаем под ключ',
+          'features-lead': 'От подбора модели до первого запуска в мороз.',
+          'card1-title': 'Подбор оборудования',
+          'card1-desc':
+            'Подберём мощность и тип отопителя под вашу кабину, кузов и режим работы. Работаем с оборудованием клиента или поставляем своё.',
+          'card2-title': 'Аккуратный монтаж',
+          'card2-desc':
+            'Крепление, топливозаборник или отдельный бак, выхлоп, проводка с защитой. Без лишних отверстий и «колхоза».',
+          'card3-title': 'Управление и гарантия',
+          'card3-desc':
+            'Пульт, таймер или GSM-модуль для запуска с телефона. Пусконаладка, проверка на месте и гарантия на работы.',
+          'steps-title': 'Как проходит установка',
+          'step1-title': 'Заявка',
+          'step1-desc':
+            'Оставляете заявку или звоните. Уточняем авто и задачу.',
+          'step2-title': 'Подбор и цена',
+          'step2-desc':
+            'Подбираем комплект и фиксируем стоимость до начала работ.',
+          'step3-title': 'Монтаж',
+          'step3-desc':
+            'Устанавливаем на нашей станции. Можно оставить авто на парковке.',
+          'step4-title': 'Запуск и сдача',
+          'step4-desc':
+            'Тестовый запуск, показываем управление, выдаём гарантию.',
+          'service-title-1': 'Обслуживание',
+          'service-title-2': 'и ремонт отопителей',
+          srv1: 'Компьютерная диагностика и чтение ошибок',
+          srv2: 'Чистка камеры сгорания и выхлопа',
+          srv3: 'Замена свечи / штифта накаливания',
+          srv4: 'Замена топливного насоса и фильтров',
+          srv5: 'Ремонт проводки и блока управления',
+          srv6: 'Подготовка отопителя к зиме',
+          'form-title': 'Запись на установку',
+          opt1: 'Воздушный отопитель 2 кВт',
+          opt2: 'Воздушный отопитель 4 кВт',
+          opt3: 'Жидкостный подогреватель',
+          opt4: 'Монтаж оборудования клиента',
+          opt5: 'Диагностика / ремонт',
+          'form-name': 'Ваше имя',
+          'form-btn': 'Отправить заявку',
+          'form-ok': 'Спасибо! Мы перезвоним вам в ближайшее время.',
+          'form-err':
+            'Не удалось отправить заявку. Позвоните нам: +380 66 033 90 09',
+          'form-sending': 'Отправляется...',
+          'name-err-empty': 'Введите имя (минимум 2 символа)',
+          'name-err-chars': 'Имя не должно содержать цифры и символы',
+          'phone-err': 'Введите телефон в формате +380XXXXXXXXX',
+          'foot-about':
+            'Профессиональное обслуживание, продажа тахографов и технического контроля транспорта в Харькове.',
+          'foot-nav': 'Навигация',
+          'foot-srv': 'Сервис',
+          'foot-srv1': 'Технический осмотр',
+          'foot-srv2': 'Тахосервис',
+          'foot-srv4': 'Сертификация авто',
+          'foot-srv5': 'Сертификация бочек',
+          'foot-srv6': 'Логистика и ADR',
+          'foot-srv7': 'Инфраструктура',
+          'foot-srv8': 'Документация',
+          'foot-cont': 'Контакты',
+          'foot-addr': 'Украина, г. Харьков, ул. Драгомировская, 10',
+        },
+        uk: {
+          'nav-home': 'Головна',
+          'nav-about': 'Про нас',
+          'nav-shop': 'Магазин',
+          'nav-contacts': 'Контакти',
+          'hero-title': 'Автономні опалювачі<br>під ключ',
+          'hero-sub':
+            'Тепла кабіна та прогрітий двигун без роботи мотора на холостих. Підбір, монтаж і обслуговування в одному місці.',
+          'hero-btn': 'Записатися на встановлення',
+          'cat1-title': 'Повітряні',
+          'cat1-desc': 'Обігрів кабіни та спального місця',
+          'cat2-title': 'Рідинні',
+          'cat2-desc': 'Передпусковий підігрів двигуна',
+          'cat3-title': 'Сервіс',
+          'cat3-desc': 'Діагностика, чистка та ремонт',
+          'prices-title': 'Види послуг',
+          'price-ask': 'Дізнатися ціну',
+          price1: 'Повітряний опалювач 2 кВт (кабіна)',
+          price2: 'Повітряний опалювач 4 кВт (кабіна, бус, кунг)',
+          price3: 'Рідинний передпусковий підігрівач',
+          price4: 'Монтаж обладнання клієнта',
+          price5: 'Діагностика та чистка опалювача',
+          'quote-title': 'Ціна «від» — це не відповідь.',
+          'quote-title-red': 'Ми назвемо точну.',
+          'quote-text':
+            'Вартість залежить від вашого авто, місця монтажу та комплекту. Тому ми не пишемо цифри навмання: зателефонуйте або залиште заявку — менеджер за 5 хвилин підбере опалювач і назве підсумкову ціну <b>без доплат після встановлення</b>.',
+          'quote-p1': 'Консультація безкоштовна',
+          'quote-p2': 'Ціна фіксується до початку робіт',
+          'quote-p3': 'Підбір під ваше завдання, а не «що є на складі»',
+          'quote-btn': 'Розрахувати вартість',
+          'quote-hint': 'Передзвонюємо протягом 15 хвилин у робочий час',
+          'features-title-1': 'Не просто ставимо опалювач —',
+          'features-title-2': 'робимо під ключ',
+          'features-lead': 'Від підбору моделі до першого запуску в мороз.',
+          'card1-title': 'Підбір обладнання',
+          'card1-desc':
+            'Підберемо потужність і тип опалювача під вашу кабіну, кузов і режим роботи. Працюємо з обладнанням клієнта або постачаємо своє.',
+          'card2-title': 'Акуратний монтаж',
+          'card2-desc':
+            'Кріплення, паливозабірник або окремий бак, вихлоп, проводка із захистом. Без зайвих отворів і «колгоспу».',
+          'card3-title': 'Керування та гарантія',
+          'card3-desc':
+            'Пульт, таймер або GSM-модуль для запуску з телефона. Пусконалагодження, перевірка на місці та гарантія на роботи.',
+          'steps-title': 'Як проходить встановлення',
+          'step1-title': 'Заявка',
+          'step1-desc':
+            'Залишаєте заявку або телефонуєте. Уточнюємо авто та завдання.',
+          'step2-title': 'Підбір і ціна',
+          'step2-desc':
+            'Підбираємо комплект і фіксуємо вартість до початку робіт.',
+          'step3-title': 'Монтаж',
+          'step3-desc':
+            'Встановлюємо на нашій станції. Можна залишити авто на парковці.',
+          'step4-title': 'Запуск і здача',
+          'step4-desc':
+            'Тестовий запуск, показуємо керування, видаємо гарантію.',
+          'service-title-1': 'Обслуговування',
+          'service-title-2': 'та ремонт опалювачів',
+          srv1: 'Комп’ютерна діагностика та читання помилок',
+          srv2: 'Чистка камери згоряння та вихлопу',
+          srv3: 'Заміна свічки / штифта розжарювання',
+          srv4: 'Заміна паливного насоса та фільтрів',
+          srv5: 'Ремонт проводки та блока керування',
+          srv6: 'Підготовка опалювача до зими',
+          'form-title': 'Запис на встановлення',
+          opt1: 'Повітряний опалювач 2 кВт',
+          opt2: 'Повітряний опалювач 4 кВт',
+          opt3: 'Рідинний підігрівач',
+          opt4: 'Монтаж обладнання клієнта',
+          opt5: 'Діагностика / ремонт',
+          'form-name': 'Ваше ім’я',
+          'form-btn': 'Надіслати заявку',
+          'form-ok': 'Дякуємо! Ми передзвонимо вам найближчим часом.',
+          'form-err':
+            'Не вдалося надіслати заявку. Зателефонуйте нам: +380 66 033 90 09',
+          'form-sending': 'Надсилається...',
+          'name-err-empty': 'Введіть ім’я (мінімум 2 символи)',
+          'name-err-chars': 'Ім’я не повинно містити цифри та символи',
+          'phone-err': 'Введіть телефон у форматі +380XXXXXXXXX',
+          'foot-about':
+            'Професійне обслуговування, продаж тахографів і технічного контролю транспорту в Харкові.',
+          'foot-nav': 'Навігація',
+          'foot-srv': 'Сервіс',
+          'foot-srv1': 'Технічний огляд',
+          'foot-srv2': 'Тахосервіс',
+          'foot-srv4': 'Сертифікація авто',
+          'foot-srv5': 'Сертифікація бочок',
+          'foot-srv6': 'Логістика та ADR',
+          'foot-srv7': 'Інфраструктура',
+          'foot-srv8': 'Документація',
+          'foot-cont': 'Контакти',
+          'foot-addr': 'Україна, м. Харків, вул. Драгомировська, 10',
+        },
+      };
+
+      // ===== СОСТОЯНИЕ ЯЗЫКА =====
+      let currentLang = localStorage.getItem('lang') || 'ru';
+
+      // ===== ПРИМЕНЕНИЕ ЯЗЫКА =====
+      function setLanguage(lang) {
+        if (!translations[lang]) return;
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        const dict = translations[lang];
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) {
+            if (key === 'hero-title') {
+              el.innerHTML = dict[key];
+            } else {
+              el.textContent = dict[key];
+            }
+          }
+        });
+
+        document
+          .querySelectorAll('[data-i18n-placeholder]')
+          .forEach(function (el) {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (dict[key] !== undefined) {
+              el.setAttribute('placeholder', dict[key]);
+            }
+          });
+
+        if (lang === 'uk') {
+          document.title =
+            'Встановлення автономних опалювачів під ключ — APUS LEGAT, Харків';
+          document
+            .querySelector('meta[name="description"]')
+            .setAttribute(
+              'content',
+              'Встановлення автономних опалювачів під ключ для вантажівок, фур, автобусів і спецтехніки в Харкові. Підбір, монтаж, пусконалагодження, гарантія та сервіс.'
+            );
+        } else {
+          document.title =
+            'Установка автономных отопителей под ключ — APUS LEGAT, Харьков';
+          document
+            .querySelector('meta[name="description"]')
+            .setAttribute(
+              'content',
+              'Установка автономных отопителей под ключ для грузовиков, фур, автобусов и спецтехники в Харькове. Подбор, монтаж, пусконаладка, гарантия и сервис.'
+            );
+        }
+
+        document
+          .getElementById('btn-ua')
+          .classList.toggle('active', lang === 'uk');
+        document
+          .getElementById('btn-ru')
+          .classList.toggle('active', lang === 'ru');
+        document
+          .getElementById('mobile-btn-ua')
+          .classList.toggle('active', lang === 'uk');
+        document
+          .getElementById('mobile-btn-ru')
+          .classList.toggle('active', lang === 'ru');
+
+        document.documentElement.lang = lang;
+      }
+
+      // ===== КНОПКИ ЯЗЫКА =====
+      document.getElementById('btn-ua').addEventListener('click', function () {
+        setLanguage('uk');
+      });
+      document.getElementById('btn-ru').addEventListener('click', function () {
+        setLanguage('ru');
+      });
+      document
+        .getElementById('mobile-btn-ua')
+        .addEventListener('click', function () {
+          setLanguage('uk');
+        });
+      document
+        .getElementById('mobile-btn-ru')
+        .addEventListener('click', function () {
+          setLanguage('ru');
+        });
+
+      // ===== БУРГЕР =====
+      window.toggleMenu = function () {
+        document.getElementById('mobileMenu').classList.toggle('active');
+      };
+
+      // ===== ЛОГИКА ФОРМЫ И ВЫБОРА УСЛУГИ =====
+      document.querySelectorAll('[data-service]').forEach(function (row) {
+        row.addEventListener('click', function () {
+          document.querySelector('#heaterForm [name=service]').value =
+            row.dataset.service;
+        });
+      });
+
+      const form = document.getElementById('heaterForm');
+      const nameInput = document.getElementById('formName');
+      const phoneInput = document.getElementById('formPhone');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const formOk = document.getElementById('formOk');
+      const formErr = document.getElementById('formErr');
+      const submitBtn = document.getElementById('formSubmit');
+
+      /* =====================================================
+         ХЕЛПЕР: подія в dataLayer + перехід на thank-you.html
+         ===================================================== */
+      function goToThankYou() {
+        let redirected = false;
+        const go = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = 'thank-you.html';
+        };
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_name: FORM_NAME,
+          eventCallback: go,
+          eventTimeout: 500,
+        });
+
+        setTimeout(go, 500);
+      }
+
+      // --- Очистка ввода "на лету" ---
+
+      // Имя: только буквы, пробел, дефис, апостроф
+      nameInput.addEventListener('input', function () {
+        this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄґҐіІ\s\-']/g, '');
+        if (this.value.trim().length >= 2) {
+          this.classList.remove('error');
+          nameError.classList.remove('show');
+        }
+      });
+
+      // Телефон: только цифры и "+", всегда начинается с +380
+      phoneInput.addEventListener('input', function () {
+        let v = this.value.replace(/[^\d+]/g, '');
+        if (v.indexOf('+') > 0) {
+          v =
+            v.charAt(0) === '+'
+              ? '+' + v.replace(/\+/g, '')
+              : v.replace(/\+/g, '');
+        }
+        if (v && v.charAt(0) !== '+') {
+          v = '+380' + v.replace(/\D/g, '');
+        }
+        if (v.length > 13) {
+          v = v.slice(0, 13);
+        }
+        this.value = v;
+
+        const digits = v.replace(/\D/g, '');
+        if (digits.length >= 12) {
+          this.classList.remove('error');
+          phoneError.classList.remove('show');
+        }
+      });
+
+      phoneInput.addEventListener('focus', function () {
+        if (this.value.trim() === '') {
+          this.value = '+380';
+        }
+      });
+
+      phoneInput.addEventListener('keydown', function (e) {
+        const allowed = [
+          'Backspace',
+          'Delete',
+          'Tab',
+          'Escape',
+          'Enter',
+          'ArrowLeft',
+          'ArrowRight',
+          'ArrowUp',
+          'ArrowDown',
+          'Home',
+          'End',
+        ];
+        if (allowed.includes(e.key)) return;
+        if (
+          e.ctrlKey &&
+          ['v', 'V', 'c', 'C', 'a', 'A', 'x', 'X'].includes(e.key)
+        )
+          return;
+        if (!/^[\d+]$/.test(e.key)) e.preventDefault();
+      });
+
+      // --- Валидация и отправка ---
+      let sending = false;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (sending) return;
+        formOk.style.display = 'none';
+        formErr.style.display = 'none';
+
+        let valid = true;
+
+        // Имя
+        const name = nameInput.value.trim();
+        if (name.length < 2) {
+          nameError.textContent = translations[currentLang]['name-err-empty'];
+          nameError.classList.add('show');
+          nameInput.classList.add('error');
+          valid = false;
+        } else if (!/^[a-zA-Zа-яА-ЯїЇєЄґҐіІ\s\-']+$/.test(name)) {
+          nameError.textContent = translations[currentLang]['name-err-chars'];
+          nameError.classList.add('show');
+          nameInput.classList.add('error');
+          valid = false;
+        }
+
+        // Телефон
+        const phone = phoneInput.value.trim();
+        if (!/^\+380\d{9}$/.test(phone)) {
+          phoneError.textContent = translations[currentLang]['phone-err'];
+          phoneError.classList.add('show');
+          phoneInput.classList.add('error');
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        sending = true;
+
+        // Данные для отправки
+        const formData = {
+          form_name: FORM_NAME,
+          service: form.querySelector('[name=service]').value,
+          name: name,
+          phone: phone,
+          utm_source: localStorage.getItem('utm_source') || '',
+          utm_medium: localStorage.getItem('utm_medium') || '',
+          utm_campaign: localStorage.getItem('utm_campaign') || '',
+          utm_term: localStorage.getItem('utm_term') || '',
+          utm_content: localStorage.getItem('utm_content') || '',
+        };
+
+        // Блокируем кнопку
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = translations[currentLang]['form-sending'];
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: new URLSearchParams(formData),
+        })
+          .then((res) =>
+            res.json().then((data) => {
+              if (!res.ok || data.status !== 'success') {
+                throw new Error(data.message || 'HTTP ' + res.status);
+              }
+              /* заявка доставлена: пушимо подію і переходимо */
+              goToThankYou();
+            })
+          )
+          .catch(function (error) {
+            console.error('Ошибка отправки:', error);
+            sending = false;
+            formErr.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          });
+      });
+
+      // ===== ПЕРВИЧНАЯ ИНИЦИАЛИЗАЦИЯ =====
+      document.addEventListener('DOMContentLoaded', function () {
+        setLanguage(currentLang);
+      });
+    </script>
+    <script
+      src="https://widgets.binotel.com/getcall/widgets/p4b2s167grimrm3jp0hb.js"
+      async
+    ></script>
+  </body>
+</html>

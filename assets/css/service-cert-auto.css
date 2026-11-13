@@ -1,0 +1,318 @@
+/* service-cert-auto.css — страница «Сертифікація авто».
+   Светлый фон (как в исходнике), локальные стили. */
+
+body {
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.line {
+  width: 60px;
+  height: 5px;
+  background: var(--red);
+  margin: 20px 0;
+}
+.line.center {
+  margin: 20px auto 40px;
+}
+
+/* ===== HERO ===== */
+.hero-sub {
+  padding: 80px 0;
+  background: #000;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.hero-title {
+  font-size: clamp(28px, 6vw, 55px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+.hero-title span {
+  color: var(--red);
+}
+.btn-back-link {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn-back-link:hover {
+  letter-spacing: 2px;
+}
+
+/* ===== CAR TYPES ===== */
+.s-car-types {
+  padding: 80px 0;
+  background: #fff;
+}
+.s-car-types h2 {
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+.car-card {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+}
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.car-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+}
+.car-info {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  color: #fff;
+  width: 100%;
+}
+.car-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.car-info p {
+  margin: 10px 0 0;
+  color: var(--red);
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.bg-usa {
+  background-image: url('../../img/public/sertification/usa.jpg');
+}
+.bg-eu {
+  background-image: url('../../img/public/sertification/euro.jpg');
+}
+.bg-china {
+  background-image: url('../../img/public/sertification/asia.jpg');
+}
+.bg-gbo {
+  background-image: url('../../img/public/sertification/vstanovlennia_gbo_sertificatcia.jpg');
+}
+.bg-truck {
+  background-image: url('../../img/public/sertification/pereob.webp');
+}
+
+/* ===== REQUIREMENTS ===== */
+.s-requirements {
+  background: #0a0a0a;
+  padding: 80px 0;
+  color: #fff;
+}
+.s-requirements h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+.req-item {
+  background: #1a1a1a;
+  padding: 35px 25px;
+  border-radius: 2px;
+  border-top: 4px solid var(--red);
+  transition: 0.3s;
+}
+.req-item:hover {
+  background: #222;
+}
+.req-item h4 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.req-item p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* ===== DOCS ===== */
+.s-docs {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+.s-docs h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+.docs-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+.docs-list li {
+  padding: 18px 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+.docs-list li::before {
+  content: '→';
+  color: var(--red);
+  margin-right: 15px;
+  font-weight: 900;
+}
+
+/* ===== ФОРМА ===== */
+.s-feedback {
+  padding: 80px 0;
+  background: #f8f8f8;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.feedback-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+  padding: 40px 35px;
+}
+.feedback-card h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+.feedback-card h3 span {
+  color: var(--red);
+}
+.feedback-desc {
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 14px;
+  border-left: 3px solid var(--red);
+  padding-left: 12px;
+}
+.form-group {
+  margin-bottom: 22px;
+}
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+.form-group label .req {
+  color: var(--red);
+  margin-left: 3px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+  transition: 0.25s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(230, 12, 12, 0.1);
+}
+.error-message {
+  color: var(--red);
+  font-size: 11px;
+  margin-top: 5px;
+  display: block;
+  font-weight: 500;
+  min-height: 14px;
+}
+.submit-feedback {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.25s;
+  letter-spacing: 1px;
+}
+.submit-feedback:hover:not(:disabled) {
+  background: #b00b0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(230, 12, 12, 0.3);
+}
+.submit-feedback:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.form-note {
+  font-size: 11px;
+  color: #888;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ===== Медиа ===== */
+@media (max-width: 640px) {
+  .feedback-card {
+    padding: 25px 20px;
+  }
+}

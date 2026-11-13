@@ -189,11 +189,11 @@ h2 b {
 .band.light .about p {
   color: #2b2b2b;
 }
-.band.light .btn {
+.band.light .btn:not(.red) {
   border-color: #111;
   color: #111;
 }
-.band.light .btn:hover {
+.band.light .btn:not(.red):hover {
   background: #111;
   color: #fff;
 }

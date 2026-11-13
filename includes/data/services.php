@@ -12,7 +12,7 @@ return [
     ['file' => 'service-otk',           'n' => 'n1',    'num' => '01', 't' => 't1',  'd' => 'd1'],
     ['file' => 'service-tacho',         'n' => 'n2',    'num' => '02', 't' => 't2',  'd' => 'd2'],
     ['file' => 'tacho-install',         'n' => 'n2',    'num' => '03', 't' => 't3',  'd' => 'd3'],
-    ['file' => 'walkie-talkie-install', 'n' => 'n7',    'num' => '04', 't' => 't4',  'd' => 'd4'],
+    ['file' => 'radio-install', 'n' => 'n7',    'num' => '04', 't' => 't4',  'd' => 'd4'],
     ['file' => 'service-heaters',       'n' => 'n7',    'num' => '05', 't' => 't5',  'd' => 'd5'],
     ['file' => 'service-cert-auto',     'n' => 'n3',    'num' => '06', 't' => 't6',  'd' => 'd6',  'p' => 'p6'],
     ['file' => 'service-cert-tanks',    'n' => 'n4',    'num' => '07', 't' => 't7',  'd' => 'd7'],

@@ -1,0 +1,246 @@
+/* contacts.css — только для страницы контактов.
+   Хедер/футер/кнопки/секции — в base/header/footer. */
+
+:root {
+  --green: #25d366;
+  --telegram-blue: #26a5e4;
+}
+
+/* Мягкое свечение по углам страницы */
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(230, 12, 12, 0.15) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(230, 12, 12, 0.1) 0%,
+      transparent 45%
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Основная секция */
+.contact-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.title-block {
+  margin-bottom: 40px;
+}
+.title-block h1 {
+  font-size: clamp(32px, 5vw, 45px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.title-block h1 span {
+  color: var(--red);
+}
+
+/* Карточка отдела */
+.dept-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid var(--red);
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 0 4px 4px 0;
+  transition: 0.3s;
+}
+.dept-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.dept-card h3 {
+  font-size: 13px;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 900;
+}
+.dept-card a.phone-link {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.dept-card a.phone-link:hover {
+  color: var(--red);
+}
+.dept-card a.mail-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.dept-card a.mail-link:hover {
+  color: #fff;
+}
+
+/* Telegram-username рядом с номером (в оригинале был, но в PHP-версии
+   username'ы показываем только на ПК — иконка добавляется JS) */
+.telegram-username {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--telegram-blue);
+  margin-left: 12px;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.dept-card a.phone-link:hover .telegram-username {
+  opacity: 1;
+  color: var(--telegram-blue);
+}
+
+/* ПК-режим: телефон превращается в кнопку «написать в Telegram» */
+a.phone-link.pc-telegram-mode {
+  cursor: pointer;
+}
+a.phone-link.pc-telegram-mode:hover {
+  color: var(--telegram-blue) !important;
+}
+.tg-pc-icon {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+  opacity: 0.8;
+}
+a.phone-link.pc-telegram-mode:hover .tg-pc-icon {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* Инфо-бар адрес/график */
+.info-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.info-item h4 {
+  font-size: 11px;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+.info-item p {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* Карта */
+.map-box {
+  width: 100%;
+  height: 800px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* Плавающая кнопка звонка (только моб.) — в HTML её пока нет;
+   CSS оставлен, если решите её вернуть (id="callFixedButton"). */
+.call-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: var(--green);
+  border-radius: 50%;
+  display: none; /* показывается только на мобильных через медиа ниже */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  transition: 0.3s;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+.call-fixed svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+.call-fixed.pc-telegram-mode {
+  background: var(--telegram-blue) !important;
+  animation: none;
+}
+.call-fixed.pc-telegram-mode:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(38, 165, 228, 0.5);
+}
+@media (min-width: 769px) {
+  .call-fixed {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .call-fixed {
+    display: flex !important;
+  }
+}
+
+/* Медиа */
+@media (max-width: 1100px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .map-box {
+    height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .dept-card a.phone-link {
+    font-size: 18px;
+  }
+  .telegram-username {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+  }
+}

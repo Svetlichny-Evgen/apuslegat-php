@@ -22,3 +22,13 @@ function langUrl(string $lang): string {
     $q['lang'] = $lang;
     return $path . '?' . http_build_query($q);
 }
+
+/** «N вариантов» с правильным склонением по языку */
+function pluralVariants(int $n, string $lang): string {
+    if ($lang === 'uk') {
+        $w = $n === 1 ? 'варіант' : (($n >= 2 && $n <= 4) ? 'варіанти' : 'варіантів');
+    } else {
+        $w = $n === 1 ? 'вариант' : (($n >= 2 && $n <= 4) ? 'варианта' : 'вариантов');
+    }
+    return "$n $w";
+}

@@ -1,0 +1,746 @@
+/* tacho-install.css — страница «Встановлення тахографів».
+   ВАЖНО: страница светлая — переопределяем body поверх base.css. */
+
+body {
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.line {
+  width: 60px;
+  height: 5px;
+  background: var(--red);
+  margin: 20px 0;
+}
+
+/* ===== HERO-SUB ===== */
+.hero-sub {
+  padding: 70px 0;
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+.hero-title {
+  font-size: clamp(30px, 6vw, 55px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+.hero-title span {
+  color: var(--red);
+}
+.hero-sub-text {
+  color: #b5b5b5;
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 720px;
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+.btn-back-link {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+/* ===== ОПЫТ ===== */
+.s-experience {
+  background: #0a0a0a;
+  padding: 50px 0;
+  color: #fff;
+  border-top: 1px solid #222;
+}
+.exp-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.exp-item b {
+  font-size: 45px;
+  color: var(--red);
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.exp-item span {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+/* ===== ПРЕИМУЩЕСТВА ===== */
+.s-advantages {
+  background: #0a0a0a;
+  padding: 60px 0;
+  border-top: 1px solid #222;
+}
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.advantage-card {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-left: 4px solid var(--red);
+  padding: 32px 28px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.advantage-card:hover {
+  border-left-color: #fff;
+  transform: translateY(-4px);
+}
+.adv-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+.advantage-card h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.advantage-card p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== КАЛЬКУЛЯТОР ===== */
+.calc-section {
+  background: #000;
+  padding: 40px 0;
+}
+.taho-calc-wrapper {
+  font-family: 'Montserrat', sans-serif !important;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #0a0a0a;
+  border-radius: 6px;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid #1f1f1f;
+  color: #fff;
+}
+.taho-calc-header {
+  margin-bottom: 30px;
+}
+.taho-calc-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-left: 6px solid #e60000;
+  padding-left: 15px;
+  line-height: 1.1;
+}
+.taho-calc-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: #aaa;
+  margin: 0 0 0 21px;
+  line-height: 1.5;
+}
+.taho-calc-note {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: #e60000;
+  margin: 15px 0 0 0;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.taho-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+.taho-input-group {
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  padding: 20px;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+}
+.taho-input-group label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #e60000;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.taho-select {
+  font-family: 'Montserrat', sans-serif !important;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #0a0a0a;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+  background-size: 12px auto;
+}
+.taho-select:focus {
+  border-color: #e60000;
+  outline: none;
+}
+.taho-select option {
+  background-color: #111;
+  color: #fff;
+}
+
+.taho-radio-group {
+  display: flex;
+  gap: 15px;
+  height: 100%;
+}
+.taho-radio-label {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+.taho-radio-label input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.taho-radio-label span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #aaa;
+  background: #0a0a0a;
+  transition: 0.2s;
+}
+.taho-radio-label input[type='radio']:checked ~ span {
+  background: #e60000;
+  color: #fff;
+  border-color: #e60000;
+}
+.taho-calc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.taho-price-block {
+  display: flex;
+  flex-direction: column;
+}
+.taho-price-label {
+  font-size: 14px;
+  color: #aaa;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.taho-price-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+.taho-price-value.not-supported {
+  color: #ff6b6b;
+}
+.taho-price-value.hint {
+  font-size: 20px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0;
+}
+.taho-btn-primary {
+  font-family: 'Montserrat', sans-serif !important;
+  background: #e60000;
+  color: #fff;
+  border: none;
+  padding: 18px 40px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+  letter-spacing: 1px;
+}
+.taho-btn-primary:hover:not(:disabled) {
+  background: #cc0000;
+  transform: translateY(-2px);
+}
+.taho-btn-primary:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== SMART ===== */
+.s-smart {
+  background: #000;
+  padding: 60px 0;
+}
+.smart-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #0a0a0a;
+  border: 1px solid #1f1f1f;
+  border-left: 6px solid var(--red);
+  border-radius: 8px;
+  padding: 40px 44px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.smart-text h3 {
+  font-size: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.smart-text h3 span {
+  color: var(--red);
+}
+.smart-text p {
+  font-size: 15px;
+  color: #b5b5b5;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.smart-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.smart-list li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 14px;
+  color: #d6d6d6;
+  line-height: 1.5;
+}
+.smart-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);
+  font-weight: 900;
+}
+.smart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.smart-actions .smart-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8a8a8a;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.smart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: 0.25s;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+.smart-btn-call {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.smart-btn-call:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.smart-btn-order {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+.smart-btn-order:hover {
+  background: #b00b0b;
+  border-color: #b00b0b;
+  transform: translateY(-1px);
+}
+.smart-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.smart-phones a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.smart-phones a:hover {
+  color: #fff;
+}
+
+/* ===== КАК РАБОТАЕМ ===== */
+.s-work {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+.s-work h2 {
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 50px;
+}
+.work-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  text-align: center;
+}
+.work-num {
+  font-size: 45px;
+  font-weight: 900;
+  color: #e60c0c;
+  margin-bottom: 15px;
+  display: block;
+}
+.work-card h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #000;
+}
+.work-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===== ОТЗЫВЫ ===== */
+.s-reviews {
+  padding: 80px 0;
+  background: #000;
+}
+.reviews-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: clamp(22px, 3.4vw, 32px);
+  margin-bottom: 40px;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.review-card {
+  background: #0a0a0a;
+  border: 1px solid #1f1f1f;
+  border-top: 3px solid var(--red);
+  padding: 32px 28px;
+  border-radius: 6px;
+  transition: 0.3s;
+  position: relative;
+}
+.review-card:hover {
+  border-top-color: #fff;
+  transform: translateY(-4px);
+}
+.review-stars {
+  color: #ffd700;
+  font-size: 14px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+.review-text {
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.review-author {
+  color: var(--red);
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== МОДАЛКА ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: 0.3s;
+  line-height: 1;
+  background: none;
+  border: none;
+}
+.modal-close:hover {
+  color: var(--red);
+}
+.modal-content h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #000;
+  text-transform: uppercase;
+}
+.modal-content h3 span {
+  color: var(--red);
+}
+.modal-desc {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+  border-left: 3px solid var(--red);
+  padding-left: 12px;
+}
+.modal-input-group {
+  margin-bottom: 20px;
+}
+.modal-input-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #222;
+}
+.modal-input-group label .req {
+  color: var(--red);
+}
+.modal-input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  transition: 0.25s;
+  outline: none;
+}
+.modal-input-group input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(230, 12, 12, 0.1);
+}
+.modal-input-group input.error {
+  border-color: var(--red);
+}
+.modal-error {
+  color: var(--red);
+  font-size: 11px;
+  margin-top: 5px;
+  display: none;
+}
+.modal-error.show {
+  display: block;
+}
+.modal-submit {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.25s;
+  margin-top: 10px;
+}
+.modal-submit:hover:not(:disabled) {
+  background: #b00b0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(230, 12, 12, 0.3);
+}
+.modal-submit:disabled {
+  background: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+.modal-submit.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ===== МЕДИА ===== */
+@media (max-width: 991px) {
+  /* общее поведение уже в header.css */
+}
+@media (max-width: 860px) {
+  .smart-card {
+    grid-template-columns: 1fr;
+    padding: 30px 24px;
+    gap: 26px;
+  }
+  .smart-text h3 {
+    font-size: 21px;
+  }
+  .s-smart {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 768px) {
+  .hero-sub-text {
+    font-size: 14px;
+  }
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+  .taho-calc-wrapper {
+    padding: 25px 20px;
+    margin: 10px;
+  }
+  .taho-calc-title {
+    font-size: 22px;
+  }
+  .taho-calc-subtitle {
+    font-size: 13px;
+    margin-left: 15px;
+  }
+  .taho-calc-note {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  .taho-calc-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .taho-calc-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .taho-btn-primary {
+    width: 100%;
+    padding: 20px;
+  }
+  .taho-price-value {
+    font-size: 28px;
+  }
+  .taho-price-value.hint {
+    font-size: 16px;
+  }
+  .s-reviews {
+    padding: 50px 0;
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}

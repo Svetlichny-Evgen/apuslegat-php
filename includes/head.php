@@ -29,4 +29,13 @@ $PAGE_JS  = $PAGE_JS  ?? [];
   <?php foreach ($PAGE_CSS as $css): ?>
     <link rel="stylesheet" href="<?= url('assets/css/' . basename($css) . '.css') ?>">
   <?php endforeach; ?>
+
+  <?php foreach (($PAGE_EXTERNAL_CSS ?? []) as $extCss): ?>
+    <link rel="stylesheet" href="<?= e($extCss) ?>">
+  <?php endforeach; ?>
+</head>
+
+  <?php foreach (($HEAD_JS ?? []) as $js): ?>
+    <script src="<?= url('assets/js/' . $js . '.js') ?>"></script>
+  <?php endforeach; ?>
 </head>
