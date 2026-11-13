@@ -1,0 +1,1460 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Сервіс тахографів Харків — Калібрування та Чіп-картки — Apus Legat
+    </title>
+    <meta
+      name="description"
+      content="Офіційний сервіс тахографів у Харкові. Встановлення, калібрування та виготовлення чіп-карток водія. Обслуговування за стандартами ЄСТР."
+    />
+    <link rel="icon" type="image/png" href="img/public/favicon.png" />
+
+    <script>
+      // Зберігаємо UTM-мітки при переході між сторінками
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ].forEach((param) => {
+          const value = urlParams.get(param);
+          if (value) localStorage.setItem(param, value);
+        });
+      })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N89VVZFR');
+    </script>
+    <!-- End Google Tag Manager -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #e60c0c;
+        --dark: #000;
+        --card: #0a0a0a;
+        --border: rgba(255, 255, 255, 0.1);
+        --h: 72px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--dark);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        line-height: 1.6;
+        padding-top: var(--h);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 25px;
+      }
+      .mono {
+        font-family: 'Space Mono', monospace;
+      }
+
+      /* header */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--border);
+        height: var(--h);
+        display: flex;
+        align-items: center;
+      }
+      .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .logo {
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+      .logo span {
+        color: var(--red);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+      .nav-links a {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 20px;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+        color: var(--red);
+      }
+      .lang-switcher {
+        display: flex;
+        gap: 8px;
+        border-left: 1px solid var(--border);
+        padding-left: 20px;
+      }
+      .lang-btn {
+        background: 0;
+        border: 0;
+        color: #fff;
+        font: 900 10px Montserrat;
+        cursor: pointer;
+        opacity: 0.4;
+      }
+      .lang-btn.active {
+        opacity: 1;
+        color: var(--red);
+      }
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 2100;
+      }
+      .burger span {
+        width: 25px;
+        height: 2px;
+        background: #fff;
+      }
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: right 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1500;
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu a {
+        font-size: 20px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .mobile-lang-switcher {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .mobile-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        font:
+          900 16px Montserrat,
+          sans-serif;
+        cursor: pointer;
+        padding: 10px 28px;
+        border-radius: 4px;
+      }
+      .mobile-lang-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+      }
+      @media (max-width: 991px) {
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      /* hero з відео */
+      .lk {
+        fill: #fff;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 82vh;
+        display: flex;
+        align-items: center;
+        padding: 70px 0;
+        background: #0d0d0d;
+      }
+      .hero-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 56.25vw;
+        min-height: 100%;
+        min-width: 177.77vh;
+        transform: translate(-50%, -50%);
+        border: 0;
+        pointer-events: none;
+        opacity: 0.35;
+        filter: grayscale(1);
+      }
+      .hero-shade {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.92) 30%,
+            rgba(0, 0, 0, 0.35) 100%
+          ),
+          radial-gradient(
+            circle at 12% 25%,
+            rgba(230, 12, 12, 0.3),
+            transparent 50%
+          );
+      }
+      .hero .container {
+        position: relative;
+        z-index: 2;
+      }
+      .back {
+        display: inline-block;
+        font:
+          700 11px 'Space Mono',
+          monospace;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 26px;
+        transition: 0.3s;
+      }
+      .back:hover {
+        letter-spacing: 3px;
+      }
+      .tag {
+        color: var(--red);
+        font-weight: 700;
+        letter-spacing: 5px;
+        font-size: 13px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-size: clamp(38px, 6.5vw, 86px);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 0.92;
+        margin-bottom: 22px;
+      }
+      h1 b,
+      h2 b {
+        color: var(--red);
+      }
+      .lead {
+        color: #e2e2e2;
+        max-width: 600px;
+        font-size: 15px;
+        margin-bottom: 35px;
+      }
+      .btns {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 16px 30px;
+        font-weight: 900;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid #fff;
+        transition: 0.3s;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .btn.red {
+        background: var(--red);
+        border-color: var(--red);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(230, 12, 12, 0.4);
+      }
+
+      /* факти */
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: #2b2e33;
+        border-top: 3px solid var(--red);
+      }
+      .fact {
+        padding: 32px 25px;
+        border-right: 1px solid rgba(255, 255, 255, 0.14);
+        text-align: center;
+      }
+      .fact:last-child {
+        border: 0;
+      }
+      .fact strong {
+        display: block;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 900;
+        line-height: 1;
+      }
+      .fact span {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #c9ccd1;
+      }
+
+      /* секції */
+      .band .sec {
+        padding: 90px 25px;
+      }
+      .sec-title {
+        font-size: clamp(28px, 5vw, 45px);
+        font-weight: 900;
+        text-transform: uppercase;
+        border-left: 6px solid var(--red);
+        padding-left: 20px;
+        margin-bottom: 50px;
+      }
+      .sec-title span {
+        color: var(--red);
+      }
+      .light {
+        background: #f2f1ee;
+        color: #111;
+      }
+      .light2 {
+        background: #e4e2dd;
+        color: #111;
+      }
+      .mid {
+        background: #161616;
+      }
+      .book {
+        background: #101010;
+      }
+
+      /* ціни */
+      .feat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        background: #111;
+        color: #fff;
+        border-left: 6px solid var(--red);
+        padding: 30px 32px;
+        margin-bottom: 26px;
+      }
+      .feat strong {
+        font-size: clamp(17px, 2.2vw, 22px);
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      .ptable {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .ptable tr {
+        border-bottom: 1px solid #d3d1cb;
+        transition: 0.3s;
+      }
+      .ptable tr:hover {
+        background: #fff;
+      }
+      .ptable td {
+        padding: 20px 14px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .ptable td:last-child {
+        text-align: right;
+        color: var(--red);
+        font-weight: 900;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+
+      /* бренди */
+      .mq {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 7%,
+          #000 93%,
+          transparent
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent,
+          #000 7%,
+          #000 93%,
+          transparent
+        );
+      }
+      .mq-track {
+        display: flex;
+        width: max-content;
+        animation: mq 45s linear infinite;
+      }
+      .mq:hover .mq-track {
+        animation-play-state: paused;
+      }
+      @keyframes mq {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .brand {
+        flex-shrink: 0;
+        width: 240px;
+        text-align: center;
+        font-size: clamp(26px, 3.2vw, 38px);
+        font-weight: 900;
+        letter-spacing: 3px;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55);
+        transition: 0.3s;
+      }
+      .brand:hover {
+        color: var(--red);
+        -webkit-text-stroke-color: var(--red);
+      }
+      .brands-wrap {
+        padding: 70px 0;
+      }
+
+      /* відгуки */
+      .rev-track {
+        display: flex;
+        gap: 24px;
+        width: max-content;
+        animation: mq 70s linear infinite;
+        padding: 6px 0 90px;
+      }
+      .light2 .mq:hover .rev-track {
+        animation-play-state: paused;
+      }
+      .rev {
+        flex-shrink: 0;
+        width: 350px;
+        background: #fff;
+        border: 1px solid #cfcdc8;
+        border-top: 4px solid var(--red);
+        padding: 30px 28px;
+      }
+      .rev .st {
+        color: #e6a800;
+        font-size: 13px;
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+      }
+      .rev b {
+        display: block;
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 8px;
+      }
+      .rev p {
+        font-size: 15px;
+        color: #333;
+        line-height: 1.55;
+      }
+
+      /* форма */
+      .bgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .info > p {
+        color: #e2e2e2;
+        font-size: 15px;
+        margin-bottom: 28px;
+        max-width: 520px;
+      }
+      .steps {
+        list-style: none;
+        margin: 0 0 30px;
+      }
+      .steps li {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+        color: #e2e2e2;
+        font-size: 15px;
+      }
+      .steps i {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--red);
+        color: var(--red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font:
+          normal 700 13px 'Space Mono',
+          monospace;
+      }
+      .contacts p {
+        font-size: 14px;
+        color: #ccc;
+        margin-bottom: 8px;
+      }
+      .contacts b {
+        color: #fff;
+      }
+      .contacts a:hover {
+        color: var(--red);
+      }
+      .form-wrap {
+        background: #1b1b1b;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-top: 3px solid var(--red);
+        padding: 40px 36px;
+      }
+      .form-wrap h3 {
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+      .form-wrap h3 span {
+        color: var(--red);
+      }
+      .fg {
+        margin-bottom: 18px;
+      }
+      .fg label {
+        display: block;
+        font:
+          700 11px 'Space Mono',
+          monospace;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #bbb;
+        margin-bottom: 8px;
+      }
+      .fg label .req {
+        color: var(--red);
+      }
+      .fg input,
+      .fg select {
+        width: 100%;
+        padding: 16px;
+        background: #111;
+        border: 1px solid #333;
+        color: #fff;
+        font:
+          400 15px Montserrat,
+          sans-serif;
+        border-radius: 0;
+        outline: none;
+        transition: 0.3s;
+      }
+      .fg input:focus,
+      .fg select:focus {
+        border-color: var(--red);
+      }
+      .error-message {
+        color: #ff6b6b;
+        font-size: 12px;
+        margin-top: 6px;
+        min-height: 0;
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 20px;
+        background: var(--red);
+        color: #fff;
+        border: 0;
+        font:
+          900 13px Montserrat,
+          sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-submit:hover:not(:disabled) {
+        box-shadow: 0 0 24px rgba(230, 12, 12, 0.5);
+      }
+      .btn-submit:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .form-note {
+        font-size: 12px;
+        color: #999;
+        margin-top: 16px;
+        text-align: center;
+      }
+      .err {
+        color: #ff6b6b;
+        font-size: 13px;
+        margin-top: 12px;
+        min-height: 18px;
+        text-align: center;
+      }
+
+      /* footer */
+      .site-footer {
+        background: #141414;
+        padding: 80px 20px 40px;
+        border-top: 3px solid var(--red);
+      }
+      .fc {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+      }
+      .fc h3 {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        color: var(--red);
+      }
+      .fc li {
+        list-style: none;
+        margin-bottom: 8px;
+      }
+      .fc a,
+      .fc p {
+        color: #999;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+      .fc a:hover {
+        color: #fff;
+      }
+      .fb {
+        max-width: 1600px;
+        margin: 60px auto 0;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #444;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          padding: 60px 0;
+          min-height: 70vh;
+        }
+        .bgrid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .fc {
+          grid-template-columns: 1fr 1fr;
+        }
+        .band .sec {
+          padding: 70px 25px;
+        }
+      }
+      @media (max-width: 640px) {
+        .container {
+          padding: 0 22px;
+        }
+        .band .sec {
+          padding: 60px 22px;
+        }
+        .facts {
+          grid-template-columns: 1fr;
+        }
+        .fact {
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+          padding: 22px;
+        }
+        .fc {
+          grid-template-columns: 1fr;
+        }
+        .fb {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .btn {
+          padding: 13px 18px;
+        }
+        .ptable td {
+          padding: 15px 4px;
+          font-size: 14px;
+        }
+        .ptable td:last-child {
+          font-size: 16px;
+        }
+        .feat {
+          padding: 22px 20px;
+        }
+        .rev {
+          width: 280px;
+        }
+        .brand {
+          width: 170px;
+        }
+        .form-wrap {
+          padding: 28px 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .mq-track,
+        .rev-track {
+          animation: none;
+        }
+        .mq {
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N89VVZFR"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <svg width="0" height="0" style="position: absolute">
+      <symbol id="lg" viewBox="0 0 109.5 133.1">
+        <path
+          class="lk"
+          fill-rule="evenodd"
+          d="M40.9 67.1 L39.1 67.5 L38.2 68.6 L35.1 76.6 L32.1 86.6 L32.8 88.2 L38.2 93.6 L39.1 93.5 L39.8 92.2 L44.0 75.6 L44.8 73.8 L45.0 71.8 L45.8 69.8 L45.4 68.4ZM51.8 46.5 L49.0 46.1 L48.4 46.4 L47.6 47.2 L45.1 51.9 L41.8 60.0 L41.6 61.1 L42.0 61.6 L45.2 62.6 L46.8 62.6 L47.6 62.0 L48.8 59.6 L51.6 50.6 L52.1 48.2 L52.1 46.9ZM58.4 30.0 L57.2 29.9 L56.6 30.1 L54.5 32.9 L51.1 39.5 L51.4 40.8 L51.9 41.0 L54.0 41.0 L54.8 40.6 L55.4 39.8 L58.9 31.6 L58.9 30.6ZM67.9 12.9 L66.0 14.6 L63.1 18.6 L60.1 23.5 L60.0 24.1 L60.4 24.8 L61.4 24.6 L62.4 23.6 L66.8 15.8ZM82.8 4.1 L82.0 4.6 L77.1 14.0 L69.1 32.4 L64.1 47.1 L60.1 61.9 L56.2 82.0 L54.0 100.8 L53.8 107.5 L53.0 113.8 L53.0 130.0 L53.4 130.6 L53.9 129.8 L54.9 123.9 L55.8 121.2 L56.0 119.0 L56.8 117.1 L57.0 115.0 L58.8 108.9 L60.0 102.9 L60.8 101.0 L62.0 95.9 L63.0 93.5 L63.5 93.2 L64.1 94.0 L64.6 98.2 L65.1 99.1 L65.8 99.1 L73.4 92.0 L93.0 72.5 L105.5 59.5 L106.9 57.2 L107.0 54.8 L105.8 52.2 L82.6 28.8 L81.2 28.4 L79.8 29.9 L78.5 30.5 L78.0 30.4 L77.4 29.6 L77.9 25.1 L78.6 22.6 L78.9 20.1 L79.6 18.0 L79.9 15.9 L80.8 13.4 L81.9 8.2 L82.8 6.0Z"
+        />
+        <path
+          fill="#e60c0c"
+          fill-rule="evenodd"
+          d="M65.5 2.5 L58.2 6.2 L57.4 6.1 L56.4 4.0 L55.2 3.4 L53.5 3.5 L50.8 5.0 L9.0 46.6 L3.5 52.6 L2.6 54.5 L2.5 56.4 L3.8 59.5 L8.2 63.9 L9.8 64.8 L11.0 64.5 L12.6 62.9 L15.4 59.1 L18.0 56.4 L18.9 55.9 L19.8 56.2 L19.9 57.2 L19.1 59.2 L15.6 65.2 L14.1 68.8 L14.1 69.9 L14.5 70.6 L18.1 74.4 L19.2 74.5 L19.9 73.8 L23.2 66.0 L29.4 53.8 L35.4 43.1 L41.4 33.6 L49.5 22.1 L57.2 12.5 L63.8 5.2 L65.5 3.0Z"
+        />
+      </symbol>
+    </svg>
+
+    <header class="main-header">
+      <div class="nav-flex">
+        <a href="index.html" class="logo">APUS<span>LEGAT</span></a>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="index.html" data-i18n="home">ГОЛОВНА</a>
+            <a href="about.html" data-i18n="about">ПРО НАС</a>
+            <a href="catalog.html" data-i18n="shop">МАГАЗИН</a>
+            <a href="contacts.html" data-i18n="contacts">КОНТАКТИ</a>
+          </nav>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-l="uk" onclick="changeLang('uk')">
+              UA
+            </button>
+            <button class="lang-btn" data-l="ru" onclick="changeLang('ru')">
+              RU
+            </button>
+          </div>
+          <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()" data-i18n="home">ГОЛОВНА</a>
+      <a href="about.html" onclick="toggleMenu()" data-i18n="about">ПРО НАС</a>
+      <a href="catalog.html" onclick="toggleMenu()" data-i18n="shop">МАГАЗИН</a>
+      <a href="contacts.html" onclick="toggleMenu()" data-i18n="contacts"
+        >КОНТАКТИ</a
+      >
+      <div class="mobile-lang-switcher">
+        <button
+          class="mobile-lang-btn"
+          data-l="uk"
+          onclick="changeLangMobile('uk')"
+        >
+          UA
+        </button>
+        <button
+          class="mobile-lang-btn"
+          data-l="ru"
+          onclick="changeLangMobile('ru')"
+        >
+          RU
+        </button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <iframe
+        class="hero-video"
+        src="https://www.youtube.com/embed/ccTuiy8KCDc?autoplay=1&mute=1&controls=0&loop=1&playlist=ccTuiy8KCDc"
+        frameborder="0"
+        tabindex="-1"
+        aria-hidden="true"
+        title=""
+      ></iframe>
+      <div class="hero-shade"></div>
+      <div class="container">
+        <a href="hub.html" class="back" data-i18n="back">← Назад до послуг</a>
+        <span class="tag">Apus Legat</span>
+        <h1 data-i18n="h1">СЕРВІС ТАХОГРАФІВ <b>ПІД КЛЮЧ</b></h1>
+        <p class="lead" data-i18n="lead">
+          Офіційний сервіс у Харкові. Калібрування, чіп-картки водія та
+          обслуговування за стандартами ЄСТР.
+        </p>
+        <div class="btns">
+          <a href="#feedback-form-section" class="btn red" data-i18n="bo"
+            >Записатися на сервіс</a
+          >
+          <a href="tel:+380660339009" class="btn mono">+380 66 033 90 09</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="facts">
+      <div class="fact">
+        <strong>500+</strong><span data-i18n="x1">задоволених клієнтів</span>
+      </div>
+      <div class="fact">
+        <strong
+          >15 <small style="font-size: 0.5em" data-i18n="xm">хв</small></strong
+        ><span data-i18n="x2">зв'яжемось із вами</span>
+      </div>
+      <div class="fact">
+        <strong>ЄСТР</strong
+        ><span data-i18n="x3">стандарти обслуговування</span>
+      </div>
+    </div>
+
+    <section class="band light">
+      <div class="container sec">
+        <h2 class="sec-title" data-i18n="pt">Послуги <span>та ціни</span></h2>
+        <div class="feat" id="feat-row"></div>
+        <table class="ptable" id="price-list-table"></table>
+      </div>
+    </section>
+
+    <section class="band mid">
+      <div class="brands-wrap">
+        <div class="mq"><div class="mq-track" id="brands"></div></div>
+      </div>
+    </section>
+
+    <section class="band light2">
+      <div class="container sec" style="padding-bottom: 40px">
+        <h2 class="sec-title" data-i18n="rt">
+          Понад 500 <span>задоволених клієнтів</span>
+        </h2>
+      </div>
+      <div class="mq"><div class="rev-track" id="reviews-container"></div></div>
+    </section>
+
+    <section class="band book" id="feedback-form-section">
+      <div class="container sec">
+        <div class="bgrid">
+          <div class="info">
+            <h2 class="sec-title" data-i18n="bt">Швидка <span>заявка</span></h2>
+            <p data-i18n="bd">
+              Оберіть послугу, залиште контакти — наш менеджер проконсультує вас
+              та підбере зручний час для візиту в сервіс.
+            </p>
+            <ol class="steps">
+              <li>
+                <i>01</i
+                ><span data-i18n="s1"
+                  >Обираєте послугу й залишаєте контакти.</span
+                >
+              </li>
+              <li>
+                <i>02</i
+                ><span data-i18n="s2"
+                  >Менеджер телефонує протягом 15 хвилин.</span
+                >
+              </li>
+              <li>
+                <i>03</i
+                ><span data-i18n="s3">Приїжджаєте в сервіс у зручний час.</span>
+              </li>
+            </ol>
+            <div class="contacts">
+              <p>
+                <b data-i18n="ih">Графік:</b>
+                <span data-i18n="ihv">Пн — Пт, 8:00–18:00</span>
+              </p>
+              <p>
+                <b data-i18n="ia">Адреса:</b>
+                <span data-i18n="iav">м. Харків, вул. Драгомирівська, 10</span>
+              </p>
+              <p>
+                <b class="mono">Tel:</b>
+                <a href="tel:+380660339009">+380 66 033 90 09</a> ·
+                <a href="tel:+380630339009">+380 63 033 90 09</a>
+              </p>
+            </div>
+          </div>
+          <div class="form-wrap">
+            <h3 data-i18n="ft">Швидка <span>заявка</span></h3>
+            <form id="callbackForm" action="php/telegram.php" method="POST">
+              <input type="hidden" name="utm_source" id="utm_source" value="" />
+              <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+              <input
+                type="hidden"
+                name="utm_campaign"
+                id="utm_campaign"
+                value=""
+              />
+              <input type="hidden" name="utm_term" id="utm_term" value="" />
+              <input
+                type="hidden"
+                name="utm_content"
+                id="utm_content"
+                value=""
+              />
+              <div class="fg">
+                <label for="serviceSelect"
+                  ><span data-i18n="sl">Послуга</span>
+                  <span class="req">*</span></label
+                >
+                <select id="serviceSelect" name="service" required></select>
+              </div>
+              <div class="fg">
+                <label for="name"
+                  ><span data-i18n="nl">ПІБ / Ім'я</span>
+                  <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Іванов Іван Іванович"
+                  autocomplete="name"
+                />
+                <div class="error-message" id="nameError"></div>
+              </div>
+              <div class="fg">
+                <label for="phone"
+                  ><span data-i18n="pl">Номер телефону</span>
+                  <span class="req">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+380660339009"
+                  maxlength="13"
+                  autocomplete="tel"
+                  value="+380"
+                />
+                <div class="error-message" id="phoneError"></div>
+              </div>
+              <button
+                type="submit"
+                class="btn-submit"
+                id="submitBtnText"
+                data-i18n="sb"
+              >
+                Надіслати заявку
+              </button>
+              <div class="err" id="f-err" role="alert"></div>
+              <div class="form-note" data-i18n="fn2">
+                Наші фахівці зв'яжуться з вами протягом 15 хвилин.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="fc">
+        <div>
+          <h3>APUS LEGAT</h3>
+          <p style="text-transform: none" data-i18n="fa">
+            Професійне обслуговування, продаж тахографів та технічного контролю
+            транспорту в Харкові.
+          </p>
+        </div>
+        <div>
+          <h3 data-i18n="fn">НАВІГАЦІЯ</h3>
+          <ul>
+            <li><a href="index.html" data-i18n="home">Головна</a></li>
+            <li><a href="about.html" data-i18n="about">Про нас</a></li>
+            <li><a href="catalog.html" data-i18n="shop">Магазин</a></li>
+            <li><a href="contacts.html" data-i18n="contacts">Контакти</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="fs">СЕРВІС</h3>
+          <ul>
+            <li>
+              <a href="service-otk.html" data-i18n="fo">Технічний огляд</a>
+            </li>
+            <li><a href="service-tacho.html" data-i18n="ft2">Тахосервіс</a></li>
+            <li>
+              <a href="service-cert-auto.html" data-i18n="fca"
+                >Сертифікація авто</a
+              >
+            </li>
+            <li>
+              <a href="service-cert-tanks.html" data-i18n="fct"
+                >Сертифікація бочок</a
+              >
+            </li>
+            <li>
+              <a href="logistics.html" data-i18n="fl">Логістика та ADR</a>
+            </li>
+            <li><a href="parking.html" data-i18n="fp">Інфраструктура</a></li>
+            <li><a href="documents.html" data-i18n="fd">Документація</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="fk">КОНТАКТИ</h3>
+          <p data-i18n="fad">Україна, м. Харків, вул. Драгомирівська, 10</p>
+          <p>+380 66 033 90 09</p>
+          <p>+380 63 033 90 09</p>
+          <p style="text-transform: none">Email: apuslegatt@gmail.com</p>
+        </div>
+      </div>
+      <div class="fb">
+        <span>© 2026 APUS LEGAT. ALL RIGHTS RESERVED.</span
+        ><span>DESIGN BY APUS TECH</span>
+      </div>
+    </footer>
+
+    <script>
+      /* ===== Ім'я форми для аналітики ===== */
+      const FORM_NAME = 'tacho_service';
+
+      let currentLang = localStorage.getItem('selectedLang') || 'uk';
+
+      const RU = {
+        home: 'ГЛАВНАЯ',
+        about: 'О НАС',
+        shop: 'МАГАЗИН',
+        contacts: 'КОНТАКТЫ',
+        back: '← Назад к услугам',
+        h1: 'СЕРВИС ТАХОГРАФОВ <b>ПОД КЛЮЧ</b>',
+        lead: 'Официальный сервис в Харькове. Калибровка, чип-карты водителя и обслуживание по стандартам ЕСТР.',
+        bo: 'Записаться на сервис',
+        x1: 'довольных клиентов',
+        xm: 'мин',
+        x2: 'свяжемся с вами',
+        x3: 'стандарты обслуживания',
+        pt: 'Услуги <span>и цены</span>',
+        rt: 'Более 500 <span>довольных клиентов</span>',
+        bt: 'Быстрая <span>заявка</span>',
+        bd: 'Выберите услугу, оставьте контакты — наш менеджер проконсультирует и подберёт удобное время для визита в сервис.',
+        s1: 'Выбираете услугу и оставляете контакты.',
+        s2: 'Менеджер звонит в течение 15 минут.',
+        s3: 'Приезжаете в сервис в удобное время.',
+        ih: 'График:',
+        ihv: 'Пн — Пт, 8:00–18:00',
+        ia: 'Адрес:',
+        iav: 'г. Харьков, ул. Драгомировская, 10',
+        ft: 'Быстрая <span>заявка</span>',
+        sl: 'Услуга',
+        nl: 'ФИО / Имя',
+        pl: 'Номер телефона',
+        sb: 'Отправить заявку',
+        fn2: 'Наши специалисты свяжутся с вами в течение 15 минут.',
+        fa: 'Профессиональное обслуживание, продажа тахографов и технического контроля транспорта в Харькове.',
+        fn: 'НАВИГАЦИЯ',
+        fs: 'СЕРВИС',
+        fk: 'КОНТАКТЫ',
+        fo: 'Технический осмотр',
+        ft2: 'Тахосервис',
+        fca: 'Сертификация авто',
+        fct: 'Сертификация бочек',
+        fl: 'Логистика и ADR',
+        fp: 'Инфраструктура',
+        fd: 'Документация',
+        fad: 'Украина, г. Харьков, ул. Драгомировская, 10',
+      };
+      const UK = {};
+      const els = [...document.querySelectorAll('[data-i18n]')];
+      els.forEach((e) => {
+        UK[e.dataset.i18n] ??= e.innerHTML;
+      });
+
+      const DATA = {
+        uk: {
+          more: 'Докладніше',
+          choose: '— Оберіть послугу —',
+          namePh: 'Іванов Іван Іванович',
+          sending: 'Відправляємо...',
+          fail: 'Не вдалося відправити заявку. Спробуйте ще раз або зателефонуйте: +380 66 033 90 09',
+          eName: 'Вкажіть ПІБ',
+          eDigits: 'ПІБ не може містити цифри',
+          ePhone: 'Вкажіть номер телефону',
+          ePhone2: 'Введіть коректний номер (13 цифр, наприклад +380501234567)',
+          prices: [
+            ['Встановлення тахографа (МАЗ, MAN, DAF та ін.)', 'btn'],
+            ['Калібрування SMART тахографа', '5 000 грн'],
+            ['Калібрування цифрового тахографа', '2 500 грн'],
+            ['Калібрування аналогового тахографа', '2 000 грн'],
+            ['Виготовлення чіп-карти водія', '4 800 грн'],
+            ['Заміна тахографа з прошивкою', '770 грн'],
+            ['Налаштування годинника та режимів', '500 грн'],
+            ['Корекція одометра', '500 грн'],
+            ['Діагностика системи тахографа', '300 грн'],
+            ['Зчитування даних (картка)', '250 грн'],
+            ['Зчитування даних (тахограф)', '300 грн'],
+            ['Чистка слотів тахографа', '100 грн'],
+          ],
+          reviews: [
+            {
+              name: 'Микола (MAN TGX)',
+              text: 'Швидке калібрування. Протокол видали на місці.',
+            },
+            {
+              name: 'Дмитро, АТП-15',
+              text: 'Замовляли чіп-картки на 5 водіїв. Все вчасно.',
+            },
+            {
+              name: 'Віталій',
+              text: 'Найкращий тахосервіс у Харкові. Майстри — профі.',
+            },
+            {
+              name: 'Олег (Scania)',
+              text: 'Виправили помилку датчика швидкості швидко.',
+            },
+          ],
+          options: [
+            'Встановлення тахографа',
+            'Калібрування цифрового тахографа',
+            'Калібрування аналогового тахографа',
+            'Виготовлення чіп-карти водія',
+            'Заміна тахографа з прошивкою',
+            'Діагностика системи тахографа',
+            'Інше (консультація)',
+          ],
+        },
+        ru: {
+          more: 'Подробнее',
+          choose: '— Выберите услугу —',
+          namePh: 'Иванов Иван Иванович',
+          sending: 'Отправляем...',
+          fail: 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните: +380 66 033 90 09',
+          eName: 'Укажите ФИО',
+          eDigits: 'ФИО не может содержать цифры',
+          ePhone: 'Укажите номер телефона',
+          ePhone2: 'Введите корректный номер (13 цифр, например +380501234567)',
+          prices: [
+            ['Установка тахографа (МАЗ, MAN, DAF и др.)', 'btn'],
+            ['Калибровка SMART тахографа', '5 000 грн'],
+            ['Калибровка цифрового тахографа', '2 500 грн'],
+            ['Калибровка аналогового тахографа', '2 000 грн'],
+            ['Изготовление чип-карты водителя', '4 800 грн'],
+            ['Замена тахографа с прошивкой', '770 грн'],
+            ['Настройка часов и режимов', '500 грн'],
+            ['Коррекция одометра', '500 грн'],
+            ['Диагностика системы тахографа', '300 грн'],
+            ['Считывание данных (карта)', '250 грн'],
+            ['Считывание данных (тахограф)', '300 грн'],
+            ['Чистка слотов тахографа', '100 грн'],
+          ],
+          reviews: [
+            {
+              name: 'Николай (MAN TGX)',
+              text: 'Быстрая калибровка. Протокол выдали на месте.',
+            },
+            {
+              name: 'Дмитрий, АТП-15',
+              text: 'Заказывали чип-карты на 5 водителей. Всё вовремя.',
+            },
+            {
+              name: 'Виталий',
+              text: 'Лучший тахосервис в Харькове. Мастера — профи.',
+            },
+            {
+              name: 'Олег (Scania)',
+              text: 'Быстро исправили ошибку датчика скорости.',
+            },
+          ],
+        },
+      };
+      DATA.ru.options = DATA.uk.options.map(
+        (o, i) =>
+          [
+            'Установка тахографа',
+            'Калибровка цифрового тахографа',
+            'Калибровка аналогового тахографа',
+            'Изготовление чип-карты водителя',
+            'Замена тахографа с прошивкой',
+            'Диагностика системы тахографа',
+            'Другое (консультация)',
+          ][i]
+      );
+
+      function toggleMenu() {
+        const m = document.getElementById('mobileMenu');
+        m.classList.toggle('active');
+        document.body.style.overflow = m.classList.contains('active')
+          ? 'hidden'
+          : '';
+      }
+      function changeLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('selectedLang', lang);
+        applyLanguage();
+      }
+      function changeLangMobile(lang) {
+        changeLang(lang);
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function applyLanguage() {
+        const d = currentLang === 'ru' ? RU : UK;
+        const t = DATA[currentLang];
+        els.forEach((e) => {
+          const v = d[e.dataset.i18n];
+          if (v !== undefined) e.innerHTML = v;
+        });
+        document.documentElement.lang = currentLang;
+        document
+          .querySelectorAll('[data-l]')
+          .forEach((b) =>
+            b.classList.toggle('active', b.dataset.l === currentLang)
+          );
+
+        /* ціни: перший рядок — виділена картка з кнопкою, решта — таблиця */
+        document.getElementById('feat-row').innerHTML =
+          `<strong>${t.prices[0][0]}</strong><a href="tacho-install.html" class="btn red">${t.more}</a>`;
+        document.getElementById('price-list-table').innerHTML = t.prices
+          .slice(1)
+          .map((p) => `<tr><td>${p[0]}</td><td>${p[1]}</td></tr>`)
+          .join('');
+
+        /* відгуки: два повні кола, подвоєні для безшовної карусельки */
+        const cards = [];
+        for (let i = 0; i < 8; i++) {
+          const r = t.reviews[i % t.reviews.length];
+          cards.push(
+            `<div class="rev"><div class="st">★★★★★</div><b>${r.name}</b><p>“${r.text}”</p></div>`
+          );
+        }
+        document.getElementById('reviews-container').innerHTML =
+          cards.join('') + cards.join('');
+
+        /* вибір послуги: значення завжди українською (для Telegram), підпис — мовою сторінки */
+        const sel = document.getElementById('serviceSelect');
+        const keep = sel.selectedIndex > 0 ? sel.selectedIndex : 0;
+        sel.innerHTML =
+          `<option value="" disabled>${t.choose}</option>` +
+          DATA.uk.options
+            .map((v, i) => `<option value="${v}">${t.options[i]}</option>`)
+            .join('');
+        sel.selectedIndex = keep;
+        nameInput.placeholder = t.namePh;
+      }
+
+      /* ===== Валідація і маска ===== */
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const form = document.getElementById('callbackForm');
+
+      phoneInput.addEventListener('focus', function () {
+        if (!this.value) this.value = '+380';
+      });
+      phoneInput.addEventListener('input', function () {
+        let val = this.value.replace(/[^\d+]/g, '');
+        if (!val.startsWith('+380')) val = '+380';
+        if (val.length > 13) val = val.substring(0, 13);
+        this.value = val;
+      });
+      phoneInput.addEventListener('blur', function () {
+        if (this.value === '+380') this.value = '';
+        phoneError.innerText = '';
+      });
+      nameInput.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[0-9]/g, '');
+        nameError.innerText = '';
+      });
+
+      function validateForm() {
+        const t = DATA[currentLang];
+        let ok = true;
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+        if (!nameVal) {
+          nameError.innerText = t.eName;
+          ok = false;
+        } else if (/[0-9]/.test(nameVal)) {
+          nameError.innerText = t.eDigits;
+          ok = false;
+        } else nameError.innerText = '';
+        const clean = phoneVal.replace(/[^\d+]/g, '');
+        if (!phoneVal || phoneVal === '+380') {
+          phoneError.innerText = t.ePhone;
+          ok = false;
+        } else if (clean.length !== 13) {
+          phoneError.innerText = t.ePhone2;
+          ok = false;
+        } else phoneError.innerText = '';
+        return ok;
+      }
+
+      /* ===== Подія в dataLayer + перехід на thank-you.html ===== */
+      function goToThankYou() {
+        let redirected = false;
+        const go = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = 'thank-you.html';
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_name: FORM_NAME,
+          eventCallback: go,
+          eventTimeout: 500,
+        });
+        setTimeout(
+          go,
+          500
+        ); /* запасний варіант, якщо eventCallback не викликано */
+      }
+
+      /* ===== Відправка форми ===== */
+      let sending = false;
+      const errBox = document.getElementById('f-err');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (sending) return;
+        if (!validateForm()) return;
+        sending = true;
+        errBox.innerText = '';
+        fillUtmFields();
+
+        const submitBtn = document.getElementById('submitBtnText');
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = DATA[currentLang].sending;
+        submitBtn.disabled = true;
+
+        const fd = new FormData(form);
+        fd.append('form_name', FORM_NAME);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: fd,
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        })
+          .then((res) =>
+            res.json().then((data) => {
+              if (!res.ok || data.status !== 'success')
+                throw new Error(data.message || 'HTTP ' + res.status);
+              goToThankYou(); /* заявка доставлена: пушимо подію і переходимо */
+            })
+          )
+          .catch((err) => {
+            console.error('Form submit error:', err);
+            sending = false;
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+            errBox.innerText = DATA[currentLang].fail;
+          });
+      });
+
+      /* ===== UTM у приховані поля ===== */
+      function fillUtmFields() {
+        [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ].forEach((f) => {
+          const input = document.getElementById(f);
+          if (input) input.value = localStorage.getItem(f) || '—';
+        });
+      }
+
+      /* ===== Бренди: безшовна карусель ===== */
+      const BR = [
+        'SCANIA',
+        'MAN',
+        'VOLVO',
+        'DAF',
+        'MERCEDES',
+        'RENAULT',
+        'IVECO',
+      ];
+      const brandSet = [...BR, ...BR]
+        .map((b) => `<div class="brand">${b}</div>`)
+        .join('');
+      document.getElementById('brands').innerHTML = brandSet + brandSet;
+
+      fillUtmFields();
+      applyLanguage();
+    </script>
+    <script
+      src="https://widgets.binotel.com/getcall/widgets/65oqsjw02q6e9f2q3hf4.js"
+      async
+    ></script>
+  </body>
+</html>

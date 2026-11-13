@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S1Q8F31453"
+    ></script>
+    <link rel="icon" type="image/png" href="img/public/favicon.png" />
+
+    <script>
+      // Сохраняем UTM метки из URL в localStorage при загрузке любой страницы
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmParams = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ];
+
+        utmParams.forEach((param) => {
+          const value = urlParams.get(param);
+          if (value && value !== '') {
+            localStorage.setItem(param, value);
+            console.log('✅ UTM сохранен:', param, '=', value);
+          }
+        });
+      })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N89VVZFR');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>APUS LEGAT — Міжнародна транспортна компанія</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --accent: #e60c0c;
+        --red: #e60c0c;
+        --green: #25d366;
+        --dark: #000000;
+        --card-bg: #0a0a0a;
+        --border: rgba(255, 255, 255, 0.1);
+        --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        --header-height: 72px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        background-color: var(--dark);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        line-height: 1.6;
+        padding-top: var(--header-height);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 25px;
+      }
+      .bg-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 10% 20%,
+          rgba(230, 12, 12, 0.05) 0%,
+          transparent 40%
+        );
+        z-index: -1;
+      }
+
+      /* --- HEADER --- */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+      .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .logo {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+      .logo span {
+        color: var(--red);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 20px;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 2100;
+      }
+      .burger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: right 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1500;
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu a {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .mobile-menu a:hover {
+        color: var(--red);
+      }
+
+      .mobile-lang-switcher {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .mobile-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        cursor: pointer;
+        padding: 10px 25px;
+        border-radius: 4px;
+        transition: 0.3s;
+      }
+      .mobile-lang-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+      }
+      .mobile-lang-btn:hover {
+        border-color: var(--red);
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 8px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 20px;
+      }
+      .lang-btn {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+        opacity: 0.4;
+        transition: 0.3s;
+      }
+      .lang-btn.active {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      @media (max-width: 991px) {
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      /* HERO & CALC */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000')
+          center/cover no-repeat;
+        background-attachment: fixed;
+        padding: 40px 0 80px;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.95) 20%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+      }
+      .hero-content h1 {
+        font-size: clamp(35px, 8vw, 80px);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 0.9;
+        margin-bottom: 25px;
+      }
+      .hero-content h1 b {
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+      }
+      .hero-tagline {
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 5px;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .calc-wrapper {
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px solid var(--accent);
+        padding: 30px;
+        border-radius: 4px;
+        max-width: 800px;
+        margin-top: 40px;
+      }
+      .calc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 15px;
+        align-items: end;
+      }
+      .calc-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .btn-calc {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 0 30px;
+        height: 50px;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 12px;
+      }
+      .btn-calc:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(230, 12, 12, 0.4);
+      }
+      .calc-result {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        display: none;
+        text-align: left;
+      }
+      .res-price {
+        font-size: 32px;
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 5px;
+      }
+      .res-dist {
+        font-size: 12px;
+        opacity: 0.5;
+        font-family: 'Space Mono';
+        margin-bottom: 15px;
+      }
+
+      @media (max-width: 1024px) {
+        .calc-grid {
+          grid-template-columns: 1fr;
+        }
+        .btn-calc {
+          width: 100%;
+        }
+      }
+
+      /* SECTIONS */
+      .section-padding {
+        padding: 100px 0;
+      }
+      .section-title {
+        font-size: clamp(28px, 5vw, 45px);
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 60px;
+        border-left: 6px solid var(--accent);
+        padding-left: 20px;
+      }
+      .section-title span {
+        color: var(--accent);
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .benefit-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        padding: 45px 35px;
+        transition: 0.4s;
+      }
+      .benefit-card h3 {
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--accent);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .fleet-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+      }
+      .fleet-card {
+        background: #111;
+        border: 1px solid var(--border);
+        transition: 0.3s;
+        overflow: hidden;
+      }
+      .fleet-img {
+        width: 100%;
+        height: 260px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-bottom: 3px solid var(--accent);
+        padding: 20px;
+        background-origin: content-box;
+      }
+      .fleet-info {
+        padding: 35px;
+      }
+      .fleet-specs {
+        list-style: none;
+        font-size: 13px;
+        opacity: 0.7;
+        font-family: 'Space Mono', monospace;
+      }
+      .fleet-specs li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+      }
+      .fleet-specs li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 900;
+      }
+
+      /* REVIEWS ANIMATION */
+      .reviews-scroll {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        padding: 20px 0;
+      }
+      .reviews-track {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+        animation: scroll-left 40s linear infinite;
+      }
+      .reviews-scroll:hover .reviews-track {
+        animation-play-state: paused;
+      }
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .review-card {
+        min-width: 400px;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        padding: 45px;
+        flex-shrink: 0;
+      }
+      .review-author {
+        font-weight: 900;
+        font-size: 11px;
+        color: var(--accent);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 25px;
+      }
+
+      /* PARTNERS LOGO */
+      .partners-grid {
+        background-color: var(--dark);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+      .partner-box {
+        background: #fff;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        border: 0.5px solid var(--border);
+      }
+      .partner-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0.5;
+        transition: 0.4s;
+      }
+      .partner-box:hover img {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      /* ФОРМА ОБРАТНОЙ СВЯЗИ */
+      .s-feedback {
+        padding: 80px 0;
+        background: #0a0a0a;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .feedback-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 40px 35px;
+        transition: transform 0.2s ease;
+      }
+      .feedback-card h3 {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+      }
+      .feedback-card h3 span {
+        color: var(--red);
+      }
+      .feedback-desc {
+        color: #aaa;
+        margin-bottom: 30px;
+        font-size: 14px;
+        border-left: 3px solid var(--red);
+        padding-left: 12px;
+      }
+      .form-group {
+        margin-bottom: 22px;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+      .form-group label .req {
+        color: var(--red);
+        margin-left: 3px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 14px 18px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        border: 1px solid #333;
+        border-radius: 10px;
+        background: #1a1a1a;
+        color: #fff;
+        transition: 0.25s;
+        outline: none;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(230, 12, 12, 0.1);
+      }
+      .error-message {
+        color: var(--red);
+        font-size: 11px;
+        margin-top: 5px;
+        display: block;
+        font-weight: 500;
+      }
+      .submit-feedback {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-weight: 800;
+        font-size: 16px;
+        text-transform: uppercase;
+        border-radius: 40px;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.25s;
+        letter-spacing: 1px;
+      }
+      .submit-feedback:hover:not(:disabled) {
+        background: #b00b0b;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(230, 12, 12, 0.3);
+      }
+      .submit-feedback:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .form-note {
+        font-size: 11px;
+        color: #888;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      /* SELECT2 DARK UI */
+      .select2-container--default .select2-selection--single {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--border) !important;
+        height: 50px !important;
+        display: flex;
+        align-items: center;
+      }
+      .select2-container--default
+        .select2-selection--single
+        .select2-selection__rendered {
+        color: #fff !important;
+      }
+      .select2-dropdown {
+        background: #111 !important;
+        color: #fff !important;
+        border: 1px solid var(--accent) !important;
+      }
+
+      /* --- FOOTER --- */
+      .site-footer {
+        background-color: #0a0a0a;
+        color: #fff;
+        padding: 80px 20px 40px;
+        border-top: 3px solid var(--red);
+        margin-top: 0;
+      }
+      .footer-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+      }
+      .footer-col h3 {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        color: var(--red);
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+      .footer-links a {
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+        transition: 0.3s;
+        text-transform: uppercase;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      .footer-bottom {
+        max-width: 1600px;
+        margin: 60px auto 0;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #444;
+      }
+
+      @media (max-width: 991px) {
+        .footer-container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+        .feedback-card {
+          padding: 25px 20px;
+        }
+        .review-card {
+          min-width: 300px;
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N89VVZFR"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <div class="bg-glow"></div>
+
+    <header class="main-header">
+      <div class="nav-flex">
+        <a href="index.html" class="logo">APUS<span>LEGAT</span></a>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="index.html" id="lnk-home">ГОЛОВНА</a>
+            <a href="about.html" id="lnk-about">ПРО НАС</a>
+            <a href="catalog.html" id="lnk-shop">МАГАЗИН</a>
+            <a href="contacts.html" id="lnk-contacts">КОНТАКТИ</a>
+          </nav>
+          <div class="lang-switcher">
+            <button class="lang-btn" id="btn-uk" onclick="changeLang('uk')">
+              UA
+            </button>
+            <button class="lang-btn" id="btn-ru" onclick="changeLang('ru')">
+              RU
+            </button>
+          </div>
+          <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">ГОЛОВНА</a>
+      <a href="about.html" onclick="toggleMenu()">ПРО НАС</a>
+      <a href="catalog.html" onclick="toggleMenu()">МАГАЗИН</a>
+      <a href="contacts.html" onclick="toggleMenu()">КОНТАКТИ</a>
+      <div class="mobile-lang-switcher">
+        <button
+          class="mobile-lang-btn"
+          id="mobile-btn-uk"
+          onclick="changeLangMobile('uk')"
+        >
+          UA
+        </button>
+        <button
+          class="mobile-lang-btn"
+          id="mobile-btn-ru"
+          onclick="changeLangMobile('ru')"
+        >
+          RU
+        </button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tagline">INTERNATIONAL TRANSPORT HOLDING</span>
+          <h1 id="hero-title">КЕРУЄМО <b>ПОТОКАМИ</b><br />ВАШОГО БІЗНЕСУ</h1>
+
+          <div class="calc-wrapper">
+            <div class="calc-grid">
+              <div>
+                <label class="calc-label" id="label-from">Звідки</label>
+                <select id="from" style="width: 100%"></select>
+              </div>
+              <div>
+                <label class="calc-label" id="label-to">Куди</label>
+                <select id="to" style="width: 100%"></select>
+              </div>
+              <button class="btn-calc" onclick="runCalc()" id="btn-calc-text">
+                Розрахувати
+              </button>
+            </div>
+            <div id="res-block" class="calc-result">
+              <div class="res-price">
+                <span id="total">0</span> <span id="currency">грн</span>
+              </div>
+              <p id="km" class="res-dist"></p>
+              <a
+                id="wa"
+                href="#"
+                target="_blank"
+                class="btn-calc"
+                style="
+                  display: inline-block;
+                  text-decoration: none;
+                  padding: 15px 30px;
+                  background: var(--green);
+                "
+                >ЗАМОВИТИ В WHATSAPP</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-padding">
+      <h2 class="section-title" id="sec-benefits-title">
+        Чому <span>замовляють у нас?</span>
+      </h2>
+      <div class="benefits-grid" id="benefits-content"></div>
+    </section>
+
+    <section class="container section-padding">
+      <h2 class="section-title" id="sec-fleet-title">
+        Наш <span>автопарк</span>
+      </h2>
+      <div class="fleet-grid" id="fleet-content"></div>
+    </section>
+
+    <section class="container section-padding">
+      <h2 class="section-title" id="sec-reviews-title">
+        Відгуки <span>партнерів</span>
+      </h2>
+      <div class="reviews-scroll" id="reviews-content"></div>
+    </section>
+
+    <section class="container section-padding">
+      <h2 class="section-title" id="sec-partners-title">
+        Наші <span>партнери</span>
+      </h2>
+      <div class="partners-grid" id="partners-list"></div>
+    </section>
+
+    <!-- ФОРМА ЗВОРОТНЬОГО ЗВ'ЯЗКУ -->
+    <section class="s-feedback" id="feedback-form-section">
+      <div class="container">
+        <div class="feedback-card">
+          <h3 id="feedbackTitle">Швидка <span>заявка</span></h3>
+          <div class="feedback-desc" id="feedbackDesc">
+            Оберіть послугу, залиште контакти — наш менеджер проконсультує вас
+            та підбере зручний час для візиту в сервіс.
+          </div>
+          <form id="callbackForm" action="php/telegram.php" method="POST">
+            <input type="hidden" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input
+              type="hidden"
+              name="utm_campaign"
+              id="utm_campaign"
+              value=""
+            />
+            <input type="hidden" name="utm_term" id="utm_term" value="" />
+            <input type="hidden" name="utm_content" id="utm_content" value="" />
+            <div class="form-group">
+              <label for="serviceSelect" id="serviceLabel"
+                >Послуга <span class="req">*</span></label
+              >
+              <select id="serviceSelect" name="service" required>
+                <option value="" disabled selected>— Оберіть послугу —</option>
+                <option value="Вантажні перевезення Україна">
+                  Вантажні перевезення Україна
+                </option>
+                <option value="Міжнародні вантажоперевезення">
+                  Міжнародні вантажоперевезення
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="name" id="nameLabel"
+                >ПІБ / Ім'я <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Іванов Іван Іванович"
+                autocomplete="name"
+                value=""
+              />
+              <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+              <label for="phone" id="phoneLabel"
+                >Номер телефону <span class="req">*</span></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+380"
+                maxlength="13"
+                autocomplete="tel"
+                value="+380"
+              />
+              <div class="error-message" id="phoneError"></div>
+            </div>
+            <button type="submit" class="submit-feedback" id="submitBtnText">
+              Надіслати заявку
+            </button>
+            <div class="form-note" id="formNote">
+              Наші фахівці зв'яжуться з вами протягом 15 хвилин.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>APUS LEGAT</h3>
+          <p id="f-about-text">
+            Професійне обслуговування та продаж тахографів, систем моніторингу
+            палива та технічного контролю транспорту в Харкові.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-nav">НАВІГАЦІЯ</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" id="f-nav-home">Головна</a></li>
+            <li><a href="about.html" id="f-nav-about">Про нас</a></li>
+            <li><a href="catalog.html" id="f-nav-shop">Магазин</a></li>
+            <li><a href="contacts.html" id="f-nav-contacts">Контакти</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-srv">СЕРВІС</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="service-otk.html" id="f-serv-otk">Технічний огляд</a>
+            </li>
+            <li>
+              <a href="service-tacho.html" id="f-serv-tacho">Тахосервіс</a>
+            </li>
+            <li>
+              <a href="service-cert-auto.html" id="f-serv-cert-auto"
+                >Сертифікація авто</a
+              >
+            </li>
+            <li>
+              <a href="service-cert-tanks.html" id="f-serv-cert-tanks"
+                >Сертифікація бочок</a
+              >
+            </li>
+            <li>
+              <a href="logistics.html" id="f-serv-logistics"
+                >Логістика та ADR</a
+              >
+            </li>
+            <li>
+              <a href="parking.html" id="f-serv-parking">Інфраструктура</a>
+            </li>
+            <li>
+              <a href="documents.html" id="f-serv-documents">Документація</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-cont">КОНТАКТИ</h3>
+          <p id="f-addr">Україна, м. Харків</p>
+          <p>+380 66 033 90 09</p>
+          <p>+380 63 033 90 09</p>
+          <p>Email: apuslegatt@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 APUS LEGAT. ALL RIGHTS RESERVED.</span>
+        <span>DESIGN BY APUS TECH</span>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+      /* ===== Ім'я форми для аналітики ===== */
+      const FORM_NAME = 'logistics';
+
+      let currentLang = localStorage.getItem('selectedLang') || 'uk';
+
+      const translations = {
+        uk: {
+          home: 'ГОЛОВНА',
+          about: 'ПРО НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТИ',
+          hero_title: 'КЕРУЄМО <b>ПОТОКАМИ</b><br>ВАШОГО БІЗНЕСУ',
+          label_from: 'Звідки',
+          label_to: 'Куди',
+          btn_calc_text: 'Розрахувати',
+          currency: 'грн',
+          placeholder: 'Оберіть місто...',
+          dist_label: 'Відстань',
+          wa_btn: 'ЗАМОВИТИ В WHATSAPP',
+          sec_benefits_title: 'Чому <span>замовляють у нас?</span>',
+          sec_fleet_title: 'Наш <span>автопарк</span>',
+          sec_reviews_title: 'Відгуки <span>партнерів</span>',
+          sec_partners_title: 'Наші <span>партнери</span>',
+          f_nav: 'НАВІГАЦІЯ',
+          f_srv: 'СЕРВІС',
+          f_cont: 'КОНТАКТИ',
+          f_about_text:
+            'Професійне обслуговування, продаж тахографів та технічного контролю транспорту в Харкові.',
+          f_addr: 'Україна, м. Харків, вул. Драгомирівська, 10',
+          f_serv_otk: 'Технічний огляд',
+          f_serv_tacho: 'Тахосервіс',
+          f_serv_cert_auto: 'Сертифікація авто',
+          f_serv_cert_tanks: 'Сертифікація бочок',
+          f_serv_logistics: 'Логістика та ADR',
+          f_serv_parking: 'Інфраструктура',
+          f_serv_documents: 'Документація',
+          feedback_title: 'Швидка <span>заявка</span>',
+          feedback_desc:
+            'Оберіть послугу, залиште контакти — наш менеджер проконсультує вас та підбере зручний час для візиту в сервіс.',
+          service_label: 'Послуга',
+          name_label: "ПІБ / Ім'я",
+          phone_label: 'Номер телефону',
+          submit_btn: 'Надіслати заявку',
+          sending: 'Відправляємо...',
+          err_send:
+            'Не вдалося відправити заявку. Спробуйте ще раз або зателефонуйте: +380 66 033 90 09',
+          form_note: "Наші фахівці зв'яжуться з вами протягом 15 хвилин.",
+          benefits: [
+            {
+              h: 'Безпека',
+              p: 'Страхування включено у вартість. Повна відповідальність за вантаж.',
+            },
+            {
+              h: 'Швидкість',
+              p: 'Доставка в найвіддаленіші зони без затримок.',
+            },
+            { h: 'Підтримка 24/7', p: 'Персональний менеджер та GPS-трекінг.' },
+            {
+              h: 'Прозора ціна',
+              p: 'Фіксована ціна до початку рейсу без прихованих платежів.',
+            },
+          ],
+          fleet: [
+            {
+              h: 'Mercedes Sprinter (1 од.)',
+              s: ['Малотоннажна вантажівка', 'Експрес-доставка по місту та ЄС'],
+            },
+            {
+              h: 'Renault T520 (1 од.)',
+              s: ['Тягач підвищеної потужності', 'Оптимізована витрата палива'],
+            },
+            {
+              h: 'Ізотерм 90 м³',
+              s: ['Вантажність: 23 тонни', 'Стабільний мікроклімат'],
+            },
+            {
+              h: 'Renault T480 (2 од.)',
+              s: ['Стандарт Euro 6', 'Висока паливна ефективність'],
+            },
+            {
+              h: 'Тент 93 м³ (3 од.)',
+              s: ['Вантажність: 24 тонни', 'Універсальний захист'],
+            },
+          ],
+          reviews: [
+            { p: 'Надійність та швидкість на вищому рівні.', a: 'МЕТІНВЕСТ' },
+            {
+              p: 'Кращий логістичний партнер для великого бізнесу.',
+              a: 'АТБ МАРКЕТ',
+            },
+            { p: 'Прозорість розрахунків та чесність.', a: 'WOG' },
+            { p: 'Професіоналізм у кожній деталі.', a: 'КЕРНЕЛ' },
+          ],
+          cities: [
+            { id: '50.45,30.52', text: 'Київ (UA)' },
+            { id: '49.99,36.23', text: 'Харків (UA)' },
+            { id: '49.83,24.02', text: 'Львів (UA)' },
+            { id: '46.48,30.72', text: 'Одеса (UA)' },
+            { id: '48.46,35.04', text: 'Дніпро (UA)' },
+            { id: '52.22,21.01', text: 'Варшава (PL)' },
+          ],
+        },
+        ru: {
+          home: 'ГЛАВНАЯ',
+          about: 'О НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТЫ',
+          hero_title: 'УПРАВЛЯЕМ <b>ПОТОКАМИ</b><br>ВАШЕГО БИЗНЕСА',
+          label_from: 'Откуда',
+          label_to: 'Куда',
+          btn_calc_text: 'Рассчитать',
+          currency: 'грн',
+          placeholder: 'Выберите город...',
+          dist_label: 'Расстояние',
+          wa_btn: 'ЗАКАЗАТЬ В WHATSAPP',
+          sec_benefits_title: 'Почему <span>заказывают у нас?</span>',
+          sec_fleet_title: 'Наш <span>автопарк</span>',
+          sec_reviews_title: 'Отзывы <span>партнеров</span>',
+          sec_partners_title: 'Наши <span>партнеры</span>',
+          f_nav: 'НАВИГАЦИЯ',
+          f_srv: 'СЕРВИС',
+          f_cont: 'КОНТАКТЫ',
+          f_about_text:
+            'Профессиональное обслуживание, продажа тахографов и технического контроля транспорта в Харькове.',
+          f_addr: 'Украина, г. Харьков, ул. Драгомировская, 10',
+          f_serv_otk: 'Технический осмотр',
+          f_serv_tacho: 'Тахосервис',
+          f_serv_cert_auto: 'Сертификация авто',
+          f_serv_cert_tanks: 'Сертификация бочек',
+          f_serv_logistics: 'Логистика и ADR',
+          f_serv_parking: 'Инфраструктура',
+          f_serv_documents: 'Документация',
+          feedback_title: 'Быстрая <span>заявка</span>',
+          feedback_desc:
+            'Выберите услугу, оставьте контакты — наш менеджер проконсультирует и подберет удобное время для визита в сервис.',
+          service_label: 'Услуга',
+          name_label: 'ФИО / Имя',
+          phone_label: 'Номер телефона',
+          submit_btn: 'Отправить заявку',
+          sending: 'Отправляем...',
+          err_send:
+            'Не удалось отправить заявку. Попробуйте ещё раз или позвоните: +380 66 033 90 09',
+          form_note: 'Наши специалисты свяжутся с вами в течение 15 минут.',
+          benefits: [
+            {
+              h: 'Безопасность',
+              p: 'Страхование включено в стоимость. Полная ответственность за груз.',
+            },
+            {
+              h: 'Скорость',
+              p: 'Доставка в самые отдаленные зоны без задержек.',
+            },
+            { h: 'Поддержка 24/7', p: 'Персональный менеджер и GPS-трекинг.' },
+            { h: 'Прозрачная цена', p: 'Фиксированная цена до начала рейса.' },
+          ],
+          fleet: [
+            {
+              h: 'Mercedes Sprinter (1 ед.)',
+              s: ['Малотоннажный грузовик', 'Экспресс-доставка по городу и ЕС'],
+            },
+            {
+              h: 'Renault T520 (1 ед.)',
+              s: ['Тягач повышенной мощности', 'Оптимизированный расход'],
+            },
+            {
+              h: 'Изотерм 90 м³',
+              s: ['Грузоподъемность: 23 тонны', 'Стабильный климат'],
+            },
+            {
+              h: 'Renault T480 (2 ед.)',
+              s: ['Стандарт Euro 6', 'Топливная эффективность'],
+            },
+            {
+              h: 'Тент 93 м³ (3 ед.)',
+              s: ['Грузоподъемность: 24 тонны', 'Универсальная защита'],
+            },
+          ],
+          reviews: [
+            { p: 'Надежность и скорость на высшем уровне.', a: 'МЕТИНВЕСТ' },
+            { p: 'Лучший логистический партнер.', a: 'АТБ МАРКЕТ' },
+            { p: 'Прозрачность расчетов и честность.', a: 'WOG' },
+            { p: 'Профессионализм в каждой детали.', a: 'КЕРНЕЛ' },
+          ],
+          cities: [
+            { id: '50.45,30.52', text: 'Киев (UA)' },
+            { id: '49.99,36.23', text: 'Харьков (UA)' },
+            { id: '49.83,24.02', text: 'Львов (UA)' },
+            { id: '46.48,30.72', text: 'Одесса (UA)' },
+          ],
+        },
+      };
+
+      const partnerLogos = [
+        'atb.webp',
+        'autotrans.webp',
+        'bsk.webp',
+        'closeconnection.webp',
+        'dellfgroup.webp',
+        'galexexpress.webp',
+        'konvoytrans.webp',
+        'mastertrans.webp',
+        'megacity.webp',
+        'patmos.webp',
+        'prostir.webp',
+        'roma.webp',
+        'stellar.webp',
+        'tek.webp',
+        'terra.webp',
+        'ufc.webp',
+        'ukrtranstorg.webp',
+        'vgp.webp',
+        'marshal.jpg',
+        'avto-ovi.png',
+        'av-metal.jpg',
+      ];
+
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active')
+          ? 'hidden'
+          : '';
+      }
+
+      function changeLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('selectedLang', lang);
+        applyLanguage();
+      }
+
+      function changeLangMobile(lang) {
+        changeLang(lang);
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function applyLanguage() {
+        const t = translations[currentLang];
+
+        document.getElementById('lnk-home').innerText = t.home;
+        document.getElementById('lnk-about').innerText = t.about;
+        document.getElementById('lnk-shop').innerText = t.shop;
+        document.getElementById('lnk-contacts').innerText = t.contacts;
+        document.getElementById('hero-title').innerHTML = t.hero_title;
+        document.getElementById('label-from').innerText = t.label_from;
+        document.getElementById('label-to').innerText = t.label_to;
+        document.getElementById('btn-calc-text').innerText = t.btn_calc_text;
+        document.getElementById('currency').innerText = t.currency;
+        document.getElementById('sec-benefits-title').innerHTML =
+          t.sec_benefits_title;
+        document.getElementById('sec-fleet-title').innerHTML =
+          t.sec_fleet_title;
+        document.getElementById('sec-reviews-title').innerHTML =
+          t.sec_reviews_title;
+        document.getElementById('sec-partners-title').innerHTML =
+          t.sec_partners_title;
+
+        document.getElementById('f-title-nav').innerText = t.f_nav;
+        document.getElementById('f-title-srv').innerText = t.f_srv;
+        document.getElementById('f-title-cont').innerText = t.f_cont;
+        document.getElementById('f-about-text').innerText = t.f_about_text;
+        document.getElementById('f-addr').innerHTML = t.f_addr;
+        document.getElementById('f-nav-home').innerText = t.home;
+        document.getElementById('f-nav-about').innerText = t.about;
+        document.getElementById('f-nav-shop').innerText = t.shop;
+        document.getElementById('f-nav-contacts').innerText = t.contacts;
+        document.getElementById('f-serv-otk').innerText = t.f_serv_otk;
+        document.getElementById('f-serv-tacho').innerText = t.f_serv_tacho;
+        document.getElementById('f-serv-cert-auto').innerText =
+          t.f_serv_cert_auto;
+        document.getElementById('f-serv-cert-tanks').innerText =
+          t.f_serv_cert_tanks;
+        document.getElementById('f-serv-logistics').innerText =
+          t.f_serv_logistics;
+        document.getElementById('f-serv-parking').innerText = t.f_serv_parking;
+        document.getElementById('f-serv-documents').innerText =
+          t.f_serv_documents;
+
+        document.getElementById('feedbackTitle').innerHTML = t.feedback_title;
+        document.getElementById('feedbackDesc').innerText = t.feedback_desc;
+        document.getElementById('serviceLabel').innerHTML =
+          t.service_label + ' <span class="req">*</span>';
+        document.getElementById('nameLabel').innerHTML =
+          t.name_label + ' <span class="req">*</span>';
+        document.getElementById('phoneLabel').innerHTML =
+          t.phone_label + ' <span class="req">*</span>';
+        document.getElementById('submitBtnText').innerText = t.submit_btn;
+        document.getElementById('formNote').innerText = t.form_note;
+
+        document
+          .querySelectorAll('.lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        document.getElementById(`btn-${currentLang}`).classList.add('active');
+        document
+          .querySelectorAll('.mobile-lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        document
+          .getElementById(`mobile-btn-${currentLang}`)
+          .classList.add('active');
+
+        renderBlocks(t);
+      }
+
+      function renderBlocks(t) {
+        document.getElementById('benefits-content').innerHTML = t.benefits
+          .map(
+            (b) =>
+              `<div class="benefit-card"><h3>${b.h}</h3><p>${b.p}</p></div>`
+          )
+          .join('');
+        const autoImgs = [
+          'img/public/logistic/auto/sprinter.png',
+          'img/public/logistic/auto/T520.png',
+          'img/public/logistic/auto/izoterm.png',
+          'img/public/logistic/auto/T480.png',
+          'img/public/logistic/auto/tent.png',
+        ];
+        document.getElementById('fleet-content').innerHTML = t.fleet
+          .map(
+            (f, i) =>
+              `<div class="fleet-card"><div class="fleet-img" style="background-image:url('${autoImgs[i]}')"></div><div class="fleet-info"><h3>${f.h}</h3><ul class="fleet-specs">${f.s.map((s) => `<li>${s}</li>`).join('')}</ul></div></div>`
+          )
+          .join('');
+        const reviewsHTML = t.reviews
+          .map(
+            (r) =>
+              `<div class="review-card"><p>"${r.p}"</p><span class="review-author">${r.a}</span></div>`
+          )
+          .join('');
+        document.getElementById('reviews-content').innerHTML =
+          `<div class="reviews-track">${reviewsHTML}${reviewsHTML}</div>`;
+        const path = 'img/public/logistic/partners/';
+        document.getElementById('partners-list').innerHTML = partnerLogos
+          .map(
+            (img) =>
+              `<div class="partner-box"><img src="${path}${img}" alt="Partner" onerror="this.parentElement.style.display='none'"></div>`
+          )
+          .join('');
+        $('#from, #to')
+          .empty()
+          .select2({
+            data: t.cities,
+            placeholder: t.placeholder,
+            allowClear: true,
+          })
+          .val(null)
+          .trigger('change');
+      }
+
+      function runCalc() {
+        const f = $('#from').val(),
+          t = $('#to').val();
+        if (f && t && f !== t) {
+          const c1 = f.split(','),
+            c2 = t.split(',');
+          const dist = Math.round(
+            Math.sqrt(Math.pow(c1[0] - c2[0], 2) + Math.pow(c1[1] - c2[1], 2)) *
+              111 *
+              1.3
+          );
+          $('#total').text((dist * 55).toLocaleString());
+          $('#km').text(dist + ' km');
+          $('#res-block').fadeIn();
+          $('#wa').attr(
+            'href',
+            `https://wa.me/380730779009?text=Запит: ${$('#from option:selected').text()} - ${$('#to option:selected').text()}`
+          );
+        }
+      }
+
+      /* ===== Валидация и маска ===== */
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const form = document.getElementById('callbackForm');
+
+      function setupPhoneMask() {
+        if (!phoneInput) return;
+        phoneInput.addEventListener('focus', function () {
+          if (!this.value || this.value === '' || this.value === '+380') {
+            this.value = '+380';
+          }
+        });
+        phoneInput.addEventListener('input', function () {
+          let val = this.value.replace(/[^\d+]/g, '');
+          if (!val.startsWith('+380')) val = '+380';
+          if (val.length > 13) val = val.substring(0, 13);
+          this.value = val;
+        });
+        phoneInput.addEventListener('blur', function () {
+          if (this.value === '+380') this.value = '';
+        });
+      }
+
+      if (nameInput) {
+        nameInput.addEventListener('input', (e) => {
+          let val = e.target.value;
+          val = val.replace(/[0-9]/g, '');
+          e.target.value = val;
+          if (nameError) nameError.innerText = '';
+        });
+      }
+
+      setupPhoneMask();
+
+      function validateForm() {
+        let isValid = true;
+        const nameVal = nameInput ? nameInput.value.trim() : '';
+        const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+        const hasDigits = /[0-9]/.test(nameVal);
+
+        if (!nameVal) {
+          if (nameError)
+            nameError.innerText =
+              currentLang === 'uk' ? 'Вкажіть ПІБ' : 'Укажите ФИО';
+          isValid = false;
+        } else if (hasDigits) {
+          if (nameError)
+            nameError.innerText =
+              currentLang === 'uk'
+                ? 'ПІБ не може містити цифри'
+                : 'ФИО не может содержать цифры';
+          isValid = false;
+        } else {
+          if (nameError) nameError.innerText = '';
+        }
+
+        if (!phoneVal || phoneVal === '+380') {
+          if (phoneError)
+            phoneError.innerText =
+              currentLang === 'uk'
+                ? 'Вкажіть номер телефону'
+                : 'Укажите номер телефона';
+          isValid = false;
+        } else if (phoneVal.length !== 13) {
+          if (phoneError)
+            phoneError.innerText =
+              currentLang === 'uk'
+                ? 'Введіть коректний номер (приклад: +380501234567)'
+                : 'Введите корректный номер (пример: +380501234567)';
+          isValid = false;
+        } else {
+          if (phoneError) phoneError.innerText = '';
+        }
+
+        return isValid;
+      }
+
+      /* =====================================================
+         ХЕЛПЕР: подія в dataLayer + перехід на thank-you.html
+         ===================================================== */
+      function goToThankYou() {
+        let redirected = false;
+        const go = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = 'thank-you.html';
+        };
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_name: FORM_NAME,
+          eventCallback: go,
+          eventTimeout: 500,
+        });
+
+        setTimeout(go, 500);
+      }
+
+      /* ===== Відправка форми ===== */
+      let sending = false;
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (sending) return;
+          if (!validateForm()) return;
+
+          sending = true;
+          fillUtmFields();
+
+          const submitBtn = document.getElementById('submitBtnText');
+          const originalText = submitBtn.innerText;
+          submitBtn.innerText = translations[currentLang].sending;
+          submitBtn.disabled = true;
+
+          const fd = new FormData(form);
+          fd.append('form_name', FORM_NAME);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: fd,
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+          })
+            .then((res) =>
+              res.json().then((data) => {
+                if (!res.ok || data.status !== 'success') {
+                  throw new Error(data.message || 'HTTP ' + res.status);
+                }
+                /* заявка доставлена: пушимо подію і переходимо */
+                goToThankYou();
+              })
+            )
+            .catch((err) => {
+              console.error('Form submit error:', err);
+              sending = false;
+              submitBtn.innerText = originalText;
+              submitBtn.disabled = false;
+              alert(translations[currentLang].err_send);
+            });
+        });
+      }
+
+      /* ===== UTM у приховані поля ===== */
+      function fillUtmFields() {
+        const utmFields = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ];
+        utmFields.forEach((field) => {
+          const input = document.getElementById(field);
+          if (input) {
+            const savedValue = localStorage.getItem(field);
+            input.value = savedValue && savedValue !== '' ? savedValue : '—';
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fillUtmFields);
+      } else {
+        fillUtmFields();
+      }
+
+      window.onload = () => {
+        applyLanguage();
+        fillUtmFields();
+      };
+    </script>
+  </body>
+</html>

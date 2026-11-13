@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="icon" type="image/png" href="img/public/favicon.png" />
+    <script>
+      // Сохраняем UTM метки из URL в localStorage при загрузке любой страницы
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmParams = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ];
+
+        utmParams.forEach((param) => {
+          const value = urlParams.get(param);
+          if (value && value !== '') {
+            localStorage.setItem(param, value);
+            console.log('✅ UTM сохранен:', param, '=', value);
+          }
+        });
+      })();
+    </script>
+    <title>Паркінг та Інфраструктура в Харкові — APUS LEGAT</title>
+    <meta
+      name="description"
+      content="Охоронювана стоянка 24/7 для фур та легкових авто, оренда складів та офісів у Харкові. Логістичний центр APUS LEGAT."
+    />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N89VVZFR');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --red: #e60c0c;
+        --green: #25d366;
+        --dark: #000000;
+        --card-bg: #0a0a0a;
+        --border: rgba(255, 255, 255, 0.1);
+        --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        --header-height: 72px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--dark);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        padding-top: var(--header-height);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px;
+      }
+
+      /* --- HEADER --- */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+      .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .logo {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+      .logo span {
+        color: var(--red);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 20px;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 2100;
+      }
+      .burger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: right 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1500;
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu a {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .mobile-menu a:hover {
+        color: var(--red);
+      }
+
+      .mobile-lang-switcher {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .mobile-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        cursor: pointer;
+        padding: 10px 25px;
+        border-radius: 4px;
+        transition: 0.3s;
+      }
+      .mobile-lang-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+      }
+      .mobile-lang-btn:hover {
+        border-color: var(--red);
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 8px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 20px;
+      }
+      .lang-btn {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+        opacity: 0.4;
+        transition: 0.3s;
+      }
+      .lang-btn.active {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      @media (max-width: 991px) {
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      /* --- HERO --- */
+      .hero-infra {
+        padding: 80px 0;
+        text-align: center;
+        background: radial-gradient(circle at center, #1a0000 0%, #000 100%);
+      }
+      .hero-title {
+        font-size: clamp(26px, 6vw, 52px);
+        font-weight: 900;
+        text-transform: uppercase;
+        border: 4px solid #fff;
+        display: inline-block;
+        padding: 20px 40px;
+        margin-bottom: 25px;
+        border-radius: 4px;
+        letter-spacing: 2px;
+      }
+      .hero-title span {
+        color: var(--red);
+      }
+
+      /* --- ICON GRID --- */
+      .s-icons {
+        padding: 100px 0;
+        background: #fff;
+        color: #000;
+      }
+      .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+      .icon-item {
+        padding: 50px 30px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #eee;
+        transition: var(--transition);
+        border-radius: 2px;
+      }
+      .icon-item:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        border-color: var(--red);
+      }
+      .icon-box {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 25px;
+        border: 2px solid #f0f0f0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+      }
+      .icon-item:hover .icon-box {
+        border-color: var(--red);
+        background: #fff5f5;
+      }
+      .icon-box img {
+        width: 50px;
+        height: 50px;
+      }
+      .icon-item h4 {
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+      .icon-item p {
+        color: #666;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* PRICES & TABLES */
+      .s-prices {
+        padding: 60px 0;
+        background: #0a0a0a;
+      }
+      .price-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+      .price-table tr {
+        border-bottom: 1px solid #222;
+        transition: 0.3s;
+      }
+      .price-table tr:hover {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .price-table td {
+        padding: 20px;
+        font-size: 17px;
+      }
+      .price-val {
+        text-align: right;
+        font-weight: 900;
+        color: var(--red);
+        font-size: 22px;
+      }
+      .unit,
+      .unit-m {
+        font-size: 14px;
+        opacity: 0.7;
+        margin-left: 5px;
+        font-weight: 900;
+      }
+
+      .section-h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+
+      /* INFO BLOCKS */
+      .info-card {
+        background: #161616;
+        padding: 30px;
+        border-left: 4px solid var(--red);
+        margin: 20px 0 30px;
+        line-height: 1.6;
+        font-size: 15px;
+        color: #bbb;
+      }
+      .info-card h3 {
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+      .info-card b {
+        color: #fff;
+      }
+
+      /* --- FORM --- */
+      .s-form {
+        padding: 100px 0;
+        background: #050505;
+      }
+      .form-wrap {
+        max-width: 550px;
+        margin: 0 auto;
+        background: #000;
+        padding: 50px;
+        border: 1px solid #1a1a1a;
+        border-radius: 4px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+      .input-group {
+        margin-bottom: 20px;
+      }
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 18px;
+        background: #111;
+        border: 1px solid #222;
+        color: #fff;
+        font-family: 'Montserrat';
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+      }
+      .input-group input:focus,
+      .input-group select:focus {
+        border-color: var(--red);
+        background: #161616;
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 20px;
+        background: var(--red);
+        color: #fff;
+        border: none;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+        letter-spacing: 1px;
+      }
+      .btn-submit:hover:not(:disabled) {
+        background: #fff;
+        color: #000;
+      }
+      .btn-submit:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .form-err {
+        color: #ff6b6b;
+        font-size: 13px;
+        margin-top: 14px;
+        min-height: 18px;
+        font-weight: 500;
+      }
+
+      .line-red {
+        width: 60px;
+        height: 5px;
+        background: var(--red);
+        margin: 20px auto;
+      }
+
+      @media (max-width: 600px) {
+        .hero-title {
+          padding: 15px 20px;
+        }
+        .form-wrap {
+          padding: 30px 20px;
+        }
+      }
+
+      /* --- FOOTER --- */
+      .site-footer {
+        background-color: #0a0a0a;
+        color: #fff;
+        padding: 80px 20px 40px;
+        border-top: 3px solid var(--red);
+        margin-top: 0;
+      }
+      .footer-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+      }
+      .footer-col h3 {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        color: var(--red);
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+      .footer-links a {
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+        transition: 0.3s;
+        text-transform: uppercase;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      .footer-bottom {
+        max-width: 1600px;
+        margin: 60px auto 0;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #444;
+      }
+
+      @media (max-width: 991px) {
+        .footer-container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N89VVZFR"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <header class="main-header">
+      <div class="nav-flex">
+        <a href="index.html" class="logo">APUS<span>LEGAT</span></a>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="index.html" id="lnk-home">ГОЛОВНА</a>
+            <a href="about.html" id="lnk-about">ПРО НАС</a>
+            <a href="catalog.html" id="lnk-shop">МАГАЗИН</a>
+            <a href="contacts.html" id="lnk-contacts">КОНТАКТИ</a>
+          </nav>
+          <div class="lang-switcher">
+            <button class="lang-btn" id="btn-uk" onclick="changeLang('uk')">
+              UA
+            </button>
+            <button class="lang-btn" id="btn-ru" onclick="changeLang('ru')">
+              RU
+            </button>
+          </div>
+          <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">ГОЛОВНА</a>
+      <a href="about.html" onclick="toggleMenu()">ПРО НАС</a>
+      <a href="catalog.html" onclick="toggleMenu()">МАГАЗИН</a>
+      <a href="contacts.html" onclick="toggleMenu()">КОНТАКТИ</a>
+      <div class="mobile-lang-switcher">
+        <button
+          class="mobile-lang-btn"
+          id="mobile-btn-uk"
+          onclick="changeLangMobile('uk')"
+        >
+          UA
+        </button>
+        <button
+          class="mobile-lang-btn"
+          id="mobile-btn-ru"
+          onclick="changeLangMobile('ru')"
+        >
+          RU
+        </button>
+      </div>
+    </div>
+
+    <section class="hero-infra">
+      <div class="container">
+        <h1 class="hero-title" id="t-hero">
+          Паркінг та <span>Інфраструктура</span>
+        </h1>
+        <div class="line-red"></div>
+        <p id="t-subtitle">Повний спектр послуг для водіїв та бізнесу 24/7</p>
+      </div>
+    </section>
+
+    <section class="s-icons">
+      <div class="container">
+        <div class="icon-grid">
+          <div class="icon-item">
+            <div class="icon-box">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1788/1788637.png"
+                alt="Parking"
+              />
+            </div>
+            <h4 id="h-park">Паркування</h4>
+            <p id="p-park">
+              Охорона 24/7, відеоспостереження та освітлення для всіх типів
+              авто.
+            </p>
+          </div>
+          <div class="icon-item">
+            <div class="icon-box">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/407/407775.png"
+                alt="Warehouse"
+              />
+            </div>
+            <h4 id="h-ware">Склади</h4>
+            <p id="p-ware">
+              Оренда ангарів, критих складів та відкритих майданчиків для
+              вантажів.
+            </p>
+          </div>
+          <div class="icon-item">
+            <div class="icon-box">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1518/1518379.png"
+                alt="Offices"
+              />
+            </div>
+            <h4 id="h-off">Офіси</h4>
+            <p id="p-off">
+              Сучасні приміщення з усіма комунікаціями для вашого офісу.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-prices">
+      <div class="container">
+        <h2 class="section-h2" id="t-daily-h">Посуточна оренда</h2>
+        <div class="line-red"></div>
+        <table class="price-table">
+          <tr>
+            <td id="row-1">Легкові авто / причіп</td>
+            <td class="price-val">45 <span class="unit">грн/доба</span></td>
+          </tr>
+          <tr>
+            <td id="row-2">Вантажні до 5т (Газель, ТАТА, ISUZU)</td>
+            <td class="price-val">60 <span class="unit">грн/доба</span></td>
+          </tr>
+          <tr>
+            <td id="row-3">Вантажні понад 5т (тягач, причіп чи зцепка)</td>
+            <td class="price-val">75 <span class="unit">грн/доба</span></td>
+          </tr>
+        </table>
+
+        <h2 class="section-h2" id="t-abon-h">Місячний абонемент</h2>
+        <div class="line-red"></div>
+
+        <div class="info-card" id="abon-rules-top">
+          <h3>Умови:</h3>
+          <p>
+            • Абонемент діє на конкретне ТЗ (без закріплення місця).<br />
+            • Оплата нараховується незалежно від фактичної наявності авто.<br />
+            • Реєстрація абонемента проводиться до початку місяця через
+            менеджера.
+          </p>
+        </div>
+
+        <table class="price-table">
+          <tr>
+            <td id="row-a1">Легкові авто / причіп</td>
+            <td class="price-val">700 <span class="unit-m">грн/міс</span></td>
+          </tr>
+          <tr>
+            <td id="row-a2">Вантажні до 5т (Газель, ТАТА, ISUZU)</td>
+            <td class="price-val">1200 <span class="unit-m">грн/міс</span></td>
+          </tr>
+          <tr>
+            <td id="row-a3">Вантажні понад 5т (тягач, причіп чи зцепка)</td>
+            <td class="price-val">1500 <span class="unit-m">грн/міс</span></td>
+          </tr>
+        </table>
+
+        <h2 class="section-h2" id="t-spec-h">
+          Спеціальна ціна (кількість місць обмежена)
+        </h2>
+        <p
+          style="text-align: center; color: #888; font-size: 14px"
+          id="t-spec-sub"
+        >
+          (при паркуванні у місцях, рекомендованих адміністрацією)
+        </p>
+        <table class="price-table">
+          <tr>
+            <td id="row-s1">Легкові авто (Спецмісце)</td>
+            <td class="price-val">500 <span class="unit-m">грн/міс</span></td>
+          </tr>
+          <tr>
+            <td id="row-s2">Вантажні до 5т (Спецмісце)</td>
+            <td class="price-val">1000 <span class="unit-m">грн/міс</span></td>
+          </tr>
+          <tr>
+            <td id="row-s3">Вантажні понад 5т (Спецмісце)</td>
+            <td class="price-val">1200 <span class="unit-m">грн/міс</span></td>
+          </tr>
+        </table>
+
+        <div class="info-card" id="how-works">
+          <h3 id="h-how">Як це працює:</h3>
+          <p id="p-how">
+            Якщо ви заїхали 1-го числа, а вирішили оформити абонемент 10-го, то
+            перші 10 днів оплачуються за подобовим тарифом. Абонемент
+            активується з моменту звернення та діє протягом наступного місяця.
+            Плануйте заздалегідь!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s-form" id="booking">
+      <div class="container">
+        <div class="form-wrap">
+          <h2
+            style="
+              text-align: center;
+              font-weight: 900;
+              text-transform: uppercase;
+              margin-bottom: 30px;
+            "
+            id="t-form-h"
+          >
+            Залишити заявку
+          </h2>
+          <form id="infra-form" action="php/telegram.php" method="POST">
+            <input type="hidden" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" name="utm_medium" id="utm_medium" value="" />
+            <input
+              type="hidden"
+              name="utm_campaign"
+              id="utm_campaign"
+              value=""
+            />
+            <input type="hidden" name="utm_term" id="utm_term" value="" />
+            <input type="hidden" name="utm_content" id="utm_content" value="" />
+            <div class="input-group">
+              <select name="service" id="service-select">
+                <option value="Паркування">Паркування</option>
+                <option value="Оренда складу">Оренда складу</option>
+                <option value="Оренда офісу">Оренда офісу</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <input
+                type="text"
+                name="name"
+                id="user-name"
+                placeholder="Ваше ім'я"
+                required
+                oninput="this.value = this.value.replace(/[0-9]/g, '')"
+              />
+            </div>
+
+            <div class="input-group">
+              <input
+                type="tel"
+                name="phone"
+                id="user-phone"
+                value="+380"
+                required
+                maxlength="13"
+              />
+            </div>
+
+            <button type="submit" class="btn-submit" id="btn-send">
+              Відправити
+            </button>
+            <div class="form-err" id="f-err" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>APUS LEGAT</h3>
+          <p id="f-about-text">
+            Професійне обслуговування та продаж тахографів, систем моніторингу
+            палива та технічного контролю транспорту в Харкові.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-nav">НАВІГАЦІЯ</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" id="f-nav-home">Головна</a></li>
+            <li><a href="about.html" id="f-nav-about">Про нас</a></li>
+            <li><a href="catalog.html" id="f-nav-shop">Магазин</a></li>
+            <li><a href="contacts.html" id="f-nav-contacts">Контакти</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-srv">СЕРВІС</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="service-otk.html" id="f-serv-otk">Технічний огляд</a>
+            </li>
+            <li>
+              <a href="service-tacho.html" id="f-serv-tacho">Тахосервіс</a>
+            </li>
+            <li>
+              <a href="service-cert-auto.html" id="f-serv-cert-auto"
+                >Сертифікація авто</a
+              >
+            </li>
+            <li>
+              <a href="service-cert-tanks.html" id="f-serv-cert-tanks"
+                >Сертифікація бочок</a
+              >
+            </li>
+            <li>
+              <a href="logistics.html" id="f-serv-logistics"
+                >Логістика та ADR</a
+              >
+            </li>
+            <li>
+              <a href="parking.html" id="f-serv-parking">Інфраструктура</a>
+            </li>
+            <li>
+              <a href="documents.html" id="f-serv-documents">Документація</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-cont">КОНТАКТИ</h3>
+          <p id="f-addr">Україна, м. Харків</p>
+          <p>+380 66 033 90 09</p>
+          <p>+380 63 033 90 09</p>
+          <p>Email: apuslegatt@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 APUS LEGAT. ALL RIGHTS RESERVED.</span>
+        <span>DESIGN BY APUS TECH</span>
+      </div>
+    </footer>
+
+    <script>
+      /* ===== Ім'я форми для аналітики ===== */
+      const FORM_NAME = 'parking';
+
+      let currentLang = localStorage.getItem('selectedLang') || 'uk';
+
+      const translations = {
+        uk: {
+          home: 'ГОЛОВНА',
+          about: 'ПРО НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТИ',
+          t_hero: 'Паркінг та <span>Інфраструктура</span>',
+          t_subtitle: 'Повний спектр послуг для водіїв та бізнесу 24/7',
+          h_park: 'Паркування',
+          p_park:
+            'Охорона 24/7, відеоспостереження та освітлення для всіх типів авто.',
+          h_ware: 'Склади',
+          p_ware:
+            'Оренда ангарів, критих складів та відкритих майданчиків для вантажів.',
+          h_off: 'Офіси',
+          p_off: 'Сучасні приміщення з усіма комунікаціями для вашого офісу.',
+          t_daily_h: 'Посуточна оренда',
+          t_abon_h: 'Місячний абонемент',
+          t_spec_h: 'Спеціальна ціна (кількість місць обмежена)',
+          t_spec_sub:
+            '(при паркуванні у місцях, рекомендованих адміністрацією)',
+          row_1: 'Легкові авто / причіп',
+          row_2: 'Вантажні до 5т (Газель, ТАТА, ISUZU)',
+          row_3: 'Вантажні понад 5т (тягач, причіп чи зцепка)',
+          row_a1: 'Легкові авто / причіп',
+          row_a2: 'Вантажні до 5т (Газель, ТАТА, ISUZU)',
+          row_a3: 'Вантажні понад 5т (тягач, причіп чи зцепка)',
+          row_s1: 'Легкові авто (Спецмісце)',
+          row_s2: 'Вантажні до 5т (Спецмісце)',
+          row_s3: 'Вантажні понад 5т (Спецмісце)',
+          abon_rules_top:
+            '<h3>Умови:</h3><p>• Абонемент діє на конкретне ТЗ (без закріплення місця).<br>• Оплата нараховується незалежно від фактичної наявності авто.<br>• Реєстрація абонемента проводиться до початку місяця через менеджера.</p>',
+          h_how: 'Як це працює:',
+          p_how:
+            'Якщо ви заїхали 1-го числа, а вирішили оформити абонемент 10-го, то перші 10 днів оплачуються за подобовим тарифом. Абонемент активується з моменту звернення та діє протягом наступного місяця. Плануйте заздалегідь!',
+          t_form_h: 'Залишити заявку',
+          btn_send: 'Відправити',
+          sending: 'Відправляємо...',
+          user_name_placeholder: "Ваше ім'я",
+          err_phone: 'Вкажіть коректний номер телефону',
+          err_send:
+            'Не вдалося відправити заявку. Спробуйте ще раз або зателефонуйте: +380 66 033 90 09',
+          f_nav: 'НАВІГАЦІЯ',
+          f_srv: 'СЕРВІС',
+          f_cont: 'КОНТАКТИ',
+          f_about_text:
+            'Професійне обслуговування, продаж тахографів та технічного контролю транспорту в Харкові.',
+          f_addr: 'Україна, м. Харків, вул. Драгомирівська, 10',
+          f_serv_otk: 'Технічний огляд',
+          f_serv_tacho: 'Тахосервіс',
+          f_serv_cert_auto: 'Сертифікація авто',
+          f_serv_cert_tanks: 'Сертифікація бочок',
+          f_serv_logistics: 'Логістика та ADR',
+          f_serv_parking: 'Інфраструктура',
+          f_serv_documents: 'Документація',
+        },
+        ru: {
+          home: 'ГЛАВНАЯ',
+          about: 'О НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТЫ',
+          t_hero: 'Паркинг и <span>Инфраструктура</span>',
+          t_subtitle: 'Полный спектр услуг для водителей и бизнеса 24/7',
+          h_park: 'Парковка',
+          p_park:
+            'Охрана 24/7, видеонаблюдение и освещение для всех типов авто.',
+          h_ware: 'Склады',
+          p_ware:
+            'Аренда ангаров, крытых складов и открытых площадок для грузов.',
+          h_off: 'Офисы',
+          p_off:
+            'Современные помещения со всеми коммуникациями для вашего офиса.',
+          t_daily_h: 'Посуточная аренда',
+          t_abon_h: 'Месячный абонемент',
+          t_spec_h: 'Специальная цена (количество мест ограничено)',
+          t_spec_sub: '(при парковке в местах, рекомендуемых администрацией)',
+          row_1: 'Легковые авто / прицеп',
+          row_2: 'Грузовые до 5т (Газель, ТАТА, ISUZU)',
+          row_3: 'Грузовые свыше 5т (тягач, прицеп или сцепка)',
+          row_a1: 'Легковые авто / прицеп',
+          row_a2: 'Грузовые до 5т (Газель, ТАТА, ISUZU)',
+          row_a3: 'Грузовые свыше 5т (тягач, прицеп или сцепка)',
+          row_s1: 'Легковые авто (Спецместо)',
+          row_s2: 'Грузовые до 5т (Спецместо)',
+          row_s3: 'Грузовые свыше 5т (Спецместо)',
+          abon_rules_top:
+            '<h3>Условия:</h3><p>• Абонемент выдается на конкретное авто (без закрепления места).<br>• Плата начисляется независимо от того, стоит машина или нет.<br>• Фиксация абонемента производится до начала месяца через менеджера.</p>',
+          h_how: 'Как это работает:',
+          p_how:
+            'Если вы заехали 1-го числа, а решили оформить абонемент 10-го, то первые 10 дней оплачиваются посуточно. Абонемент активируется с момента обращения и действует в течение следующего месяца. Планируйте заранее!',
+          t_form_h: 'Оставить заявку',
+          btn_send: 'Отправить',
+          sending: 'Отправляем...',
+          user_name_placeholder: 'Ваше имя',
+          err_phone: 'Укажите корректный номер телефона',
+          err_send:
+            'Не удалось отправить заявку. Попробуйте ещё раз или позвоните: +380 66 033 90 09',
+          f_nav: 'НАВИГАЦИЯ',
+          f_srv: 'СЕРВИС',
+          f_cont: 'КОНТАКТЫ',
+          f_about_text:
+            'Профессиональное обслуживание, продажа тахографов и технического контроля транспорта в Харькове.',
+          f_addr: 'Украина, г. Харьков, ул. Драгомировская, 10',
+          f_serv_otk: 'Технический осмотр',
+          f_serv_tacho: 'Тахосервис',
+          f_serv_cert_auto: 'Сертификация авто',
+          f_serv_cert_tanks: 'Сертификация бочек',
+          f_serv_logistics: 'Логистика и ADR',
+          f_serv_parking: 'Инфраструктура',
+          f_serv_documents: 'Документация',
+        },
+      };
+
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active')
+          ? 'hidden'
+          : '';
+      }
+
+      function changeLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('selectedLang', lang);
+        applyLanguage();
+      }
+
+      function changeLangMobile(lang) {
+        changeLang(lang);
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function applyLanguage() {
+        const t = translations[currentLang];
+
+        // Навигация
+        document.getElementById('lnk-home').innerText = t.home;
+        document.getElementById('lnk-about').innerText = t.about;
+        document.getElementById('lnk-shop').innerText = t.shop;
+        document.getElementById('lnk-contacts').innerText = t.contacts;
+
+        // Контент страницы
+        document.getElementById('t-hero').innerHTML = t.t_hero;
+        document.getElementById('t-subtitle').innerText = t.t_subtitle;
+        document.getElementById('h-park').innerText = t.h_park;
+        document.getElementById('p-park').innerText = t.p_park;
+        document.getElementById('h-ware').innerText = t.h_ware;
+        document.getElementById('p-ware').innerText = t.p_ware;
+        document.getElementById('h-off').innerText = t.h_off;
+        document.getElementById('p-off').innerText = t.p_off;
+        document.getElementById('t-daily-h').innerText = t.t_daily_h;
+        document.getElementById('t-abon-h').innerText = t.t_abon_h;
+        document.getElementById('t-spec-h').innerText = t.t_spec_h;
+        document.getElementById('t-spec-sub').innerText = t.t_spec_sub;
+        document.getElementById('row-1').innerText = t.row_1;
+        document.getElementById('row-2').innerText = t.row_2;
+        document.getElementById('row-3').innerText = t.row_3;
+        document.getElementById('row-a1').innerText = t.row_a1;
+        document.getElementById('row-a2').innerText = t.row_a2;
+        document.getElementById('row-a3').innerText = t.row_a3;
+        document.getElementById('row-s1').innerText = t.row_s1;
+        document.getElementById('row-s2').innerText = t.row_s2;
+        document.getElementById('row-s3').innerText = t.row_s3;
+        document.getElementById('abon-rules-top').innerHTML = t.abon_rules_top;
+        document.getElementById('h-how').innerText = t.h_how;
+        document.getElementById('p-how').innerText = t.p_how;
+        document.getElementById('t-form-h').innerText = t.t_form_h;
+        document.getElementById('btn-send').innerText = t.btn_send;
+
+        // Placeholders
+        const nameInput = document.getElementById('user-name');
+        if (nameInput) nameInput.placeholder = t.user_name_placeholder;
+
+        // Футер
+        document.getElementById('f-title-nav').innerText = t.f_nav;
+        document.getElementById('f-title-srv').innerText = t.f_srv;
+        document.getElementById('f-title-cont').innerText = t.f_cont;
+        document.getElementById('f-about-text').innerText = t.f_about_text;
+        document.getElementById('f-addr').innerHTML = t.f_addr;
+
+        document.getElementById('f-nav-home').innerText = t.home;
+        document.getElementById('f-nav-about').innerText = t.about;
+        document.getElementById('f-nav-shop').innerText = t.shop;
+        document.getElementById('f-nav-contacts').innerText = t.contacts;
+
+        document.getElementById('f-serv-otk').innerText = t.f_serv_otk;
+        document.getElementById('f-serv-tacho').innerText = t.f_serv_tacho;
+        document.getElementById('f-serv-cert-auto').innerText =
+          t.f_serv_cert_auto;
+        document.getElementById('f-serv-cert-tanks').innerText =
+          t.f_serv_cert_tanks;
+        document.getElementById('f-serv-logistics').innerText =
+          t.f_serv_logistics;
+        document.getElementById('f-serv-parking').innerText = t.f_serv_parking;
+        document.getElementById('f-serv-documents').innerText =
+          t.f_serv_documents;
+
+        // Переключатели
+        document
+          .querySelectorAll('.lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        document.getElementById(`btn-${currentLang}`).classList.add('active');
+
+        document
+          .querySelectorAll('.mobile-lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        document
+          .getElementById(`mobile-btn-${currentLang}`)
+          .classList.add('active');
+
+        // Обновляем единицы измерения в таблицах
+        const dailyUnits = document.querySelectorAll('.unit');
+        dailyUnits.forEach((u) => {
+          u.innerHTML = currentLang === 'uk' ? 'грн/доба' : 'грн/сутки';
+        });
+
+        const monthUnits = document.querySelectorAll('.unit-m');
+        monthUnits.forEach((u) => {
+          u.innerHTML = currentLang === 'uk' ? 'грн/міс' : 'грн/мес';
+        });
+
+        // Обновляем опции в select (сохраняем value — они фиксированные)
+        const serviceSelect = document.getElementById('service-select');
+        if (serviceSelect) {
+          if (currentLang === 'uk') {
+            serviceSelect.options[0].text = 'Паркування';
+            serviceSelect.options[1].text = 'Оренда складу';
+            serviceSelect.options[2].text = 'Оренда офісу';
+          } else {
+            serviceSelect.options[0].text = 'Парковка';
+            serviceSelect.options[1].text = 'Аренда склада';
+            serviceSelect.options[2].text = 'Аренда офиса';
+          }
+        }
+      }
+
+      // Phone mask
+      const phoneInput = document.getElementById('user-phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let val = e.target.value.replace(/[^\d+]/g, '');
+          if (val.length > 0 && !val.startsWith('+380')) val = '+380';
+          if (val.length > 13) val = val.substring(0, 13);
+          e.target.value = val;
+        });
+      }
+
+      /* ===== UTM у приховані поля ===== */
+      function fillUtmFields() {
+        const utmFields = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+        ];
+
+        utmFields.forEach((field) => {
+          const input = document.getElementById(field);
+          if (input) {
+            const savedValue = localStorage.getItem(field);
+            input.value = savedValue && savedValue !== '' ? savedValue : '—';
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fillUtmFields);
+      } else {
+        fillUtmFields();
+      }
+
+      /* =====================================================
+         ХЕЛПЕР: подія в dataLayer + перехід на thank-you.html
+         ===================================================== */
+      function goToThankYou() {
+        let redirected = false;
+        const go = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = 'thank-you.html';
+        };
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_name: FORM_NAME,
+          eventCallback: go,
+          eventTimeout: 500,
+        });
+
+        setTimeout(go, 500);
+      }
+
+      /* ===== Відправка форми ===== */
+      const infraForm = document.getElementById('infra-form');
+      const btnSend = document.getElementById('btn-send');
+      const fErr = document.getElementById('f-err');
+      let sending = false;
+
+      if (infraForm) {
+        infraForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (sending) return;
+
+          // Валидация телефона (минимум 12 цифр: 380 + 9)
+          const cleanPhone = phoneInput.value.replace(/\D/g, '');
+          if (cleanPhone.length < 12) {
+            fErr.textContent = translations[currentLang].err_phone;
+            phoneInput.focus();
+            return;
+          }
+
+          fErr.textContent = '';
+          sending = true;
+          fillUtmFields();
+
+          const originalText = btnSend.innerText;
+          btnSend.disabled = true;
+          btnSend.innerText = translations[currentLang].sending;
+
+          const fd = new FormData(infraForm);
+          fd.append('form_name', FORM_NAME);
+
+          fetch(infraForm.action, {
+            method: 'POST',
+            body: fd,
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+          })
+            .then((res) =>
+              res.json().then((data) => {
+                if (!res.ok || data.status !== 'success') {
+                  throw new Error(data.message || 'HTTP ' + res.status);
+                }
+                /* заявка доставлена: пушимо подію і переходимо */
+                goToThankYou();
+              })
+            )
+            .catch((err) => {
+              console.error('Form submit error:', err);
+              sending = false;
+              btnSend.disabled = false;
+              btnSend.innerText = originalText;
+              fErr.textContent = translations[currentLang].err_send;
+            });
+        });
+      }
+
+      window.onload = () => {
+        applyLanguage();
+        fillUtmFields();
+      };
+    </script>
+  </body>
+</html>

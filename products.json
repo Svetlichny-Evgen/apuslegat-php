@@ -1,0 +1,1485 @@
+{
+  "inventory": {
+    "tachographs": [
+      {
+        "id": "tacho-1381",
+        "name": { "ru": "Тахограф 1381", "uk": "Тахограф 1381" },
+        "brand": "VDO",
+        "model": "1381",
+        "description": {
+          "ru": "Цифровой тахограф VDO DTCO 1381. Надежное устройство для контроля режима труда и отдыха водителей.",
+          "uk": "Цифровий тахограф VDO DTCO 1381. Надійний пристрій для контролю режиму праці та відпочинку водіїв."
+        },
+        "image_url": "img/public/shop/1381.png",
+        "has_variations": true,
+        "variation_type": "voltage",
+        "variations": [
+          {
+            "id": "u1381-24",
+            "condition": "used",
+            "voltage": "24V",
+            "price": 14000,
+            "sku": "1381-24-U",
+            "description": {
+              "ru": "Цифровой тахограф VDO DTCO 1381, 24В. Проверен на стенде, готов к установке.",
+              "uk": "Цифровий тахограф VDO DTCO 1381, 24В. Перевірений на стенді, готовий до встановлення."
+            }
+          },
+          {
+            "id": "u1381-12",
+            "condition": "used",
+            "voltage": "12V",
+            "price": 14000,
+            "sku": "1381-12-U",
+            "description": {
+              "ru": "Цифровой тахограф VDO DTCO 1381, 12В. Подходит для легкого коммерческого транспорта.",
+              "uk": "Цифровий тахограф VDO DTCO 1381, 12В. Підходить для легкого комерційного транспорту."
+            }
+          },
+          {
+            "id": "n1381-24",
+            "condition": "new",
+            "voltage": "24V",
+            "price": 30000,
+            "sku": "1381-24-N",
+            "description": {
+              "ru": "Новый цифровой тахограф VDO 1381 для транспортных средств с питанием 24 В",
+              "uk": "Новий цифровий тахограф VDO 1381 для транспортних засобів із живленням 24 В."
+            }
+          },
+          {
+            "id": "n1381-12",
+            "condition": "new",
+            "voltage": "12V",
+            "price": 32000,
+            "sku": "1381-12-N",
+            "description": {
+              "ru": "Новый цифровой тахограф VDO 1381 для транспортных средств с питанием 12 В",
+              "uk": "Новий цифровий тахограф VDO 1381 для транспортних засобів із живленням 12 В."
+            }
+          }
+        ]
+      },
+      {
+        "id": "tacho-se5000",
+        "name": { "ru": "Тахограф SE5000", "uk": "Тахограф SE5000" },
+        "brand": "Stoneridge",
+        "model": "SE5000",
+        "description": {
+          "ru": "Цифровой тахограф Stoneridge SE5000. Современное решение для контроля транспортных средств.",
+          "uk": "Цифровий тахограф Stoneridge SE5000. Сучасне рішення для контролю транспортних засобів."
+        },
+        "image_url": "img/public/shop/se5000.webp",
+        "has_variations": true,
+        "variation_type": "voltage",
+        "variations": [
+          {
+            "id": "use5000-24",
+            "condition": "used",
+            "voltage": "24V",
+            "price": 14000,
+            "sku": "SE5000-24-U",
+            "description": {
+              "ru": "Цифровой тахограф Stoneridge SE5000, 24В.",
+              "uk": "Цифровий тахограф Stoneridge SE5000, 24В."
+            }
+          },
+          {
+            "id": "use5000-12",
+            "condition": "used",
+            "voltage": "12V",
+            "price": 14000,
+            "sku": "SE5000-12-U",
+            "description": {
+              "ru": "Цифровой тахограф Stoneridge SE5000, 12В.",
+              "uk": "Цифровий тахограф Stoneridge SE5000, 12В."
+            }
+          }
+        ]
+      },
+      {
+        "id": "tacho-1324",
+        "name": { "ru": "Тахограф 1324", "uk": "Тахограф 1324" },
+        "brand": "VDO",
+        "model": "1324",
+        "description": {
+          "ru": "Аналоговый тахограф 1324. Проверенное временем решение для контроля скорости и пробега.",
+          "uk": "Аналоговий тахограф 1324. Перевірене часом рішення для контролю швидкості та пробігу."
+        },
+        "image_url": "img/public/shop/1324.jpg",
+        "has_variations": true,
+        "variation_type": "voltage",
+        "variations": [
+          {
+            "id": "u1324-12",
+            "condition": "used",
+            "voltage": "12V",
+            "price": 11000,
+            "sku": "1324-12-U",
+            "description": {
+              "ru": "Аналоговый тахограф 1324, 12В.",
+              "uk": "Аналоговий тахограф 1324, 12В."
+            }
+          },
+          {
+            "id": "u1324-24",
+            "condition": "used",
+            "voltage": "24V",
+            "price": 11000,
+            "sku": "1324-24-U",
+            "description": {
+              "ru": "Аналоговый тахограф 1324, 24В.",
+              "uk": "Аналоговий тахограф 1324, 24В."
+            }
+          }
+        ]
+      }
+    ],
+    "installation_kits": [
+      {
+        "id": "kit-tata",
+        "name": { "ru": "Комплект TATA", "uk": "Комплект TATA" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей TATA. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів TATA. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/tata.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-tata-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 32500,
+            "sku": "TATA-1381-12"
+          },
+          {
+            "id": "kit-tata-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 30000,
+            "sku": "TATA-1381-24"
+          },
+          {
+            "id": "kit-tata-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 28500,
+            "sku": "TATA-1324-12"
+          },
+          {
+            "id": "kit-tata-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 28000,
+            "sku": "TATA-1324-24"
+          },
+          {
+            "id": "kit-tata-1318-12v",
+            "tacho_model": "1318",
+            "voltage": "12V",
+            "price": 16000,
+            "sku": "TATA-1318-12"
+          },
+          {
+            "id": "kit-tata-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "TATA-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-isuzu",
+        "name": { "ru": "Комплект ISUZU", "uk": "Комплект ISUZU" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей ISUZU. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів ISUZU. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/isuzu.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-isuzu-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 29000,
+            "sku": "ISUZU-1381-12"
+          },
+          {
+            "id": "kit-isuzu-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 28500,
+            "sku": "ISUZU-1381-24"
+          },
+          {
+            "id": "kit-isuzu-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 27500,
+            "sku": "ISUZU-1324-12"
+          },
+          {
+            "id": "kit-isuzu-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 25000,
+            "sku": "ISUZU-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-zil",
+        "name": { "ru": "Комплект ЗИЛ", "uk": "Комплект ЗИЛ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей ЗИЛ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів ЗИЛ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/zil.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-zil-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 27500,
+            "sku": "ZIL-1381-12"
+          },
+          {
+            "id": "kit-zil-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 27000,
+            "sku": "ZIL-1381-24"
+          },
+          {
+            "id": "kit-zil-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 26000,
+            "sku": "ZIL-1324-12"
+          },
+          {
+            "id": "kit-zil-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 25500,
+            "sku": "ZIL-1324-24"
+          },
+          {
+            "id": "kit-zil-1318-12v",
+            "tacho_model": "1318",
+            "voltage": "12V",
+            "price": 16000,
+            "sku": "ZIL-1318-12"
+          },
+          {
+            "id": "kit-zil-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "ZIL-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-maz",
+        "name": { "ru": "Комплект МАЗ", "uk": "Комплект МАЗ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей МАЗ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів МАЗ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/maz.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-maz-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 27500,
+            "sku": "MAZ-1381-24"
+          },
+          {
+            "id": "kit-maz-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 26500,
+            "sku": "MAZ-1324-24"
+          },
+          {
+            "id": "kit-maz-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "MAZ-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-kamaz",
+        "name": { "ru": "Комплект КАМАЗ", "uk": "Комплект КАМАЗ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей КАМАЗ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів КАМАЗ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/kamaz.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-kamaz-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 26500,
+            "sku": "KAMAZ-1381-24"
+          },
+          {
+            "id": "kit-kamaz-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 26000,
+            "sku": "KAMAZ-1324-24"
+          },
+          {
+            "id": "kit-kamaz-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "KAMAZ-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-ural",
+        "name": { "ru": "Комплект УРАЛ", "uk": "Комплект УРАЛ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей УРАЛ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів УРАЛ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/ural.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-ural-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 27000,
+            "sku": "URAL-1381-24"
+          },
+          {
+            "id": "kit-ural-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 25000,
+            "sku": "URAL-1324-24"
+          },
+          {
+            "id": "kit-ural-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "URAL-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-hyundai",
+        "name": { "ru": "Комплект HYUNDAI", "uk": "Комплект HYUNDAI" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей HYUNDAI. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів HYUNDAI. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/isuzu.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-hyundai-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 33000,
+            "sku": "HYUNDAI-1381-12"
+          },
+          {
+            "id": "kit-hyundai-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 32500,
+            "sku": "HYUNDAI-1381-24"
+          },
+          {
+            "id": "kit-hyundai-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "HYUNDAI-1324-12"
+          },
+          {
+            "id": "kit-hyundai-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "HYUNDAI-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-mercedes",
+        "name": { "ru": "Комплект MERCEDES", "uk": "Комплект MERCEDES" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей MERCEDES. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів MERCEDES. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/sprinter.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-mercedes-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 35000,
+            "sku": "MERCEDES-1381-12"
+          },
+          {
+            "id": "kit-mercedes-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 34500,
+            "sku": "MERCEDES-1381-24"
+          },
+          {
+            "id": "kit-mercedes-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 33000,
+            "sku": "MERCEDES-1324-12"
+          },
+          {
+            "id": "kit-mercedes-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 32500,
+            "sku": "MERCEDES-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-kraz",
+        "name": { "ru": "Комплект КРАЗ", "uk": "Комплект КРАЗ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей КРАЗ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів КРАЗ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/kamaz.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-kraz-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 27000,
+            "sku": "KRAZ-1381-24"
+          },
+          {
+            "id": "kit-kraz-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 25000,
+            "sku": "KRAZ-1324-24"
+          },
+          {
+            "id": "kit-kraz-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "KRAZ-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-renault",
+        "name": { "ru": "Комплект RENAULT", "uk": "Комплект RENAULT" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей RENAULT. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів RENAULT. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/renault.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-renault-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "RENAULT-1381-12"
+          },
+          {
+            "id": "kit-renault-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "RENAULT-1381-24"
+          },
+          {
+            "id": "kit-renault-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "RENAULT-1324-12"
+          },
+          {
+            "id": "kit-renault-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "RENAULT-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-man",
+        "name": { "ru": "Комплект MAN", "uk": "Комплект MAN" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей MAN. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів MAN. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/man.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-man-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "MAN-1381-12"
+          },
+          {
+            "id": "kit-man-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "MAN-1381-24"
+          },
+          {
+            "id": "kit-man-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 29000,
+            "sku": "MAN-1324-12"
+          },
+          {
+            "id": "kit-man-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 28500,
+            "sku": "MAN-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-foton",
+        "name": { "ru": "Комплект FOTON", "uk": "Комплект FOTON" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей FOTON. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів FOTON. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/foton.jpg",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-foton-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 30000,
+            "sku": "FOTON-1381-12"
+          },
+          {
+            "id": "kit-foton-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 29500,
+            "sku": "FOTON-1381-24"
+          },
+          {
+            "id": "kit-foton-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 28000,
+            "sku": "FOTON-1324-12"
+          },
+          {
+            "id": "kit-foton-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 28500,
+            "sku": "FOTON-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-baz",
+        "name": { "ru": "Комплект БАЗ", "uk": "Комплект БАЗ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей БАЗ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів БАЗ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/tata.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-baz-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "BAZ-1381-12"
+          },
+          {
+            "id": "kit-baz-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "BAZ-1381-24"
+          },
+          {
+            "id": "kit-baz-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 30000,
+            "sku": "BAZ-1324-12"
+          },
+          {
+            "id": "kit-baz-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 29500,
+            "sku": "BAZ-1324-24"
+          },
+          {
+            "id": "kit-baz-1318-12v",
+            "tacho_model": "1318",
+            "voltage": "12V",
+            "price": 160000,
+            "sku": "BAZ-1318-12"
+          },
+          {
+            "id": "kit-baz-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "BAZ-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-gaz",
+        "name": { "ru": "Комплект ГАЗ", "uk": "Комплект ГАЗ" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей ГАЗ. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів ГАЗ. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/zil.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-gaz-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 28000,
+            "sku": "GAZ-1381-12"
+          },
+          {
+            "id": "kit-gaz-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 27500,
+            "sku": "GAZ-1381-24"
+          },
+          {
+            "id": "kit-gaz-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 26000,
+            "sku": "GAZ-1324-12"
+          },
+          {
+            "id": "kit-gaz-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 25500,
+            "sku": "GAZ-1324-24"
+          },
+          {
+            "id": "kit-gaz-1318-12v",
+            "tacho_model": "1318",
+            "voltage": "12V",
+            "price": 16000,
+            "sku": "GAZ-1318-12"
+          },
+          {
+            "id": "kit-gaz-1318-24v",
+            "tacho_model": "1318",
+            "voltage": "24V",
+            "price": 15000,
+            "sku": "GAZ-1318-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-sinotruk",
+        "name": { "ru": "Комплект SINOTRUK", "uk": "Комплект SINOTRUK" },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей SINOTRUK. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів SINOTRUK. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/sinotruck.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-sinotruk-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 30000,
+            "sku": "SINOTRUK-1381-12"
+          },
+          {
+            "id": "kit-sinotruk-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 29500,
+            "sku": "SINOTRUK-1381-24"
+          },
+          {
+            "id": "kit-sinotruk-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 28000,
+            "sku": "SINOTRUK-1324-12"
+          },
+          {
+            "id": "kit-sinotruk-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 27500,
+            "sku": "SINOTRUK-1324-24"
+          }
+        ]
+      },
+      {
+        "id": "kit-intercargotruck",
+        "name": {
+          "ru": "Комплект INTERCARGOTRUCK",
+          "uk": "Комплект INTERCARGOTRUCK"
+        },
+        "brand": "Apus Legat",
+        "description": {
+          "ru": "Монтажный набор для автомобилей INTERCARGOTRUCK. Включает все необходимое для установки цифрового тахографа.",
+          "uk": "Монтажний набір для автомобілів INTERCARGOTRUCK. Включає все необхідне для встановлення цифрового тахографа."
+        },
+        "image_url": "img/public/shop/intercargo.png",
+        "has_variations": true,
+        "variation_type": "tacho_and_voltage",
+        "variations": [
+          {
+            "id": "kit-intercargotruck-1381-12v",
+            "tacho_model": "1381",
+            "voltage": "12V",
+            "price": 33000,
+            "sku": "INTERCARGO-1381-12"
+          },
+          {
+            "id": "kit-intercargotruck-1381-24v",
+            "tacho_model": "1381",
+            "voltage": "24V",
+            "price": 32500,
+            "sku": "INTERCARGO-1381-24"
+          },
+          {
+            "id": "kit-intercargotruck-1324-12v",
+            "tacho_model": "1324",
+            "voltage": "12V",
+            "price": 31000,
+            "sku": "INTERCARGO-1324-12"
+          },
+          {
+            "id": "kit-intercargotruck-1324-24v",
+            "tacho_model": "1324",
+            "voltage": "24V",
+            "price": 30500,
+            "sku": "INTERCARGO-1324-24"
+          }
+        ]
+      }
+    ],
+    "sensors": [
+      {
+        "id": "s-siemens-2171-n",
+        "name": {
+          "ru": "Датчик Siemens 2171",
+          "uk": "Датчик Siemens 2171"
+        },
+        "condition": "new",
+        "description": {
+          "ru": "Интеллектуальный датчик скорости Siemens KITAS 2171.",
+          "uk": "Інтелектуальний датчик швидкості Siemens KITAS 2171."
+        },
+        "price": 4000,
+        "image_url": "img/public/shop/2171b.webp",
+        "has_variations": false
+      },
+      {
+        "id": "s-2159-25-n",
+        "name": {
+          "ru": "Датчик 2159 25mm",
+          "uk": "Датчик 2159 25mm"
+        },
+        "condition": "new",
+        "description": {
+          "ru": "Датчик скорости 2159, длина 25мм.",
+          "uk": "Датчик швидкості 2159, довжина 25мм."
+        },
+        "price": 7000,
+        "image_url": "img/public/shop/2159_25.webp",
+        "has_variations": false
+      },
+      {
+        "id": "s-2159-65-n",
+        "name": {
+          "ru": "Датчик 2159 65mm",
+          "uk": "Датчик 2159 65mm"
+        },
+        "condition": "new",
+        "description": {
+          "ru": "Датчик скорости 2159, длина 65мм.",
+          "uk": "Датчик швидкості 2159, довжина 65мм."
+        },
+        "price": 5000,
+        "image_url": "img/public/shop/2159_65.webp",
+        "has_variations": false
+      },
+      {
+        "id": "s-2159-90-n",
+        "name": {
+          "ru": "Датчик 2159 90mm",
+          "uk": "Датчик 2159 90mm"
+        },
+        "condition": "new",
+        "description": {
+          "ru": "Датчик скорости 2159, длина 90мм.",
+          "uk": "Датчик швидкості 2159, довжина 90мм."
+        },
+        "price": 6000,
+        "image_url": "img/public/shop/2159_90.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "s-kitas-2171-25-n",
+        "name": {
+          "ru": "Датчик Kitas 2171 25mm",
+          "uk": "Датчик Kitas 2171 25mm"
+        },
+        "condition": "new",
+        "description": {
+          "ru": "Интеллектуальный датчик скорости KITAS 2171, длина 25мм.",
+          "uk": "Інтелектуальний датчик швидкості KITAS 2171, довжина 25мм."
+        },
+        "price": 8000,
+        "image_url": "img/public/shop/2171_25.webp",
+        "has_variations": false
+      },
+      {
+        "id": "s-kitas-2171-25-u",
+        "name": {
+          "ru": "Датчик Kitas 2171 25mm (Б/У)",
+          "uk": "Датчик Kitas 2171 25mm (Б/В)"
+        },
+        "condition": "used",
+        "description": {
+          "ru": "Датчик скорости KITAS 2171 25mm, бывший в употреблении (Б/У).",
+          "uk": "Датчик швидкості KITAS 2171 25mm, що був у використанні (Б/В)."
+        },
+        "price": 4000,
+        "image_url": "img/public/shop/2171_25.webp",
+        "has_variations": false
+      }
+    ],
+    "parts": [
+      {
+        "id": "p-m1n1",
+        "name": { "ru": "Адаптер M1N1", "uk": "Адаптер M1N1" },
+        "description": {
+          "ru": "Адаптер импульсов для корректной передачи сигнала на тахограф.",
+          "uk": "Адаптер імпульсів для коректної передачі сигналу на тахограф."
+        },
+        "price": 6500,
+        "image_url": "img/public/shop/m1n1.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "p-can-speed",
+        "name": {
+          "ru": "Адаптер CAN BUS SPEED",
+          "uk": "Адаптер CAN BUS SPEED"
+        },
+        "description": {
+          "ru": "Интерфейс для считывания данных о скорости из CAN-шины автомобиля.",
+          "uk": "Інтерфейс для зчитування даних про швидкість з CAN-шини автомобіля."
+        },
+        "price": 8000,
+        "image_url": "img/public/shop/can.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "p-speedo-85",
+        "name": {
+          "ru": "Спидометр цифровой 85мм",
+          "uk": "Спідометр цифровий 85мм"
+        },
+        "description": {
+          "ru": "Цифровой спидометр диаметром 85мм, совместим с тахографами.",
+          "uk": "Цифровий спідометр діаметром 85мм, сумісний з тахографами."
+        },
+        "price": 5000,
+        "image_url": "img/public/shop/spidometr85.webp",
+        "has_variations": false
+      },
+      {
+        "id": "p-speedo-140",
+        "name": {
+          "ru": "Спидометр цифровой 140мм",
+          "uk": "Спідометр цифровий 140мм"
+        },
+        "description": {
+          "ru": "Цифровой спидометр диаметром 140мм, совместим с тахографами.",
+          "uk": "Цифровий спідометр діаметром 140мм, сумісний з тахографами"
+        },
+        "price": 6600,
+        "image_url": "img/public/shop/spidometr140.webp",
+        "has_variations": false
+      },
+      {
+        "id": "p-brass-adapter",
+        "name": {
+          "ru": "Латунный переходник",
+          "uk": "Латунний перехідник"
+        },
+        "description": {
+          "ru": "Высококачественный латунный переходник для монтажа датчика скорости.",
+          "uk": "Високоякісний латунний перехідник для монтажу датчика швидкості."
+        },
+        "price": 2100,
+        "image_url": "img/public/shop/lat_adapt.webp",
+        "has_variations": false
+      },
+      {
+        "id": "p-triangular-adapter",
+        "name": {
+          "ru": "Треугольный переходник",
+          "uk": "Трикутний перехідник"
+        },
+        "description": {
+          "ru": "Специальный треугольный адаптер для систем тахографа.",
+          "uk": "Спеціальний трикутний адаптер для систем тахографа."
+        },
+        "price": 2500,
+        "image_url": "img/public/shop/treug.png",
+        "has_variations": false
+      }
+    ],
+    "radio": [
+      {
+        "id": "TXPR046",
+        "name": {
+          "ru": "Радиостанция PRESIDENT JIMMY III ASC",
+          "uk": "Радіостанція PRESIDENT JIMMY III ASC"
+        },
+        "description": {
+          "ru": "12V, AM/FM, '5' и '0', ASC, VOX, SCAN",
+          "uk": "12V, AM/FM, '5' i '0', ASC, VOX, SCAN"
+        },
+        "price": 3550,
+        "image_url": "img/public/shop/jimmy_iii.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "PEU0498",
+        "name": {
+          "ru": "Комплект JIMMY III ASC + CV 24/12V 12A",
+          "uk": "Комплект JIMMY III ASC + CV 24/12V 12A"
+        },
+        "description": {
+          "ru": "Комплект JIMMY III 12V + линейный преобразователь 24/12 12A",
+          "uk": "Комплект JIMMY III 12V + лінійний перетворювач 24/12 12A"
+        },
+        "price": 4300,
+        "image_url": "img/public/shop/jimmy_iii.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR376",
+        "name": {
+          "ru": "Радиостанция PRESIDENT TEDDY II+ 12/24V",
+          "uk": "Радіостанція PRESIDENT TEDDY II+ 12/24V"
+        },
+        "description": {
+          "ru": "12/24V, AM/FM, '5' и '0', ASC, VOX, фильтр NB",
+          "uk": "12/24V, AM/FM, '5' i '0', ASC, VOX, фільтр NB"
+        },
+        "price": 4900,
+        "image_url": "img/public/shop/teddy_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR122",
+        "name": {
+          "ru": "Радиостанция PRESIDENT BARRY II+ 12/24V",
+          "uk": "Радіостанція PRESIDENT BARRY II+ 12/24V"
+        },
+        "description": {
+          "ru": "Новые функции: 5 закрытых каналов PRESIDENT, цифровой фильтр NRC! 12/24V, AM/FM, 5/0, Roger Beep, UP/DOWN, USB, VOX",
+          "uk": "Нові функції: 5 закритих каналів PRESIDENT, цифровий фільтр NRC! 12/24V, AM/FM, 5/0, Roger Beep, UP/DOWN, USB, VOX"
+        },
+        "price": 5500,
+        "image_url": "img/public/shop/barry_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR201",
+        "name": {
+          "ru": "Радиостанция PRESIDENT BILL II+ ASC",
+          "uk": "Радіостанція PRESIDENT BILL II+ ASC"
+        },
+        "description": {
+          "ru": "AM/FM, ASC, мини размеры 102х100х25мм, VOX, NRC, 5 закрытых каналов",
+          "uk": "AM/FM, ASC, міні розміри 102х100х25мм, VOX, NRC, 5 закритих каналів"
+        },
+        "price": 6400,
+        "image_url": "img/public/shop/bill_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR218",
+        "name": {
+          "ru": "Радиостанция PRESIDENT MARTIN 12/24V",
+          "uk": "Радіостанція PRESIDENT MARTIN 12/24V"
+        },
+        "description": {
+          "ru": "AM/FM, '5' и '0', ANL, RF GAIN, ASC, 12/24V, USB, VOX",
+          "uk": "AM/FM, '5' i '0', ANL, RF GAIN, ASC, 12/24V, USB, VOX"
+        },
+        "price": 6500,
+        "image_url": "img/public/shop/martin.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR194",
+        "name": {
+          "ru": "Радиостанция PRESIDENT WILLIAM II 12/24V",
+          "uk": "Радіостанція PRESIDENT WILLIAM II 12/24V"
+        },
+        "description": {
+          "ru": "BLUETOOTH микрофон до 30 м. 12/24V, 0/5 сетки, AM/FM",
+          "uk": "BLUETOOTH Мікрофон до 30 м. 12/24V, 0/5 сітки, AM/FM"
+        },
+        "price": 7950,
+        "image_url": "img/public/shop/william_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR403",
+        "name": {
+          "ru": "Радиостанция PRESIDENT TAYLOR IV ASC 12/24V",
+          "uk": "Радіостанція PRESIDENT TAYLOR IV ASC 12/24V"
+        },
+        "description": {
+          "ru": "AM/FM, сетки '5' и '0', ASC, АГРО применение",
+          "uk": "AM/FM, сітки '5' і '0', ASC, АГРО застосування"
+        },
+        "price": 8200,
+        "image_url": "img/public/shop/taylor_iv.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR100",
+        "name": {
+          "ru": "Радиостанция PRESIDENT WALKER II",
+          "uk": "Радіостанція PRESIDENT WALKER II"
+        },
+        "description": {
+          "ru": "AM/FM, '5' и '0', фильтр NB/ANL",
+          "uk": "AM/FM, '5' i '0', фільтр NB/ANL"
+        },
+        "price": 8995,
+        "image_url": "img/public/shop/walker_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR668",
+        "name": {
+          "ru": "Радиостанция PRESIDENT HARRISON II 12/24V",
+          "uk": "Радіостанція PRESIDENT HARRISON II 12/24V"
+        },
+        "description": {
+          "ru": "AM/FM, '5' и '0', ASC, NB ANL, USB, VOX, 12/24V, SCAN, Roger Beep",
+          "uk": "AM/FM, '5' i '0', ASC, NB ANL, USB, VOX, 12/24V, SCAN, Roger Beep"
+        },
+        "price": 8500,
+        "image_url": "img/public/shop/harrison_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXMU667",
+        "name": {
+          "ru": "Радиостанция PRESIDENT JOHNSON II 12/24V",
+          "uk": "Радіостанція PRESIDENT JOHNSON II 12/24V"
+        },
+        "description": {
+          "ru": "Лимитированное количество. AM/FM, 5/0, фильтр HI CUT/NB/ANL, скан, 12/24V, VOX",
+          "uk": "Лімітована кількість. AM/FM, 5/0, фільтр HI CUT/NB/ANL, скан, 12/24V, VOX"
+        },
+        "price": 8800,
+        "image_url": "img/public/shop/johnson_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR423",
+        "name": {
+          "ru": "Радиостанция PRESIDENT TAYLOR IV CARBON LINE 12/24V",
+          "uk": "Радіостанція PRESIDENT TAYLOR IV CARBON LINE 12/24V"
+        },
+        "description": {
+          "ru": "AM/FM, '5/0', ASC, NB ANL, USB, VOX, 12/24V, передняя панель карбон",
+          "uk": "AM/FM, '5/0', ASC, NB ANL, USB, VOX, 12/24V, передня панель карбон"
+        },
+        "price": 8900,
+        "image_url": "img/public/shop/taylor_iv.webp",
+        "has_variations": false
+      },
+      {
+        "id": "30257",
+        "name": {
+          "ru": "Радиостанция STABO XM 5008 VOX",
+          "uk": "Радіостанція STABO XM 5008 VOX"
+        },
+        "description": {
+          "ru": "AM/FM, 12/24V + монтажная рамка 1DIN в комплекте, VOX",
+          "uk": "AM/FM, 12/24V + монтажна рамка 1DIN в комплекті, VOX"
+        },
+        "price": 8990,
+        "image_url": "img/public/shop/stabo_xm5008.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR618",
+        "name": {
+          "ru": "Радиостанция PRESIDENT JFK III с шахтой",
+          "uk": "Радіостанція PRESIDENT JFK III з шахтою"
+        },
+        "description": {
+          "ru": "AM/FM, 5/0, фильтр HI CUT/NB/ANL, скан, 12/24V, VOX, NRC фильтр",
+          "uk": "AM/FM, 5/0, фільтр HI CUT/NB/ANL, скан, 12/24V, VOX, NRC фільтр"
+        },
+        "price": 9500,
+        "image_url": "img/public/shop/jfk_iii.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR767",
+        "name": {
+          "ru": "Радиостанция PRESIDENT JOHNSON III 12/24V с шахтой",
+          "uk": "Радіостанція PRESIDENT JOHNSON III 12/24V з шахтою"
+        },
+        "description": {
+          "ru": "AM/FM, 5/0, фильтр HI CUT/NB/ANL, скан, 12/24V, VOX, с ШАХТОЙ",
+          "uk": "AM/FM, 5/0, фільтр HI CUT/NB/ANL, скан, 12/24V, VOX, з ШАХТОЮ"
+        },
+        "price": 12500,
+        "image_url": "img/public/shop/johnson_iii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR034",
+        "name": {
+          "ru": "Радиостанция PRESIDENT RICHARD",
+          "uk": "Радіостанція PRESIDENT RICHARD"
+        },
+        "description": {
+          "ru": "AM/FM/SSB, '5' и '0', фильтр NB/ANL, RF POWER, MC RF GAIN, 25-30MHz",
+          "uk": "AM/FM/SSB, '5' і '0', фільтр NB/ANL, RF POWER, MC RF GAIN, 25-30MHz"
+        },
+        "price": 12500,
+        "image_url": "img/public/shop/richard.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR600",
+        "name": {
+          "ru": "Радиостанция PRESIDENT MC KINLEY",
+          "uk": "Радіостанція PRESIDENT MC KINLEY"
+        },
+        "description": {
+          "ru": "AM/FM/SSB, 5/0, фильтр HI CUT/NB/ANL, скан, 12/24V, VOX",
+          "uk": "AM/FM/SSB, 5/0, фільтр HI CUT/NB/ANL, скан, 12/24V, VOX"
+        },
+        "price": 15500,
+        "image_url": "img/public/shop/mc_kinley.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR900",
+        "name": {
+          "ru": "Радиостанция PRESIDENT GEORGE II ASC",
+          "uk": "Радіостанція PRESIDENT GEORGE II ASC"
+        },
+        "description": {
+          "ru": "AM/FM/SSB, 5/0, фильтр HI CUT/NB/ANL, скан, 12V, VOX, SWR metr",
+          "uk": "AM/FM/SSB, 5/0, фільтр HI CUT/NB/ANL, скан, 12V, VOX, SWR metr"
+        },
+        "price": 16990,
+        "image_url": "img/public/shop/george_ii.webp",
+        "has_variations": false
+      },
+      {
+        "id": "TXPR901",
+        "name": {
+          "ru": "Радиостанция PRESIDENT WASHINGTON",
+          "uk": "Радіостанція PRESIDENT WASHINGTON"
+        },
+        "description": {
+          "ru": "80 WATTS PEP, AM/FM/SSB, 25-30MHz, '5' и '0', фильтр HI CUT/NB/ANL, КСВ-метр, 12V, SCAN, SCAN SKIP",
+          "uk": "80 WATTS PEP, AM/FM/SSB, 25-30MHz, '5' i '0', фільтр HI CUT/NB/ANL, КСВ-метр, 12V, SCAN, SCAN SKIP"
+        },
+        "price": 21000,
+        "image_url": "img/public/shop/washington.webp",
+        "has_variations": false
+      }
+    ],
+    "antennas": [
+      {
+        "id": "AMM1920",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT IOWA VOLVO/SCANIA/DAF",
+          "uk": "Антена врізна PRESIDENT IOWA VOLVO/SCANIA/DAF"
+        },
+        "description": {
+          "ru": "На заводское крепление, +4 dBi, INOX, без кабеля, 5 видов накрутки на кабину",
+          "uk": "На заводське кріплення, +4 dBі, ІМ, БЕЗ КАБЕЛЮ, 5 видів накрутки на кабіну"
+        },
+        "price": 1750,
+        "image_url": "img/public/shop/iowa_volvo.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1220",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT IOWA S",
+          "uk": "Антена врізна PRESIDENT IOWA S"
+        },
+        "description": {
+          "ru": "На крепление, +4 dBi, 1.02 м, INOX",
+          "uk": "На кріплення, +4 dBi, 1,02 м. INOX"
+        },
+        "price": 1790,
+        "image_url": "img/public/shop/iowa_s.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1217",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT HAWAII S",
+          "uk": "Антена врізна PRESIDENT HAWAII S"
+        },
+        "description": {
+          "ru": "На врезное крепление, +3 dBi, 0.72 м, INOX",
+          "uk": "На свердл. кріпл., +3 dBi, 0,72 м, INOX"
+        },
+        "price": 1890,
+        "image_url": "img/public/shop/hawaii_s.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1119",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT CAROLINA",
+          "uk": "Антена врізна PRESIDENT CAROLINA"
+        },
+        "description": {
+          "ru": "На врезное крепление, +3 dBi, 0.43 м",
+          "uk": "На свердл. кріпл., +3 dBi, 0,43 м"
+        },
+        "price": 2200,
+        "image_url": "img/public/shop/carolina.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1197",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT KENTUCKY S",
+          "uk": "Антена врізна PRESIDENT KENTUCKY S"
+        },
+        "description": {
+          "ru": "На врезное крепление, +3 dBi, 0.75 м",
+          "uk": "На свердл. кріпл., +3 dBi, 0,75 м"
+        },
+        "price": 2250,
+        "image_url": "img/public/shop/kentucky_s.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1121",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT MARYLAND",
+          "uk": "Антена врізна PRESIDENT MARYLAND"
+        },
+        "description": {
+          "ru": "На врезное крепление, +5 dBi, 1.55 м",
+          "uk": "На свердл. кріпл., +5 dBi, 1.55 м"
+        },
+        "price": 2395,
+        "image_url": "img/public/shop/maryland.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1736",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT ALASKA S",
+          "uk": "Антена врізна PRESIDENT ALASKA S"
+        },
+        "description": {
+          "ru": "На врезное крепление, +6 dBi, 1.55 м",
+          "uk": "На свердл. кріпл., +6 dBi, 1,55 м."
+        },
+        "price": 2440,
+        "image_url": "img/public/shop/alaska_s.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1236",
+        "name": {
+          "ru": "Антенна врезная PRESIDENT MS-145",
+          "uk": "Антена врізна PRESIDENT MS-145"
+        },
+        "description": {
+          "ru": "На врезное крепление, +6 dBi, 1.5 м",
+          "uk": "На свердл. кріпл., +6 dBi, 1,5 м"
+        },
+        "price": 2950,
+        "image_url": "img/public/shop/ms145.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1696",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT VIRGINIA F",
+          "uk": "Антена магнітна PRESIDENT VIRGINIA F"
+        },
+        "description": {
+          "ru": "На магнитной основе, +3 dBi, 0.49 м, без наклона",
+          "uk": "На магн. основі, +3 dBi, 0,49 м. БЕЗ нахилу"
+        },
+        "price": 1880,
+        "image_url": "img/public/shop/virginia_f.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM144",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT NEW FLORIDA",
+          "uk": "Антена магнітна PRESIDENT NEW FLORIDA"
+        },
+        "description": {
+          "ru": "На магнитной основе, +2 dBi, 0.6 м",
+          "uk": "На магн. основі. +2 dBi, 0,6 м"
+        },
+        "price": 1990,
+        "image_url": "img/public/shop/new_florida.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1496",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT VIRGINIA NEW",
+          "uk": "Антена магнітна PRESIDENT VIRGINIA NEW"
+        },
+        "description": {
+          "ru": "На магнитной основе, +3 dBi, 0.49 м, с наклоном",
+          "uk": "На магн. основі, +3 dBi, 0,49 м, з нахилом"
+        },
+        "price": 2290,
+        "image_url": "img/public/shop/virginia_new.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1209",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT WYOMING UP",
+          "uk": "Антена магнітна PRESIDENT WYOMING UP"
+        },
+        "description": {
+          "ru": "На магнитной основе, +2 dBi, 0.68 м",
+          "uk": "На магн. основі, +2 dBi, 0,68 м"
+        },
+        "price": 2500,
+        "image_url": "img/public/shop/wyoming_up.webp",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1285",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT MLA-85",
+          "uk": "Антена магнітна PRESIDENT MLA-85"
+        },
+        "description": {
+          "ru": "На магнитной основе, +3 dBi, 0.85 м, с наклоном",
+          "uk": "На магн. основі, +3 dBi, 0,85 м, з нахилом"
+        },
+        "price": 3300,
+        "image_url": "img/public/shop/mla85.jpg",
+        "has_variations": false
+      },
+      {
+        "id": "AMM1637",
+        "name": {
+          "ru": "Антенна магнитная PRESIDENT MLA-145",
+          "uk": "Антена магнітна PRESIDENT MLA-145"
+        },
+        "description": {
+          "ru": "На магнитной основе, +6 dBi, 1.5 м, с наклоном",
+          "uk": "На магн. основі. +6 dBi, 1.5 м. з нахилом"
+        },
+        "price": 3600,
+        "image_url": "img/public/shop/mla145.jpg",
+        "has_variations": false
+      }
+    ]
+  }
+}

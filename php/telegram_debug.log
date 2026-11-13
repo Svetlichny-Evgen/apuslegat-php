@@ -1,0 +1,31 @@
+2026-11-12 10:13:14 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"Test","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:13:14 - Telegram file_get_contents: FAIL
+2026-11-12 10:13:14 - ❌ Telegram send failed
+2026-11-12 10:16:51 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"Test","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:16:51 - Telegram file_get_contents: FAIL
+2026-11-12 10:16:51 - ❌ Telegram send failed
+2026-11-12 10:45:00 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"test","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:45:00 - Telegram file_get_contents: FAIL
+2026-11-12 10:45:00 - ❌ Telegram send failed
+2026-11-12 10:46:41 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"test","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:46:42 - Telegram cURL: HTTP 200
+2026-11-12 10:51:00 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"тест","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:51:01 - Telegram cURL: HTTP 200
+2026-11-12 10:53:27 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"TEST","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:53:28 - Telegram cURL: HTTP 200
+2026-11-12 10:55:22 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"M1 \/ N1 \/ O1 (3300 грн)","name":"TEST","phone":"+380000000000","form_name":"otk"}
+2026-11-12 10:55:23 - Telegram cURL: HTTP 200
+2026-11-12 10:57:29 - POST: {"utm_source":"","utm_medium":"","utm_campaign":"","cart_items":"[{\"id\":\"u1381-24\",\"name\":\"Тахограф 1381 (24V)\",\"price\":14000,\"quantity\":1,\"price_text\":\"14000 грн\",\"tacho_model\":null,\"voltage\":\"24V\",\"sku\":\"1381-24-U\"}]","cart_total":"14000 грн","cart_count":"1","lang":"uk","name":"Тест","phone":"+380000000000","delivery":"np","address":"????????"}
+2026-11-12 10:57:30 - Telegram cURL: HTTP 200
+2026-11-12 10:58:43 - POST: {"name":"Тест","phone":"+380000000000","calculator_brand":"","calculator_voltage":"","calculator_price":"","utm_source":"","utm_medium":"","utm_campaign":"","utm_term":"","utm_content":""}
+2026-11-12 10:58:44 - Telegram cURL: HTTP 200
+2026-11-12 10:59:05 - POST: {"name":"гкгкгк","phone":"+380000000000","calculator_brand":"MERCEDES","calculator_voltage":"12V","calculator_price":"42 000 грн","utm_source":"","utm_medium":"","utm_campaign":"","utm_term":"","utm_content":""}
+2026-11-12 10:59:06 - Telegram cURL: HTTP 200
+2026-11-12 11:07:05 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"Техогляд (ОТК): M1 \/ N1 \/ O1 (3300 грн)","name":"Тест","phone":"+380000000000","form_name":"otk"}
+2026-11-12 11:07:06 - Telegram cURL: HTTP 200
+2026-11-12 11:08:53 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","service":"Виготовлення чіп-карти водія","name":"ТЕСТ","phone":"+380000000000","form_name":"tacho_service"}
+2026-11-12 11:08:54 - Telegram cURL: HTTP 200
+2026-11-13 08:54:42 - POST: {"form_name":"heaters_install","service":"Воздушный 2 кВт","name":"Тест","phone":"+380000000000","utm_source":"","utm_medium":"","utm_campaign":"","utm_term":"","utm_content":""}
+2026-11-13 08:54:43 - Telegram cURL: HTTP 200
+2026-11-13 10:29:37 - POST: {"utm_source":"—","utm_medium":"—","utm_campaign":"—","utm_term":"—","utm_content":"—","name":"Тест","phone":"+380000000000","form_name":"documents"}
+2026-11-13 10:29:38 - Telegram cURL: HTTP 200

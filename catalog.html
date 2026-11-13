@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="icon" type="image/png" href="img/public/favicon.png" />
+    <title>APUS LEGAT — Каталог обладнання</title>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N89VVZFR');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #e60c0c;
+        --dark: #000000;
+        --card-bg: #0a0a0a;
+        --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        --header-height: 72px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--dark);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* --- HEADER --- */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+      .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .logo {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+      .logo span {
+        color: var(--red);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 20px;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        padding: 5px;
+        z-index: 2100;
+      }
+      .burger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        transition: 0.3s;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        transition: var(--transition);
+        z-index: 1500;
+        padding-top: var(--header-height);
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu a {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .m-lang-switcher {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        width: 200px;
+        justify-content: center;
+      }
+      .m-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        cursor: pointer;
+        padding: 10px 25px;
+        border-radius: 4px;
+        transition: 0.3s;
+      }
+      .m-lang-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+      }
+      .m-lang-btn:hover {
+        border-color: var(--red);
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 8px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 20px;
+      }
+      .lang-btn {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+        opacity: 0.4;
+        transition: 0.3s;
+      }
+      .lang-btn.active {
+        opacity: 1;
+        color: var(--red);
+      }
+
+      .cart-link {
+        position: relative;
+      }
+      .cart-link svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+      }
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background: var(--red);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 900;
+        min-width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* --- CATALOG --- */
+      .catalog-section {
+        max-width: 1600px;
+        margin: 120px auto 60px;
+        padding: 0 30px;
+      }
+      .section-header {
+        margin-bottom: 40px;
+        border-left: 4px solid var(--red);
+        padding-left: 20px;
+      }
+      .section-header h1 {
+        font-size: 32px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .filters-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .filter-label {
+        font-size: 10px;
+        font-weight: 900;
+        color: var(--red);
+        text-transform: uppercase;
+      }
+
+      .f-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding: 8px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .f-btn.active {
+        background: var(--red);
+        border-color: var(--red);
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .p-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .p-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .p-card:hover {
+        border-color: var(--red);
+        transform: translateY(-5px);
+      }
+
+      .p-badge {
+        position: absolute;
+        top: 10px;
+        z-index: 10;
+        padding: 6px 12px;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #fff;
+        border-radius: 4px;
+      }
+      .p-badge-left {
+        left: 10px;
+      }
+      .p-badge-right {
+        right: 10px;
+        left: auto;
+      }
+
+      .p-img-box {
+        padding: 20px;
+        background: #000;
+      }
+      .p-img {
+        background: #fff;
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .p-img img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+
+      .p-info {
+        padding: 20px;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+      }
+      .p-title {
+        font-weight: 900;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+      .p-desc {
+        font-size: 12px;
+        color: #777;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .p-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .p-price {
+        font-weight: 900;
+        color: #fff;
+      }
+      .p-price.detail-link {
+        color: var(--red);
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+      .p-buy {
+        background: transparent;
+        border: 1px solid var(--red);
+        color: #fff;
+        padding: 8px 15px;
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .p-buy:hover {
+        background: var(--red);
+      }
+
+      /* --- FOOTER --- */
+      .site-footer {
+        background-color: #0a0a0a;
+        color: #fff;
+        padding: 80px 20px 40px;
+        border-top: 3px solid var(--red);
+        margin-top: 100px;
+      }
+      .footer-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+      }
+      .footer-col h3 {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        color: var(--red);
+      }
+      .footer-col p {
+        font-size: 13px;
+        line-height: 1.8;
+        color: #999;
+        margin-bottom: 15px;
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      .footer-links a {
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        transition: 0.3s;
+        text-transform: uppercase;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      .footer-bottom {
+        max-width: 1600px;
+        margin: 60px auto 0;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: #444;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 991px) {
+        .nav-links,
+        .lang-switcher {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+        .footer-container {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        :root {
+          --header-height: 60px;
+        }
+        .catalog-section {
+          margin-top: 90px;
+        }
+        .footer-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N89VVZFR"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="main-header">
+      <div class="nav-flex">
+        <a href="index.html" class="logo">APUS<span>LEGAT</span></a>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="index.html" id="lnk-home">ГОЛОВНА</a>
+            <a href="about.html" id="lnk-about">ПРО НАС</a>
+            <a href="catalog.html" id="lnk-shop">МАГАЗИН</a>
+            <!-- <a href="news.html" id="lnk-news">НОВИНИ</a> -->
+            <a href="contacts.html" id="lnk-contacts">КОНТАКТИ</a>
+          </nav>
+          <a href="cart.html" class="cart-link">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+          <div class="lang-switcher">
+            <button class="lang-btn" id="btn-uk" onclick="changeLang('uk')">
+              UA
+            </button>
+            <button class="lang-btn" id="btn-ru" onclick="changeLang('ru')">
+              RU
+            </button>
+          </div>
+          <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">ГОЛОВНА</a>
+      <a href="about.html" onclick="toggleMenu()">ПРО НАС</a>
+      <a href="catalog.html" onclick="toggleMenu()">МАГАЗИН</a>
+      <!-- <a href="news.html" onclick="toggleMenu()">НОВИНИ</a> -->
+      <a href="contacts.html" onclick="toggleMenu()">КОНТАКТИ</a>
+      <div class="m-lang-switcher">
+        <button
+          class="m-lang-btn"
+          id="m-btn-uk"
+          onclick="changeLangMobile('uk')"
+        >
+          UA
+        </button>
+        <button
+          class="m-lang-btn"
+          id="m-btn-ru"
+          onclick="changeLangMobile('ru')"
+        >
+          RU
+        </button>
+      </div>
+    </div>
+
+    <main class="catalog-section">
+      <div class="section-header">
+        <h1 id="page-title">КАТАЛОГ ОБЛАДНАННЯ</h1>
+      </div>
+      <div class="filters-container">
+        <div class="filter-label" id="lbl-cat">Категорія:</div>
+        <div class="filter-group" id="cat-filters"></div>
+        <div class="filter-label" id="lbl-cond">Стан:</div>
+        <div class="filter-group" id="cond-filters"></div>
+      </div>
+      <div class="products-grid" id="products-container">
+        <div
+          style="
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 100px;
+            opacity: 0.7;
+          "
+        >
+          <h2>Завантаження товарів...</h2>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>APUS LEGAT</h3>
+          <p id="f-about-text">
+            Професійне обслуговування та продаж тахографів, систем моніторингу
+            палива та технічного контролю транспорту в Харкові.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-nav">НАВІГАЦІЯ</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" id="f-nav-home">Головна</a></li>
+            <li><a href="about.html" id="f-nav-about">Про нас</a></li>
+            <li><a href="catalog.html" id="f-nav-shop">Магазин</a></li>
+            <li><a href="contacts.html" id="f-nav-contacts">Контакти</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-srv">СЕРВІС</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="service-otk.html" id="f-serv-otk">Технічний огляд</a>
+            </li>
+            <li>
+              <a href="service-tacho.html" id="f-serv-tacho">Тахосервіс</a>
+            </li>
+            <li>
+              <a href="service-cert-auto.html" id="f-serv-cert-auto"
+                >Сертифікація авто</a
+              >
+            </li>
+            <li>
+              <a href="service-cert-tanks.html" id="f-serv-cert-tanks"
+                >Сертифікація бочок</a
+              >
+            </li>
+            <li>
+              <a href="logistics.html" id="f-serv-logistics"
+                >Логістика та ADR</a
+              >
+            </li>
+            <li>
+              <a href="parking.html" id="f-serv-parking">Інфраструктура</a>
+            </li>
+            <li>
+              <a href="documents.html" id="f-serv-documents">Документація</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 id="f-title-cont">КОНТАКТИ</h3>
+          <p id="f-addr">Україна, м. Харків</p>
+          <p>+380 66 033 90 09</p>
+          <p>+380 63 033 90 09</p>
+          <p>Email: apuslegatt@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 APUS LEGAT. ALL RIGHTS RESERVED.</span>
+        <span>DESIGN BY APUS TECH</span>
+      </div>
+    </footer>
+
+    <script>
+      let productsData = [];
+      let currentCat = 'all';
+      let currentCond = 'all';
+      let currentLang = localStorage.getItem('selectedLang') || 'uk';
+
+      const translations = {
+        uk: {
+          title: 'КАТАЛОГ ОБЛАДНАННЯ',
+          cat: 'Категорія:',
+          cond: 'Стан:',
+          home: 'ГОЛОВНА',
+          about: 'ПРО НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТИ',
+          f_nav: 'НАВІГАЦІЯ',
+          f_srv: 'СЕРВІС',
+          f_cont: 'КОНТАКТИ',
+          order: 'ЗАМОВИТИ',
+          detail: 'ДЕТАЛЬНІШЕ',
+          nothing: 'НІЧОГО НЕ ЗНАЙДЕНО',
+          price_ask: 'Ціну уточнюйте',
+          used: 'Б/В',
+          new: 'Новий',
+          loading: 'Завантаження товарів...',
+          categories: {
+            all: 'Все',
+            tachographs: 'Тахографи',
+            sensors: 'Датчики',
+            parts: 'Запчастини',
+            installation_kits: 'Монтажні набори',
+            antennas: 'Антени',
+            radio: 'Рації',
+          },
+          conditions: {
+            all: 'Будь-який',
+            new: 'Нові',
+            used: 'Б/В',
+          },
+          'f-about-text':
+            'Професійне обслуговування, продаж тахографів та технічного контролю транспорту в Харкові.',
+          'f-addr': 'Україна, м. Харків, вул. Драгомирівська, 10',
+          f_serv_otk: 'Технічний огляд',
+          f_serv_tacho: 'Тахосервіс',
+          f_serv_cert_auto: 'Сертифікація авто',
+          f_serv_cert_tanks: 'Сертифікація бочок',
+          f_serv_logistics: 'Логістика та ADR',
+          f_serv_parking: 'Інфраструктура',
+          f_serv_documents: 'Документація',
+        },
+        ru: {
+          title: 'КАТАЛОГ ОБОРУДОВАНИЯ',
+          cat: 'Категория:',
+          cond: 'Состояние:',
+          home: 'ГЛАВНАЯ',
+          about: 'О НАС',
+          shop: 'МАГАЗИН',
+          contacts: 'КОНТАКТЫ',
+          f_nav: 'НАВИГАЦИЯ',
+          f_srv: 'СЕРВИС',
+          f_cont: 'КОНТАКТЫ',
+          order: 'ЗАКАЗАТЬ',
+          detail: 'ПОДРОБНЕЕ',
+          nothing: 'НИЧЕГО НЕ НАЙДЕНО',
+          price_ask: 'Цену уточняйте',
+          used: 'Б/У',
+          new: 'Новый',
+          loading: 'Загрузка товаров...',
+          categories: {
+            all: 'Все',
+            tachographs: 'Тахографы',
+            sensors: 'Датчики',
+            parts: 'Запчасти',
+            installation_kits: 'Монтажные наборы',
+            antennas: 'Антенны',
+            radio: 'Рации',
+          },
+          conditions: {
+            all: 'Любое',
+            new: 'Новые',
+            used: 'Б/У',
+          },
+          'f-about-text':
+            'Профессиональное обслуживание, продажа тахографов и технического контроля транспорта в Харькове.',
+          'f-addr': 'Украина, г. Харьков, ул. Драгомировская, 10',
+          f_serv_otk: 'Технический осмотр',
+          f_serv_tacho: 'Тахосервис',
+          f_serv_cert_auto: 'Сертификация авто',
+          f_serv_cert_tanks: 'Сертификация бочек',
+          f_serv_logistics: 'Логистика и ADR',
+          f_serv_parking: 'Инфраструктура',
+          f_serv_documents: 'Документация',
+        },
+      };
+
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active')
+          ? 'hidden'
+          : '';
+      }
+
+      // ============================================================
+      //  ОСНОВНА ЛОГІКА КАТАЛОГУ
+      // ============================================================
+
+      function prepareProducts(data) {
+        const result = [];
+
+        data.forEach((item) => {
+          if (
+            item.has_variations &&
+            item.variations &&
+            item.variations.length > 0
+          ) {
+            const firstVar = item.variations[0];
+            result.push({
+              id: item.id,
+              name: item.name,
+              brand: item.brand,
+              model: item.model,
+              description: item.description,
+              image_url: item.image_url,
+              has_variations: true,
+              group: item.group || 'tachographs',
+              variations: item.variations,
+              conditions: [...new Set(item.variations.map((v) => v.condition))],
+              default_variation: firstVar,
+              min_price: Math.min(...item.variations.map((v) => v.price || 0)),
+              max_price: Math.max(...item.variations.map((v) => v.price || 0)),
+              price_range:
+                item.variations.length > 1
+                  ? `${Math.min(...item.variations.map((v) => v.price))} - ${Math.max(...item.variations.map((v) => v.price))}`
+                  : item.variations[0].price,
+              // Визначаємо чи це комплект
+              is_kit: item.id && item.id.startsWith('kit-'),
+            });
+          } else {
+            result.push({
+              ...item,
+              has_variations: false,
+              group: item.group || 'tachographs',
+              conditions: [item.condition || 'new'],
+              is_kit: false,
+            });
+          }
+        });
+
+        return result;
+      }
+
+      function getProductUrl(product, variation) {
+        if (product.has_variations && variation) {
+          const params = new URLSearchParams();
+          params.set('id', product.id);
+          if (variation.voltage) params.set('volt', variation.voltage);
+          if (variation.condition) params.set('cond', variation.condition);
+          return `product.html?${params.toString()}`;
+        } else {
+          return `product.html?id=${product.id}`;
+        }
+      }
+
+      async function initCatalog() {
+        try {
+          const response = await fetch('products.json');
+          const data = await response.json();
+
+          const rawProducts = [];
+          for (let key in data.inventory) {
+            let groupKey = key;
+            if (key === 'used_tachographs' || key === 'new_tachographs') {
+              groupKey = 'tachographs';
+            } else if (key === 'sensors') {
+              groupKey = 'sensors';
+            } else if (key === 'parts') {
+              groupKey = 'parts';
+            } else if (key === 'radio') {
+              groupKey = 'radio';
+            } else if (key === 'antennas') {
+              groupKey = 'antennas';
+            }
+
+            if (data.inventory[key]) {
+              data.inventory[key].forEach((item) => {
+                rawProducts.push({
+                  ...item,
+                  group: groupKey,
+                  _category: key,
+                });
+              });
+            }
+          }
+
+          productsData = prepareProducts(rawProducts);
+
+          renderCategoryFilters();
+          renderConditionFilters();
+          applyLanguage();
+          render();
+          updateCartBadge();
+        } catch (e) {
+          console.error('Error:', e);
+          const container = document.getElementById('products-container');
+          if (container) {
+            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:100px; opacity:0.7;"><h2>Помилка завантаження товарів</h2></div>`;
+          }
+        }
+      }
+
+      function renderCategoryFilters() {
+        const container = document.getElementById('cat-filters');
+        if (!container) return;
+
+        const t = translations[currentLang];
+        const categories = [
+          { id: 'all', label: t.categories.all },
+          { id: 'tachographs', label: t.categories.tachographs },
+          { id: 'sensors', label: t.categories.sensors },
+          { id: 'parts', label: t.categories.parts },
+          { id: 'installation_kits', label: t.categories.installation_kits },
+          { id: 'antennas', label: t.categories.antennas },
+          { id: 'radio', label: t.categories.radio },
+        ];
+
+        container.innerHTML = '';
+        categories.forEach((cat) => {
+          const btn = document.createElement('button');
+          btn.className = `f-btn ${currentCat === cat.id ? 'active' : ''}`;
+          btn.setAttribute('data-cat', cat.id);
+          btn.innerText = cat.label;
+          btn.onclick = () => filterByCat(cat.id, btn);
+          container.appendChild(btn);
+        });
+      }
+
+      function renderConditionFilters() {
+        const container = document.getElementById('cond-filters');
+        if (!container) return;
+
+        const t = translations[currentLang];
+        const conditions = [
+          { id: 'all', label: t.conditions.all },
+          { id: 'new', label: t.conditions.new },
+          { id: 'used', label: t.conditions.used },
+        ];
+
+        container.innerHTML = '';
+        conditions.forEach((cond) => {
+          const btn = document.createElement('button');
+          btn.className = `f-btn ${currentCond === cond.id ? 'active' : ''}`;
+          btn.setAttribute('data-cond', cond.id);
+          btn.innerText = cond.label;
+          btn.onclick = () => filterByCond(cond.id, btn);
+          container.appendChild(btn);
+        });
+      }
+
+      function changeLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('selectedLang', lang);
+        renderCategoryFilters();
+        renderConditionFilters();
+        applyLanguage();
+        render();
+      }
+
+      function changeLangMobile(lang) {
+        changeLang(lang);
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function applyLanguage() {
+        const t = translations[currentLang];
+        document.getElementById('page-title').innerText = t.title;
+        document.getElementById('lbl-cat').innerText = t.cat;
+        document.getElementById('lbl-cond').innerText = t.cond;
+
+        document.getElementById('lnk-home').innerText = t.home;
+        document.getElementById('lnk-about').innerText = t.about;
+        document.getElementById('lnk-shop').innerText = t.shop;
+        // document.getElementById('lnk-news').innerText = t.news;
+        document.getElementById('lnk-contacts').innerText = t.contacts;
+
+        document.getElementById('f-title-nav').innerText = t.f_nav;
+        document.getElementById('f-title-srv').innerText = t.f_srv;
+        document.getElementById('f-title-cont').innerText = t.f_cont;
+        document.getElementById('f-about-text').innerText = t['f-about-text'];
+        document.getElementById('f-addr').innerHTML = t['f-addr'];
+
+        document.getElementById('f-nav-home').innerText = t.home;
+        document.getElementById('f-nav-about').innerText = t.about;
+        document.getElementById('f-nav-shop').innerText = t.shop;
+        document.getElementById('f-nav-contacts').innerText = t.contacts;
+
+        document.getElementById('f-serv-otk').innerText = t.f_serv_otk;
+        document.getElementById('f-serv-tacho').innerText = t.f_serv_tacho;
+        document.getElementById('f-serv-cert-auto').innerText =
+          t.f_serv_cert_auto;
+        document.getElementById('f-serv-cert-tanks').innerText =
+          t.f_serv_cert_tanks;
+        document.getElementById('f-serv-logistics').innerText =
+          t.f_serv_logistics;
+        document.getElementById('f-serv-parking').innerText = t.f_serv_parking;
+        document.getElementById('f-serv-documents').innerText =
+          t.f_serv_documents;
+
+        document
+          .querySelectorAll('.lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${currentLang}`);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        document
+          .querySelectorAll('.m-lang-btn')
+          .forEach((btn) => btn.classList.remove('active'));
+        const mobileActiveBtn = document.getElementById(`m-btn-${currentLang}`);
+        if (mobileActiveBtn) mobileActiveBtn.classList.add('active');
+      }
+
+      function filterByCat(cat, btn) {
+        currentCat = cat;
+        document.querySelectorAll('#cat-filters .f-btn').forEach((b) => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        render();
+      }
+
+      function filterByCond(cond, btn) {
+        currentCond = cond;
+        document.querySelectorAll('#cond-filters .f-btn').forEach((b) => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        render();
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function (m) {
+          if (m === '&') return '&amp;';
+          if (m === '<') return '&lt;';
+          if (m === '>') return '&gt;';
+          return m;
+        });
+      }
+
+      function render() {
+        const container = document.getElementById('products-container');
+        if (!container) return;
+
+        const t = translations[currentLang];
+
+        if (!productsData || productsData.length === 0) {
+          container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:100px; opacity:0.7;"><h2>${t.loading}</h2></div>`;
+          return;
+        }
+
+        let filtered = productsData.filter((p) => {
+          const catMatch = currentCat === 'all' || p.group === currentCat;
+          let condMatch = true;
+
+          if (currentCond !== 'all') {
+            if (p.has_variations && p.variations) {
+              condMatch = p.variations.some((v) => v.condition === currentCond);
+            } else {
+              condMatch = p.condition === currentCond;
+            }
+          }
+
+          return catMatch && condMatch;
+        });
+
+        if (filtered.length === 0) {
+          container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:100px; opacity:0.3;"><h2>${t.nothing}</h2></div>`;
+          return;
+        }
+
+        container.innerHTML = '';
+        filtered.forEach((p) => {
+          const hasVars =
+            p.has_variations && p.variations && p.variations.length > 0;
+          const name = p.name[currentLang] || p.name['uk'];
+          const desc = p.description
+            ? p.description[currentLang] || p.description['uk']
+            : '';
+
+          let priceHtml = '';
+          if (hasVars) {
+            if (
+              p.min_price > 0 &&
+              p.max_price > 0 &&
+              p.min_price !== p.max_price
+            ) {
+              priceHtml = `${p.min_price} - ${p.max_price} грн`;
+            } else if (p.min_price > 0) {
+              priceHtml = `${p.min_price} грн`;
+            } else {
+              priceHtml = t.price_ask;
+            }
+          } else if (p.price > 0) {
+            priceHtml = `${p.price} грн`;
+          } else {
+            priceHtml = t.price_ask;
+          }
+
+          // Визначаємо badge
+          let leftBadgeHtml = '';
+          let rightBadgeHtml = '';
+
+          if (hasVars) {
+            // Для комплектів - показуємо тільки "КОМПЛЕКТ"
+            if (p.is_kit) {
+              leftBadgeHtml = `<div class="p-badge p-badge-left" style="background:#6c5ce7;">КОМПЛЕКТ</div>`;
+              // Для комплектів НЕ показуємо badge справа (Новий/Б/В)
+            } else {
+              // Для тахографів з варіаціями показуємо кількість варіантів
+              const varCount = p.variations.length;
+              leftBadgeHtml = `<div class="p-badge p-badge-left" style="background:#6c5ce7;">${varCount} варіант${varCount > 1 ? 'и' : ''}</div>`;
+
+              // Справа показуємо стан (новий/б/в) - якщо всі варіації однакового стану
+              const uniqueConditions = [
+                ...new Set(p.variations.map((v) => v.condition)),
+              ];
+              if (uniqueConditions.length === 1) {
+                const isUsed = uniqueConditions[0] === 'used';
+                const condText = isUsed ? t.used : t.new;
+                const condColor = isUsed ? '#333' : 'var(--red)';
+                rightBadgeHtml = `<div class="p-badge p-badge-right" style="background:${condColor};">${condText}</div>`;
+              }
+            }
+          } else {
+            // Товар без варіацій
+            const isUsed = p.condition === 'used';
+            const condText = isUsed ? t.used : t.new;
+            const condColor = isUsed ? '#333' : 'var(--red)';
+            leftBadgeHtml = `<div class="p-badge p-badge-left" style="background:${condColor};">${condText}</div>`;
+          }
+
+          const linkUrl = hasVars
+            ? getProductUrl(p, p.default_variation || p.variations[0])
+            : getProductUrl(p, null);
+
+          const btnText = hasVars ? t.detail : t.order;
+          const btnClass = 'p-buy';
+
+          container.innerHTML += `
+            <a href="${linkUrl}" class="p-link">
+              <div class="p-card">
+                ${leftBadgeHtml}
+                ${rightBadgeHtml}
+                <div class="p-img-box"><div class="p-img"><img src="${p.image_url || 'img/public/no-photo.png'}" onerror="this.src='img/public/no-photo.png'"></div></div>
+                <div class="p-info">
+                  <div class="p-title">${escapeHtml(name)}</div>
+                  <div class="p-desc">${escapeHtml(desc)}</div>
+                  <div class="p-footer">
+                    <div class="p-price">${priceHtml}</div>
+                    <button class="${btnClass}" onclick="event.preventDefault(); handleProductClick('${p.id}', ${hasVars}, this)">${btnText}</button>
+                  </div>
+                </div>
+              </div>
+            </a>`;
+        });
+      }
+
+      function handleProductClick(id, hasVariations, btn) {
+        if (hasVariations) {
+          const product = productsData.find((p) => p.id === id);
+          if (product && product.variations && product.variations.length > 0) {
+            const defaultVar =
+              product.default_variation || product.variations[0];
+            const url = getProductUrl(product, defaultVar);
+            window.location.href = url;
+          } else {
+            window.location.href = `product.html?id=${id}`;
+          }
+        } else {
+          let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+          cart.push(id);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartBadge();
+          const oldText = btn.innerText;
+          btn.innerText = '✓';
+          setTimeout(() => (btn.innerText = oldText), 1000);
+        }
+      }
+
+      function buy(id, btn) {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.push(id);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartBadge();
+        const oldText = btn.innerText;
+        btn.innerText = '✓';
+        setTimeout(() => (btn.innerText = oldText), 1000);
+      }
+
+      function updateCartBadge() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        document.getElementById('cart-count').innerText = cart.length;
+      }
+
+      window.onload = initCatalog;
+    </script>
+  </body>
+</html>
